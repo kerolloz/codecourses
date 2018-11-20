@@ -1,0 +1,6 @@
+# Packages & Compressed files
+*.zip
+*.gz
+
+# ingnore user-uploaded assets (images, PDFs, videos)
+# ingnore logs & Databases  
