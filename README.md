@@ -6,4 +6,4 @@
 ### Noticable issues
 to enable uploading and moving files
 execute the following command 
-`chmod 777 -R ./OJ_Tutorials`
+`sudo chmod 777 -R ./OJ_Tutorials`
