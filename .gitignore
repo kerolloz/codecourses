@@ -4,3 +4,6 @@
 
 # ingnore user-uploaded assets (images, PDFs, videos)
 # ingnore logs & Databases  
+
+.idea/*.xml
+.idea/*.iml
