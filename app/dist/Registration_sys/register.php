@@ -17,11 +17,23 @@
     <?php require 'pr_errors.php'; ?>
     <div class="input-group">
         <label>Username</label>
-        <input type="text" name="username" value="">
+        <input type="text" name="username"
+            <?php 
+                if($errors) {
+                    echo 'value="' . htmlentities($username) .'"';
+                }
+            ?>
+        >
     </div>
     <div class="input-group">
         <label>Email</label>
-        <input type="email" name="email" value="">
+        <input type="email" name="email" 
+            <?php 
+                if ($errors) {
+                    echo 'value="'. htmlentities($email) .'"';
+                }
+            ?>
+        >
     </div>
     <div class="input-group">
         <label>Password</label>

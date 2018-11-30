@@ -18,7 +18,13 @@
         <?php require 'pr_errors.php'; ?>
         <div>
             <label>Username</label>
-            <input type="text" name="username" >
+            <input type="text" name="username" 
+                <?php 
+                    if ($errors) {
+                        echo 'value="'. htmlentities($username) .'"';
+                    }
+                ?>
+             >
         </div>
         <div>
             <label>Password</label>
