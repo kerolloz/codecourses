@@ -18,7 +18,7 @@ my_print($compilation_state);
 
 if($compilation_state){ // compile success if (compilation_state == 0)
     echo "compilation FAILED";
-    exit(1);
+    return(1);
 }
 
 $submissions_dir = "./476_44427781/number_of_testcases.txt";
