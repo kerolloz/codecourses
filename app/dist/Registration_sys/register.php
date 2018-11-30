@@ -8,6 +8,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header">
@@ -44,7 +45,7 @@
         <input type="password" name="password2">
     </div>
     <div class="input-group">
-        <input type="submit" name="reg_usr" value="Register">
+        <input class="in" type="submit" name="reg_usr" value="Register">
     </div>
     <p>
         Already a member? <a href="login.php">Sign in</a>
