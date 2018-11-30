@@ -1,6 +1,7 @@
 <?php
 
 foreach ($_POST as $key => $value) {
+
     $value = is_array($value) ? $value : trim($value);
     if (empty($value) && in_array($key, $required)) {
         $missing[] = $key;
