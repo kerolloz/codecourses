@@ -1,14 +1,14 @@
 <?php
 $servername = "localhost";
-$username = "USER_NAME";
-$password = "PASSWORD";
+$username = "root";
+$password = "";
 $dbname = "ojDB";
 
-$users_columns = ["users_id","firstname","lastname","email"]; //users_columns names
+$users_columns = ["user_id","first_name","last_name","email"]; //users_columns names
 $contests_columns = ["contest_id","name","date","time","setter"];
 $submissions_columns = ["submission_id", "problem_id", "user_id",
-    "states", "sol_language","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
-$problems_columns = ["problems_id", "name", "types", "level","contest_num","number_of_solves","FOREIGN KEY"]; //problems_columns names
+    "status", "sol_language","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
+$problems_columns = ["problem_id", "name", "types", "level","contest_id","number_of_solvers","FOREIGN KEY"]; //problems_columns names
 //constrains for each column (tow dimensions array one for each column)
 $users_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
     ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"],
@@ -22,11 +22,11 @@ $contests_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
 $problem_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
     ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(60)", "NOT NULL"],
     ["INT(1)", "NOT NULL"],["INT(6)","UNSIGNED", "NOT NULL"],["INT(9)", "NOT NULL","DEFAULT 0"],
-    ["(contest_num) REFERENCES contests(contest_id)"]];
+    ["($problems_columns[4]) REFERENCES contests($contests_columns[0])"]];
 $submissions_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
     ["INT(6)","UNSIGNED","NOT NULL"], ["INT(6)","UNSIGNED", "NOT NULL"],
-    ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"], ["(user_id) REFERENCES users(users_id)"],
-    ["(problem_id) REFERENCES problems(problems_id)"]];
+    ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"], ["($submissions_columns[1]) REFERENCES problems($problems_columns[0])"],
+    ["($submissions_columns[2]) REFERENCES users($users_columns[0])"]];
 try {
     //make PDO object with database information
     $conn = new PDO("mysql:host=$servername", $username, $password);
@@ -100,7 +100,7 @@ try {
     // use exec() because no results are returned
     $conn->exec($sql);
     //echo $sql."   \ndoneee";
-    $sql = "CREATE TABLE IF NOT EXISTS submission (";
+    $sql = "CREATE TABLE IF NOT EXISTS submissions (";
     $sz = sizeof($submissions_columns); //number of users_columns
     for ($i=0; $i < $sz; $i++){
         $sql .= $submissions_columns[$i]; //add column name and space
