@@ -35,7 +35,8 @@ my_print($test_cases . " test cases");
 echo "<br>";
 for($i = 1; $i <= $test_cases; $i++){
     $input_file = $submissions_dir_input . "in" .$i .".txt";
-    exec("./a.out < " . $input_file . " > " . $submissions_dir_my_out . "my_out" . $i . ".txt");
+    exec("./a.out < " . $input_file . " > " . $submissions_dir_my_out . "my_out" . $i . ".txt"); 
+    // the previous line should be replaced wiith docker
     $diff_command = "diff -s -q -Z " . $submissions_dir_my_out . "my_out" . $i . ".txt " . $submissions_dir_output . "out" . $i . ".txt";
     exec($diff_command, $ot, $ret_val);
     if($ret_val == 0) my_print("OKay test " . $i);
