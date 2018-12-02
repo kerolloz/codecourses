@@ -37,7 +37,7 @@ try {
     $sql = "CREATE DATABASE IF NOT EXISTS $dbname character set UTF8mb4 collate utf8mb4_bin";
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo "Database created successfully<br>";
+    echo "Database created successfully\n";
     //make PDO object again to determine the database
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
@@ -61,7 +61,6 @@ try {
     }
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo $sql."   \ndoneee";
     $sql = "CREATE TABLE IF NOT EXISTS users (";
     $sz = sizeof($users_columns); //number of users_columns
     for ($i=0; $i < $sz; $i++){
@@ -118,10 +117,11 @@ try {
     }
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo $sql."   \ndoneee";
+    echo "----------Doneee---------\n";
 }
 catch(PDOException $e)//the good thing that the PDO class have his one Exceptions to catch
 {
+	echo "-------------ERRRRRRRRRRRRRRROR-----------\n";
     echo $sql . "<br>" . $e->getMessage();
 }
 
