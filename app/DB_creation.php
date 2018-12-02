@@ -4,18 +4,17 @@ $username = "root";
 $password = "";
 $dbname = "ojDB";
 
-$users_columns = ["user_id","first_name","last_name","email"]; //users_columns names
+$users_columns = ["user_id","first_name","last_name","username", "email", "password"]; //users_columns names
 $contests_columns = ["contest_id","name","date","time","setter"];
 $submissions_columns = ["submission_id", "problem_id", "user_id",
     "status", "sol_language","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
 $problems_columns = ["problem_id", "name", "types", "level","contest_id","number_of_solvers","FOREIGN KEY"]; //problems_columns names
+
+
 //constrains for each column (tow dimensions array one for each column)
 $users_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
-    ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"],
-    ["VARCHAR(50)", "NOT NULL"]];
-$users_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
-    ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"],
-    ["VARCHAR(50)", "NOT NULL"]];
+    ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"],["VARCHAR(30)", "NOT NULL"],
+    ["VARCHAR(50)", "NOT NULL"], ["VARCHAR(32)", "NOT NULL"]];
 $contests_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
     ["VARCHAR(100)", "NOT NULL"], ["TIMESTAMP", "NOT NULL"],
     ["INT(9)", "NOT NULL"],["VARCHAR(40)", "NOT NULL"]];
@@ -27,6 +26,8 @@ $submissions_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
     ["INT(6)","UNSIGNED","NOT NULL"], ["INT(6)","UNSIGNED", "NOT NULL"],
     ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"], ["($submissions_columns[1]) REFERENCES problems($problems_columns[0])"],
     ["($submissions_columns[2]) REFERENCES users($users_columns[0])"]];
+
+
 try {
     //make PDO object with database information
     $conn = new PDO("mysql:host=$servername", $username, $password);
