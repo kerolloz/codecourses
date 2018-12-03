@@ -17,6 +17,26 @@
 <form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
     <?php require 'pr_errors.php'; ?>
     <div class="input-group">
+        <label>First Name</label>
+        <input type="text" name="fname"
+            <?php
+            if($errors) {
+                echo 'value="' . htmlentities($fname) .'"';
+            }
+            ?>
+        >
+    </div>
+    <div class="input-group">
+        <label>Last Name</label>
+        <input type="text" name="lname"
+            <?php
+            if($errors) {
+                echo 'value="' . htmlentities($lname) .'"';
+            }
+            ?>
+        >
+    </div>
+    <div class="input-group">
         <label>Username</label>
         <input type="text" name="username"
             <?php 

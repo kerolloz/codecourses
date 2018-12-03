@@ -128,4 +128,5 @@ catch(PDOException $e)//the good thing that the PDO class have his one Exception
 
 $conn = null;//closing the connection
 
+
 ?>
