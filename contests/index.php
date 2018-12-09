@@ -3,9 +3,9 @@
     <head>
         <title>Contests</title>
         <link rel="stylesheet" href = "bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
         <link rel = "script"   href = "bootstrap/js/bootstrap.min.js">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="/codecourses/styles/style.css">
+        <script src="/codecourses/scripts/script.js"></script>
     </head>
     <body>
        

@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Problem</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="/codecourses/styles/style.css">
+        <script src="/codecourses/scripts/script.js"></script>
     </head>
     <body>
         
@@ -14,7 +14,7 @@
       
         <!--Problem Section-->
         <!--Problem pdf -->
-        <embed class="pdfContainer" src="assets/p10110.pdf"> <!-- src = #problem pdf-->
+        <embed class="pdfContainer" src="/codecourses/assets/p10110.pdf"> <!-- src = #problem pdf-->
         <br><br><br>
       
         <!--Select Language Section-->

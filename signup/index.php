@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet"> 
         
         <!--Custom CSS-->
-        <link rel="stylesheet" href="style.css">        
+        <link rel="stylesheet" href="/codecourses/styles/style.css">        
     </head>
 
     <body>
@@ -112,10 +112,10 @@
         q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="assets/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+        <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 
         <!--Custom JS-->
-        <script src="script.js"></script>
+        <script src="/codecourses/scripts/script.js"></script>
     
     </body>
 

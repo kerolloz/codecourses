@@ -4,8 +4,8 @@
 <html>
     <head>
         <title>CodeCourses</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href= "/codecourses/styles/style.css">
+        <script src="/codecourses/scripts/script.js"></script>
     </head>
     <body>
         <!--include navigation bar from a preset php file-->
@@ -28,10 +28,9 @@
                 <div class="col-6">
                     <div class="videoContainer">
                         <video width="500" height="282" 
-                        src="assets/ACPC_2017.mp4" 
                         controls="controls" 
                         type="video/mp4">
-                            <source src="assets/ACPC_2017.mp4" autostart="false">
+                            <source src="/codecourses/assets/ACPC_2017.mp4" autostart="false">
                         </video>
                     </div>
 
@@ -47,7 +46,7 @@
                 <div class="col-4">
                     <div class="box">
                         <div class="icon">
-                            <img src="assets/images/codeCourses_opt_opt.png">
+                            <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
                         </div>
                         <br>
                         <label>Problem Set</label>
@@ -63,7 +62,7 @@
                 <div class="col-4">
                     <div class="box">
                         <div class="icon">
-                            <img src="assets/images/codeCourses_opt_opt.png">
+                            <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
                         </div>
                         <br>
                         <label>Road Map</label>
@@ -80,7 +79,7 @@
                 <div class="col-4">
                     <div class="box">
                         <div class="icon">
-                            <img src="assets/images/codeCourses_opt_opt.png">
+                            <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
                         </div>
                         <br>
                         <label>Contests</label>

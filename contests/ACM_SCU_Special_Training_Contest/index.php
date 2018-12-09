@@ -3,9 +3,9 @@
     <head>
         <title>ProblemsInContest</title>
         <link rel="stylesheet" href = "bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/codecourses/styles/style.css">
         <link rel = "script"   href = "bootstrap/js/bootstrap.min.js">
-        <script src="script.js"></script>
+        <script src="/codecourses/scripts/script.js"></script>
     </head>
     <body>
         
@@ -24,8 +24,8 @@
             <tr>
             	<th> # </th>
                	<th> Name </th>
-               	<th> <img src="assets/images/user.png"> </th>
-               	<th> <img src="assets/images/ok.png" > </th> 
+               	<th> <img src="/codecourses/assets/images/user.png"> </th>
+               	<th> <img src="/codecourses/assets/images/ok.png" > </th> 
            	</tr>
 
             <tr>
