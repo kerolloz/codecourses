@@ -1,32 +1,102 @@
 <?php
 ?>
-
 <!doctype html>
 <html>
     <head>
         <title>CodeCourses</title>
-        <link rel="stylesheet" href="styles/style.css">
-        <script src="scripts/script.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
     </head>
     <body>
-        <!--Navbar Section-->
-        <nav>
-            <img src="assets/images/codeCourses.png" 
-                 class = "nav-left"
-                 id = "imgMobile">
-            <ul id = "dropdownClick" class = "nav-left">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#problemset">Problem Set</a></li>
-                <li><a href="#roadmap">Road Map</a></li>
-                <li><a href="#contests">Contests</a></li>
-                <li class="nav-right"><a href="#signin">Sign In</a></li>
-                <li class="nav-right"><a href="#signup">Sign Up</a></li>
-                <li class="dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
-            </ul>
-        </nav>
-
-
-
+        <!--include navigation bar from a preset php file-->
+        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
         
+
+        <!--Home Section-->
+        <div class="homeContainer">
+            <div class="row">
+                <div class="col-6">
+                    <div class="push-left">
+                        <ul>
+                            <li>Want to learn Problem Solving?</li>
+                            <li>Practice in the same place as well?</li>
+                            <li>Join Us Now!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="videoContainer">
+                        <video width="500" height="282" 
+                        src="assets/ACPC_2017.mp4" 
+                        controls="controls" 
+                        type="video/mp4">
+                            <source src="assets/ACPC_2017.mp4" autostart="false">
+                        </video>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+
+
+        <!--About Website Section-->
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="box">
+                        <div class="icon">
+                            <img src="assets/images/codeCourses_opt_opt.png">
+                        </div>
+                        <br>
+                        <label>Problem Set</label>
+                        <hr>
+                        <p>A large, varient and good staff of problems
+                            that you can solve depending on your level 
+                            even if you are still absolute beginner or 
+                            an ACM ICPC world finalist. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="box">
+                        <div class="icon">
+                            <img src="assets/images/codeCourses_opt_opt.png">
+                        </div>
+                        <br>
+                        <label>Road Map</label>
+                        <hr>
+                        <p>With us, now you can know how to start 
+                            you journy with problem solving. If you
+                            have already started and don't know how
+                            to keep going or what to do next, we are here
+                            also to guide you to be a professional.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="box">
+                        <div class="icon">
+                            <img src="assets/images/codeCourses_opt_opt.png">
+                        </div>
+                        <br>
+                        <label>Contests</label>
+                        <hr>
+                        <p>When time to test yourself comes, you will find 
+                            range of contests with their upcoming dates and 
+                            duration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section-->
+        <div id="footer">
+            &copy 2018 CodeCourses.com | All Rights Reserved
+        </div>        
     </body>
 </html>
