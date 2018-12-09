@@ -120,10 +120,11 @@ try {
     }
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo $sql."   \ndoneee";
+    echo "----------Doneee---------\n";
 }
 catch(PDOException $e)//the good thing that the PDO class have his one Exceptions to catch
 {
+	echo "-------------ERRRRRRRRRRRRRRROR-----------\n";
     echo $sql . "<br>" . $e->getMessage();
 }
 
