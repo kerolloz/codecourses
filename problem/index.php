@@ -3,7 +3,7 @@
 $errors_array = [];
 
 if(isset($_POST['submit'])){
-    require "/codecourses/judge_tester/process_submission.php?id=" . $_GET['id'];
+    header("location: /codecourses/judge_tester/process_submission.php?id=" . $_POST['problem_id']);
 
 }
 
@@ -96,6 +96,7 @@ if(isset($_POST['submit'])){
                                                 <textarea name="code" rows="20"><?php if($errors_array){ echo htmlentities($code);}?></textarea>
                                                 <br>
                                                 <br>
+                                                <input name="problem_id" hidden="true" value="<?= $_GET['id'] ?>">
                                                 <input type="file" name="my_file">
                                                 <br>
                                                 <br>

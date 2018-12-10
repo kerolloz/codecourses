@@ -3,7 +3,7 @@
 // this is the limit made by codeforces!
 const MAX_BYTES_FOR_CODE = 67072;
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'):
+//if($_SERVER['REQUEST_METHOD'] == 'POST'):
     echo "<pre>";
     $destination =  "/codecourses/source_codes/"; // the current dir of "submit.php"
 
@@ -83,13 +83,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
     if($res){
         // res == 1, if uploaded successfully
         echo "uploaded successfully";
-        require "tester.php"; // go test the uploaded file
+        require "tester.php?id=" . $_GET['id']; // go test the uploaded file
     }else{
         echo "problem moving the file";
     }
     echo "</pre>";
 
-endif;
+//endif;
 
 
 

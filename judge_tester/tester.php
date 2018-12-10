@@ -31,17 +31,17 @@ $submissions_dir_input = "/codecourses/problems_db/" . $problem_id . "/test_case
 $submissions_dir_output = "/codecourses/problems_db/" . $problem_id . "/test_cases/";
 $submissions_dir_my_out = "/codecourses/problems_db/" . $problem_id . "/test_cases/my_out/";
 
-mkdir("./" . $problem_id . "/my_out");
+mkdir($submissions_dir_my_out);
 
 $test_cases = file_get_contents($submissions_dir);
 
 my_print($test_cases . " test cases");
 echo "<br>";
 for($i = 1; $i <= $test_cases; $i++){
-    $input_file = $submissions_dir_input . "in" .$i .".txt";
-    exec("./a.out < " . $input_file . " > " . $submissions_dir_my_out . "my_out" . $i . ".txt"); 
+    $input_file = $submissions_dir_input . $i .".in";
+    exec("./a.out < " . $input_file . " > " . $submissions_dir_my_out . $i . ".out"); 
     // the previous line should be replaced wiith docker
-    $diff_command = "diff -s -q -Z " . $submissions_dir_my_out . "my_out" . $i . ".txt " . $submissions_dir_output . "out" . $i . ".txt";
+    $diff_command = "diff -s -q -Z " . $submissions_dir_my_out  . $i . ".out " . $submissions_dir_output . $i . ".out";
     exec($diff_command, $ot, $ret_val);
     if($ret_val == 0) my_print("OKay test " . $i);
     else {my_print("ERROR ON TEST " . $i);} my_print("WRONG ANSWER"); return;}
