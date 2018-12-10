@@ -12,7 +12,7 @@ body {
     line-height: 1;
     margin: 0;
     font-family: sans-serif;
-    background-image: url(assets/images/acm.jpg);
+    background-image: url(../assets/images/acm.jpg);
 }
 
 /*### Navbar ###*/
