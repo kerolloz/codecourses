@@ -18,6 +18,7 @@ $sql = "SELECT * FROM contests";
 <html>
     <head>
         <title>Contests</title>
+
         <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
 
@@ -54,7 +55,7 @@ $sql = "SELECT * FROM contests";
 			    while($row = $result->fetch_assoc()) :
 			?>
 			    	<tr>
-		                <td> <a  href=""> <?= $row['name'] ?> </a> </td>
+		                <td> <a  href="/codecourses/contest_problems?id=<?= $row['contest_id'] ?>"> <?= $row['name'] ?> </a> </td>
 		                <td> <?= $row['setter'] ?> </td>
 		                <td> <?= $row['date'] ?> </td> 
 		                <td> <?= $row['time'] ?> </td>

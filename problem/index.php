@@ -14,7 +14,7 @@
       
         <!--Problem Section-->
         <!--Problem pdf -->
-        <embed class="pdfContainer" src="/codecourses/problems_pdfs/<?= $_GET['id'] ?>.pdf"> <!-- src = #problem pdf-->
+        <embed class="pdfContainer" src="/codecourses/problems_db/<?= $_GET['id'] ?>/<?= $_GET['id'] ?>.pdf"> <!-- src = #problem pdf-->
         <br><br><br>
       
         <!--Select Language Section-->
