@@ -29,7 +29,7 @@ $submissions_dir = "./" . $problem_id . "/number_of_testcases.txt";
 
 $submissions_dir_input = "/codecourses/problems_db/" . $problem_id . "/test_cases/";
 $submissions_dir_output = "/codecourses/problems_db/" . $problem_id . "/test_cases/";
-$submissions_dir_my_out = "/codecourses/problems_db/" . $problem_id . "/my_out/";
+$submissions_dir_my_out = "/codecourses/problems_db/" . $problem_id . "/test_cases/my_out/";
 
 mkdir("./" . $problem_id . "/my_out");
 
@@ -44,7 +44,7 @@ for($i = 1; $i <= $test_cases; $i++){
     $diff_command = "diff -s -q -Z " . $submissions_dir_my_out . "my_out" . $i . ".txt " . $submissions_dir_output . "out" . $i . ".txt";
     exec($diff_command, $ot, $ret_val);
     if($ret_val == 0) my_print("OKay test " . $i);
-    else {my_print("ERROR ON TEST " . $i);}// my_print("WRONG ANSWER"); return;}
+    else {my_print("ERROR ON TEST " . $i);} my_print("WRONG ANSWER"); return;}
 }
 
 my_print("ACCEPTED");
