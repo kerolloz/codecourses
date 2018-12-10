@@ -11,7 +11,7 @@ nav, header, footer {
 body {
     line-height: 1;
     margin: 0;
-    background-image: url(assets/images/acm.jpg);
+    background-image: url(../assets/images/acm.jpg);
     font-family: sans-serif;
 }
 
