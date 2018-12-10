@@ -24,13 +24,13 @@
                 <th class = "topRightRad"> <img src ="assets/images/ok.png"> </th>
             </tr>
             <tr>
-                <td ><a href="file:///home/yousef/Desktop/OJ_Tutorials-master/app/frontEnd/ProblemPage/index.html" target="_blank"> Sample </td>
+                <td ><a href="" target="_blank"> Sample </td>
                 <td> 3  </td>
                 <td>  1800  </td> 
                 <td>  yes </td>
             </tr>
             <tr>
-                <td> <a href="file:///home/yousef/Desktop/OJ_Tutorials-master/app/frontEnd/ProblemPage/index.html" target="_blank"> Sample </td>
+                <td> <a href="" target="_blank"> Sample </td>
                 <td> 2  </td>
                 <td>  1750  </td> 
                 <td>  No </td>
