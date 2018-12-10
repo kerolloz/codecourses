@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>ProblemsInContest</title>
-        <link rel="stylesheet" href = "bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/codecourses/styles/style.css">
-        <link rel = "script"   href = "bootstrap/js/bootstrap.min.js">
-        <script src="/codecourses/scripts/script.js"></script>
+        <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <link rel = "script"   href = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
+        <script src="script.js"></script>
     </head>
     <body>
         
@@ -30,7 +31,7 @@
 
             <tr>
              	 <td> A </a> </td>
-             	 <td> <a href = " file:///home/yousef/Desktop/OJ_Tutorials-master/app/frontEnd/ProblemPage/index.html" target="_blank">  Sample </a> </td>
+             	 <td> <a href = "" target="_blank">  Sample </a> </td>
                	 <td>  x10 </td> 
             	 <td>  yes 	 </td>
             </tr>

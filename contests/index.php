@@ -1,11 +1,29 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ojDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM contests";
+
+?>
 <!doctype html>
 <html>
     <head>
         <title>Contests</title>
-        <link rel="stylesheet" href = "bootstrap/css/bootstrap.min.css">
-        <link rel = "script"   href = "bootstrap/js/bootstrap.min.js">
-        <link rel="stylesheet" href="/codecourses/styles/style.css">
-        <script src="/codecourses/scripts/script.js"></script>
+        <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <link rel = "script"   href = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
+        <script src="script.js"></script>
+       
     </head>
     <body>
        
@@ -28,12 +46,30 @@
                 <th> Length </th>
                 <th></th>
             </tr>
+            <?php 
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) :
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) :
+			?>
+			    	<tr>
+		                <td> <a  href=""> <?= $row['name'] ?> </a> </td>
+		                <td> <?= $row['setter'] ?> </td>
+		                <td> <?= $row['date'] ?> </td> 
+		                <td> <?= $row['time'] ?> </td>
+		                <td> <button id="register"> <span class="badge badge-primary"> &gt Register</span> </button> </td>
+		            </tr>
+			<?php
+				endwhile;
+
+			else: 
+			    echo "0 results";
+			endif;
+			$conn->close();
+            ?>
             <tr>
-                <td> <a  href="ACM_SCU_Special_Training_Contest/"> ACM-SCU Special Training Contest </a> </td>
-                <td> Amr Salama  </td>
-                <td>  06/12/2018  @  1:00 PM </td> 
-                <td>  3:00  </td>
-                <td> <button id="register"> <span class="badge badge-primary"> &gt Register</span> </button> </td>
+                
             </tr>
         
     </table>
