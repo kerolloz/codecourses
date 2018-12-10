@@ -1,6 +1,6 @@
 <!--Navbar Section-->
 <nav>
-    <img src="assets/images/codeCourses.png" 
+    <img src="/codecourses/assets/images/codeCourses.png" 
          class = "nav-left"
          id = "imgMobile">
     <ul id = "dropdownClick" class = "nav-left">

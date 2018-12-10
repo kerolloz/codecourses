@@ -2,10 +2,12 @@
 <html>
     <head>
         <title>ProblemSet</title>
-        <link rel="stylesheet" href = "bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/codecourses/styles/style.css">
-        <link rel = "script"   href = "bootstrap/js/bootstrap.min.js">
-        <script src="/codecourses/scripts/script.js"></script>
+        
+        <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel = "script"   href = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
+        <script src="script.js"></script>
+        
     </head>
     <body>
         
@@ -21,7 +23,7 @@
                 <th class= "topLeftRad"> Name </th>
                 <th> <span class="badge badge-success"> Level </span> </th>
                 <th> <img src="/codecourses/assets/images/user.png"> </th> 
-                <th class = "topRightRad"> <img src ="assets/images/ok.png"> </th>
+                <th class = "topRightRad"> <img src ="/codecourses/assets/images/ok.png"> </th>
             </tr>
             <tr>
                 <td ><a href="" target="_blank"> Sample </td>
