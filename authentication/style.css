@@ -1,0 +1,105 @@
+/*### Defaults ###*/
+
+* {
+    box-sizing: border-box;
+}
+
+nav, header, footer {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(assets/images/acm.jpg);
+}
+
+/*### Navbar ###*/
+nav {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    border-radius: 5px; 
+    text-align: center;
+    padding: 1%;
+}
+
+nav img {
+    width: 15%;
+    height: 90px;
+    margin-left: 3%;
+    margin-right: 2%;
+}
+
+/*### Mobile ###*/
+@media screen and (max-width: 850px) {
+    nav img {
+        width: 30%
+    }
+
+    nav ul {
+        width: 60%
+    }
+
+    img.nav-left.responsive {
+        display: none;
+    }
+
+}
+
+/*###Sign Btns###*/
+.sign-div {
+    text-align: center;
+}
+
+
+
+/*###Sign In###*/
+.container.signin-container{
+    padding-top: 6%;
+}
+
+.color {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.card.signin-card {
+    padding: 40px 0px 20px;
+    background-color: rgb(209, 191, 25);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+h1.signin-header {
+    text-align: center;
+    margin-bottom: 5%;
+    font-family: 'Text Me One';
+    color: #0F1DB3;
+}
+
+.signin-form {
+    width: 350px;
+    margin: auto;
+}
+
+button.signin-button {
+    color: #fff;
+    background-color: #9E1A70;
+    width: 100%;
+    margin-bottom: 1.2rem;
+}
+
+a.need-help {
+    text-decoration: none;
+    color: #9E1A70;
+}
+
+.suinves {
+    display: none;
+}
+
+.siinves {
+    display: none;
+}
