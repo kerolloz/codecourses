@@ -8,7 +8,39 @@ nav, header, footer {
     display: block;
 }
 
+body {
+    line-height: 1;
+    margin: 0;
+    background-image: url(../assets/images/acm.jpg);
+    font-family: sans-serif;
+}
 
+.row
+{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.row:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.col-1 {width: 8.33%}
+.col-2 {width: 16.66%}
+.col-3 {width: 25%}
+.col-4 {width: 33.33%}
+.col-5 {width: 41.66%}
+.col-6 {width: 50%}
+.col-7 {width: 58.33%}
+.col-8 {width: 66.66%}
+.col-9 {width: 75%}
+.col-10 {width: 83.33%}
+.col-11 {width: 91.66%}
+.col-12 {width: 100%}
 
 /*### Navbar ###*/
 nav {
@@ -131,6 +163,78 @@ ul.nav-left li.dropdownIcon {
 
 }
 
+/*### Home ###*/
+div.homeContainer {
+    background-color: rgba(255, 255, 255, 0.7);
+    width:100%;
+    margin: auto;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    height: 30%; 
+    
+}
+
+.push-left{
+    margin-left: 15%;
+}
+
+div.homeContainer ul {
+    margin: 0;
+    display: inline-block;
+    list-style: none;
+}
+
+div.homeContainer ul li {
+    font-size: 26px;
+    margin: 10px;
+    color: #2B3386;
+}
+
+div.homeContainer ul li:last-child {
+    margin-top: 10%;
+    text-align: center;
+}
+
+/*###About Website Section###*/
+
+.container {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 4%;
+    padding-top: 4%;
+    background-color: #2B3386;
+}
+
+div.box {
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15),
+                0 2px 3px rgba(0, 0, 0, 0.1); 
+    margin: 24px;
+    padding: 36px 24px 40px 24px;
+    border-radius: 7px;
+    height: 420px;
+    color: #9E1A70;
+}
+
+div.icon {
+    width: 100%;
+}
+
+div.box label {
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+div.box hr {
+    width: 50%;
+}
+
+div.box p {
+    font-size: 20px;
+    line-height: 1.2;
+}
 
 /*### Footer ###*/
 #footer {

@@ -1,14 +1,14 @@
 /*### Defaults ###*/
 
-* {
-    box-sizing: border-box;
-}
-
 nav, header, footer {
     display: block;
 }
 
-
+body {
+    line-height: 1;
+    margin: 0;
+    font-family: sans-serif;
+}
 
 /*### Navbar ###*/
 nav {
@@ -62,8 +62,6 @@ ul.nav-left li.dropdownIcon {
     display: none;
 }
 
-
-
 /*### Mobile ###*/
 @media screen and (max-width: 850px) {
     nav img {
@@ -102,35 +100,27 @@ ul.nav-left li.dropdownIcon {
         display: inline;
         float: none;
     }
-
     ul.nav-left.responsive li a {
         display: block;
         text-align: left;
     }
-
-    .col-6, .col-4 {
-        width: 100%;
-        margin: 0;
-    }
-
-    .push-left {
-        margin: 15px;
-    }
-
-    .videoContainer iframe {
-        position: relative;
-        width: 100%;
-        margin: 0;
-        overflow: hidden;
-    }
-
-    div.box {
-        padding: 5px;
-        display: block;
-    }
-
 }
 
+/*### Resources, Problems Accordion Collapse ###*/
+.btn {
+    color: #fff;
+}
+.card-header{
+    background-color: #2B3386;
+    font: #fff;
+}
+
+.card-body{
+    background-color: #fff;
+}
+.card-body a{
+    color: #2B3386;
+}
 
 /*### Footer ###*/
 #footer {
@@ -148,43 +138,3 @@ ul.nav-left li.dropdownIcon {
     text-decoration: none;
     color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
