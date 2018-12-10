@@ -21,13 +21,17 @@ if($compilation_state){ // compile success if (compilation_state == 0)
     return(1);
 }
 
-$submissions_dir = "./476_44427781/number_of_testcases.txt";
+$problem_id = $_GET['id']; # get problem ID form link 
 
-$submissions_dir_input = "./476_44427781/in/";
-$submissions_dir_output = "./476_44427781/out/";
-$submissions_dir_my_out = "./476_44427781/my_out/";
+// add_submission_to_database();
 
-mkdir("./476_44427781/my_out");
+$submissions_dir = "./" . $problem_id . "/number_of_testcases.txt";
+
+$submissions_dir_input = "/codecourses/problems_db/" . $problem_id . "/test_cases/";
+$submissions_dir_output = "/codecourses/problems_db/" . $problem_id . "/test_cases/";
+$submissions_dir_my_out = "/codecourses/problems_db/" . $problem_id . "/my_out/";
+
+mkdir("./" . $problem_id . "/my_out");
 
 $test_cases = file_get_contents($submissions_dir);
 

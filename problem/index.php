@@ -1,3 +1,14 @@
+<?php
+
+$errors_array = [];
+
+if(isset($_POST['submit'])){
+    require "/codecourses/judge_tester/process_submission.php?id=" . $_GET['id'];
+
+}
+
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -81,17 +92,22 @@
                                     </div>
                                     <div class="col-8">
                                         <div class="sendSubmit">
-                                            <form action="###">
-                                                <textarea  name="sourceCode" rows="30" cols="30"></textarea>
+                                            <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
+                                                <textarea name="code" rows="20"><?php if($errors_array){ echo htmlentities($code);}?></textarea>
                                                 <br>
+                                                <br>
+                                                <input type="file" name="my_file">
+                                                <br>
+                                                <br>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
+                                                </div>
+
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">SUBMIT</button>
-                                </div>
                             </div>
                           </div>
                         </div>

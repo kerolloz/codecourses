@@ -5,7 +5,7 @@ const MAX_BYTES_FOR_CODE = 67072;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'):
     echo "<pre>";
-    $destination = __DIR__ . '/'; // the current dir of "submit.php"
+    $destination =  "/codecourses/source_codes/"; // the current dir of "submit.php"
 
     echo $destination;
     $text_area_has_code = false;
