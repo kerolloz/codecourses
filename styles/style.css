@@ -16,6 +16,8 @@ nav {
     width: 100%;
     margin: 0;
     border-radius: 5px; 
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
 }
 
 nav img {
@@ -148,43 +150,3 @@ ul.nav-left li.dropdownIcon {
     text-decoration: none;
     color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

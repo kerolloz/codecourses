@@ -19,7 +19,7 @@
         <?php 
         else:
         ?>
-        <li class="nav-right"><a href="/codecourses/authentication/">Authentication</a></li>
+        <li class="nav-right"><a href="/codecourses/authentication/">Sign in</a></li>
         <?php
         endif;
         ?>

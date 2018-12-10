@@ -29,9 +29,15 @@
         <!--Sign In/Up Card-->
         <div class="color">
             <div class="container signin-container">
+                <!--Choice btns-->
+                <div class="row rbtnrow">
+                    <div class="col-6 sbtn" onclick="signIn()">Sign In</div>
+                    <div class="col-6 sbtn" onclick="signUp()">Sign Up</div>
+                </div>
+                
                 <div class="row">
                     <!--Sign In Card-->
-                    <div id="signinCard" class="col-sm-12 col-md-6">
+                    <div id="signinCard" class="col-12">
                         <div class="card signin-card">
                             <div class="card-body">
                                 <h1 class="signin-header">Sign In</h1>
@@ -58,19 +64,25 @@
                     </div>
                     
                     <!--Sign Up Card-->
-                    <div id="signupCard" class="col-sm-12 col-md-6">
+                    <div id="signupCard" class="col-12">
                         <div class="card signin-card">
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
                                 <form class="signin-form">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="fnameInput" placeholder="First Name">
-                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="fnameInput" placeholder="First Name">
+                                            </div>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="lnameInput" placeholder="Last Name">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="lnameInput" placeholder="Last Name">
+                                            </div>
+                                        </div>
                                     </div>
-
+                                    
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email">
                                     </div>

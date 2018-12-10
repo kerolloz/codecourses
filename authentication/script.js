@@ -1,15 +1,11 @@
+document.getElementById('signinCard');
+document.getElementById('signupCard').style.display="none";
 function signIn() {
-    x = document.getElementById('signinCard');
-    y = document.getElementById('signupCard');
-    if(x.className === 'col-sm-12 col-md-6 siinves')
-        x.className = 'col-sm-12 col-md-6';
-    y.className = "suinves";
+    document.getElementById('signinCard').style.display="block";
+    document.getElementById('signupCard').style.display="none";
 }
 
 function signUp() {
-    x = document.getElementById('signinCard');
-    y = document.getElementById('signupCard');
-    if(y.className === 'col-sm-12 col-md-6 suinves')
-        y.className = 'col-sm-12 col-md-6';
-    x.className = "siinves";
+    document.getElementById('signinCard').style.display="none";
+    document.getElementById('signupCard').style.display="block";
 }
