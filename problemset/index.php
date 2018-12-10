@@ -1,3 +1,19 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ojDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM problems";
+
+?>
 <!doctype html>
 <html>
     <head>
@@ -25,18 +41,28 @@
                 <th> <img src="/codecourses/assets/images/user.png"> </th> 
                 <th class = "topRightRad"> <img src ="/codecourses/assets/images/ok.png"> </th>
             </tr>
-            <tr>
-                <td ><a href="" target="_blank"> Sample </td>
-                <td> 3  </td>
-                <td>  1800  </td> 
-                <td>  yes </td>
-            </tr>
-            <tr>
-                <td> <a href="" target="_blank"> Sample </td>
-                <td> 2  </td>
-                <td>  1750  </td> 
-                <td>  No </td>
-            </tr>  
+            <?php 
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) :
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) :
+			?>
+			    	<tr>
+		                <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>" target="_blank"> <?= $row['name'] ?> </td>
+		                <td> <?= $row['level'] ?>  </td>
+		                <td> <?= $row['number_of_solvers'] ?>  </td> 
+		                <td> no  </td>
+		            </tr>
+			<?php
+				endwhile;
+
+			else: 
+			    echo "0 results";
+			endif;
+			$conn->close();
+            ?>
+            
            
     </table>
 </div>
