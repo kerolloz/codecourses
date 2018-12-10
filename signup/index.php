@@ -1,4 +1,4 @@
-<?php require './back/process.php'; ?>
+<?php include './back/process.php'; ?>
 
 
 <!doctype html>
@@ -6,7 +6,7 @@
     <head>
         <title>Sign Up</title>
 
-        <!--Required meta tags for BS-->
+        <!--included meta tags for BS-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -24,7 +24,7 @@
     <body>
         
         <!--include navigation bar from a preset php file-->
-        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
          
         <!--Sign In/Up Card-->
         <div class="color">
@@ -36,7 +36,7 @@
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
-                                	 <?php require './back/pr_errors.php'; ?>
+                                	 <?php include './back/pr_errors.php'; ?>
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname"
                                         		<?php
