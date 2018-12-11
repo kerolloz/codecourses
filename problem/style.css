@@ -1,0 +1,45 @@
+/*### Defaults ###*/
+
+body {
+    line-height: 1;
+    margin: 0;
+    /*background-image: url(assets/images/acm.jpg);*/
+    font-family: sans-serif;
+}
+    
+.pdfContainer{
+    border: 2px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: 650px;
+}
+
+.showsubmit{
+    padding-left: 50%;
+}
+.modal-title, .lang, .sors{
+    color: #2B3386;
+}
+
+.btn{
+    background-color: #2B3386;
+}
+textarea { 
+    height: auto;
+    width: auto;
+}
+
+.user-select select{
+    background: #9E1A70;
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    height: 38px;
+    border-radius: 2px;
+    font-size: 14px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
+    
+}

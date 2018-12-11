@@ -1,0 +1,155 @@
+/*### Defaults ###*/
+
+* {
+    box-sizing: border-box;
+}
+
+nav, header, footer {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    margin: 0;
+    /*background-image: url(assets/images/acm.jpg);*/
+    font-family: sans-serif;
+}
+
+.table-responsive{
+
+    width: 80%;
+    border: 5px;
+    border-radius: 8px;
+ }
+
+
+/*### Navbar ###*/
+nav {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    border-radius: 5px; 
+}
+
+nav img {
+    width: 15%;
+    height: 90px;
+    margin-left: 2%;
+}
+
+nav ul {
+    overflow: hidden;
+    margin: 0;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    padding: 0;
+    display: inline-block;
+    width: 79%;
+}
+
+ul.nav-left li {
+    list-style: none;
+    float: left;
+}
+
+ul.nav-left li.nav-right {
+    float: right;
+}
+
+ul.nav-left li a {
+    text-decoration: none;
+    display: block;
+    min-height: 16px;
+    text-align: center;
+    padding: 14px;
+    text-transform: uppercase;
+    color: #2B3386;
+}
+
+ul.nav-left li a:hover {
+    background-color: #9E1A70;
+    color: #fff;
+}
+
+ul.nav-left li.dropdownIcon {
+    display: none;
+}
+
+
+
+/*### Mobile ###*/
+@media screen and (max-width: 850px) {
+    nav img {
+        width: 30%
+    }
+
+    nav ul {
+        width: 60%
+    }
+
+    ul.nav-left li {
+        display: none;
+    }
+
+    ul.nav-left li.dropdownIcon {
+        display: block;
+        float: right;
+        font-size: 26px;
+    }
+
+    img.nav-left.responsive {
+        display: none;
+    }
+
+    ul.nav-left.responsive li.dropdownIcon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    ul.nav-left.responsive {
+        position: relative;
+        width: 100%;
+    }
+    ul.nav-left.responsive li {
+        display: inline;
+        float: none;
+    }
+
+    ul.nav-left.responsive li a {
+        display: block;
+        text-align: left;
+    }
+
+
+    .push-left {
+        margin: 15px;
+    }
+
+   
+
+    div.box {
+        padding: 5px;
+        display: block;
+    }
+
+}
+/*
+
+
+/*### Footer ###*/
+#footer {
+    padding:5px 20px;
+    background-color:#9E1A70;
+    text-align:right;
+    color:#fff;
+    font-size:15px;
+    border-radius: 5px;
+
+}
+
+#footer a
+{
+    text-decoration: none;
+    color: white;
+}

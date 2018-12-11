@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 	<tr>
 	<td width="15%">...or upload it</td>
 	<td width="70%">
-		<input type="file" name="my_file" size="50">
+		<input type="file" name="my_file">
 	</td>
 	<td>&nbsp;</td>
 	</tr>

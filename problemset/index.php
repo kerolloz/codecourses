@@ -1,30 +1,35 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ojDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM problems";
+
+?>
 <!doctype html>
 <html>
     <head>
         <title>ProblemSet</title>
-        <link rel="stylesheet" href = "bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/codecourses/styles/style.css">
-        <link rel = "script"   href = "bootstrap/js/bootstrap.min.js">
-        <script src="/codecourses/scripts/script.js"></script>
+        
+        <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel = "script"   href = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
+        <script src="script.js"></script>
+        
     </head>
     <body>
-        <!--Navbar Section-->
-        <nav>
-            <img src="/codecourses/assets/images/codeCourses.png" 
-                 class = "nav-left"
-                 id = "imgMobile">
-            <ul id = "dropdownClick" class = "nav-left">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#problemset">Problem Set</a></li>
-                <li><a href="#roadmap">Road Map</a></li>
-                <li><a href="#contests">Contests</a></li>
-                <li class="nav-right"><a href="#signin">Sign In</a></li>
-                <li class="nav-right"><a href="#signup">Sign Up</a></li>
-                <li class="dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
-            </ul>
-
-        </nav>
-
+        
+        <!--include navigation bar from a preset php file-->
+        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
+        
         <br> <br> <br> <br>
 
         <!-- ProblemSection -->
@@ -34,20 +39,30 @@
                 <th class= "topLeftRad"> Name </th>
                 <th> <span class="badge badge-success"> Level </span> </th>
                 <th> <img src="/codecourses/assets/images/user.png"> </th> 
-                <th class = "topRightRad"> <img src ="assets/images/ok.png"> </th>
+                <th class = "topRightRad"> <img src ="/codecourses/assets/images/ok.png"> </th>
             </tr>
-            <tr>
-                <td ><a href="file:///home/yousef/Desktop/OJ_Tutorials-master/app/frontEnd/ProblemPage/index.html" target="_blank"> Sample </td>
-                <td> 3  </td>
-                <td>  1800  </td> 
-                <td>  yes </td>
-            </tr>
-            <tr>
-                <td> <a href="file:///home/yousef/Desktop/OJ_Tutorials-master/app/frontEnd/ProblemPage/index.html" target="_blank"> Sample </td>
-                <td> 2  </td>
-                <td>  1750  </td> 
-                <td>  No </td>
-            </tr>  
+            <?php 
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) :
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) :
+			?>
+			    	<tr>
+		                <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>" target="_blank"> <?= $row['name'] ?> </td>
+		                <td> <?= $row['level'] ?>  </td>
+		                <td> <?= $row['number_of_solvers'] ?>  </td> 
+		                <td> no  </td>
+		            </tr>
+			<?php
+				endwhile;
+
+			else: 
+			    echo "0 results";
+			endif;
+			$conn->close();
+            ?>
+            
            
     </table>
 </div>
