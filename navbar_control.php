@@ -10,7 +10,6 @@
         <li><a href="/codecourses/contests/">Contests</a></li>
         <li><a href="/codecourses/tutorials/">Tutorials</a></li>
         <?php 
-          
         if(!isset($_SESSION))
             session_start();
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):

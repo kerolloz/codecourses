@@ -3,9 +3,9 @@
 // this is the limit made by codeforces!
 const MAX_BYTES_FOR_CODE = 67072;
 
-//if($_SERVER['REQUEST_METHOD'] == 'POST'):
-    echo "<pre>";
-    $destination =  "/codecourses/source_codes/"; // the current dir of "submit.php"
+if($_SERVER['REQUEST_METHOD'] == 'POST'):
+	
+    $destination =  "../source_codes/"; 
 
     echo $destination;
     $text_area_has_code = false;
@@ -74,7 +74,7 @@ const MAX_BYTES_FOR_CODE = 67072;
         print_r($_FILES['my_file']);
 
     }else if($text_area_has_code){
-        $res = file_put_contents($submission_id, $_POST['code']);
+        $res = file_put_contents($destination . $submission_id, $_POST['code']);
         // return number of written bytes or FALSE on failure
     }
 
@@ -82,14 +82,13 @@ const MAX_BYTES_FOR_CODE = 67072;
 
     if($res){
         // res == 1, if uploaded successfully
-        echo "uploaded successfully";
-        require "tester.php?id=" . $_GET['id']; // go test the uploaded file
+        require "../judge_tester/tester.php";// go test the uploaded file
     }else{
         echo "problem moving the file";
     }
     echo "</pre>";
 
-//endif;
+endif;
 
 
 
