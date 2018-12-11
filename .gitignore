@@ -5,10 +5,6 @@
 # ingnore user-uploaded assets (images, PDFs, videos)
 *.mp4
 
-# ignore source code and compiled files
-*.cpp
-*.out
-
 # ingnore logs & Databases  
 .*
 .idea/*.xml
