@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="style.css">        
     </head>
 
-    <body <?php if(isset($_POST['reg_usr']) && count($errors) > 0) echo 'onload="signUp()"'?> >
+    <body <?php if(isset($_POST['reg_usr']) && count($reg_errors) > 0) echo 'onload="signUp()"'?> >
         <!--Navbar Section-->
         <nav>
             <img src="../assets/images/codeCourses.png" 
@@ -46,11 +46,11 @@
                                 <h1 class="signin-header">Sign In</h1>
 
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
-                                    <?php require 'pr_errors.php'; ?>
+                                    <?php require 'pr_log_errors.php'; ?>
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
                                             <?php
-                                            if ($errors) {
+                                            if ($log_errors) {
                                                 echo 'value="'. htmlentities($email) .'"';
                                             }
                                             ?>
@@ -79,13 +79,13 @@
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
-                                    <?php require 'pr_errors.php'; ?>
+                                    <?php require 'pr_reg_errors.php'; ?>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname"
                                                     <?php
-                                                    if($errors) {
+                                                    if($reg_errors) {
                                                         echo 'value="' . htmlentities($fname) .'"';
                                                     }
                                                     ?>
@@ -97,7 +97,7 @@
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="lnameInput" placeholder="Last Name" name="lname"
                                                     <?php
-                                                    if($errors) {
+                                                    if($reg_errors) {
                                                         echo 'value="' . htmlentities($lname) .'"';
                                                     }
                                                     ?>
@@ -109,7 +109,7 @@
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
                                             <?php
-                                            if ($errors) {
+                                            if ($reg_errors) {
                                                 echo 'value="'. htmlentities($email) .'"';
                                             }
                                             ?>
@@ -119,7 +119,7 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username"
                                             <?php
-                                            if($errors) {
+                                            if($reg_errors) {
                                                 echo 'value="' . htmlentities($username) .'"';
                                             }
                                             ?>
