@@ -3,8 +3,7 @@
 $errors_array = [];
 
 if(isset($_POST['submit'])){
-    header("location: /codecourses/judge_tester/process_submission.php?id=" . $_POST['problem_id']);
-
+    require '../judge_tester/process_submission.php';
 }
 
 ?>
@@ -92,11 +91,11 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="col-8">
                                         <div class="sendSubmit">
-                                            <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
+                                            <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post" enctype="multipart/form-data">
                                                 <textarea name="code" rows="20"><?php if($errors_array){ echo htmlentities($code);}?></textarea>
                                                 <br>
                                                 <br>
-                                                <input name="problem_id" hidden="true" value="<?= $_GET['id'] ?>">
+                                                <input type="hidden" name="problem_id" value="<?= $_GET['id'] ?>">
                                                 <input type="file" name="my_file">
                                                 <br>
                                                 <br>
