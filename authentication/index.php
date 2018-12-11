@@ -1,3 +1,4 @@
+<?php require 'process.php';?>
 <!doctype html>
 <html>
     <head>
@@ -43,16 +44,22 @@
                                 <div class="blur"></div>
                                 <h1 class="signin-header">Sign In</h1>
 
-                                <form class="signin-form">
+                                <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="emailInput" placeholder="Email">
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
+                                            <?php
+                                            if ($errors) {
+                                                echo 'value="'. htmlentities($email) .'"';
+                                            }
+                                            ?>
+                                        >
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password">
                                     </div>
 
-                                    <button type="button" class="btn signin-button">Sign In</button>
+                                    <button type="submit" class="btn signin-button" name="login">Sign In</button>
 
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox">
@@ -73,34 +80,58 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="fnameInput" placeholder="First Name">
+                                                <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname"
+                                                    <?php
+                                                    if($errors) {
+                                                        echo 'value="' . htmlentities($fname) .'"';
+                                                    }
+                                                    ?>
+                                                >
                                             </div>
                                         </div>
 
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="lnameInput" placeholder="Last Name">
+                                                <input type="text" class="form-control" id="lnameInput" placeholder="Last Name" name="lname"
+                                                    <?php
+                                                    if($errors) {
+                                                        echo 'value="' . htmlentities($lname) .'"';
+                                                    }
+                                                    ?>
+                                                >
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="emailInput" placeholder="Email">
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
+                                            <?php
+                                            if ($errors) {
+                                                echo 'value="'. htmlentities($email) .'"';
+                                            }
+                                            ?>
+                                        >
                                     </div>
         
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="usernameInput" placeholder="Username">
+                                        <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username"
+                                            <?php
+                                            if($errors) {
+                                                echo 'value="' . htmlentities($username) .'"';
+                                            }
+                                            ?>
+                                        >
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password1">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="passwordConInput" placeholder="Password Confirmation">
+                                        <input type="password" class="form-control" id="passwordConInput" placeholder="Password Confirmation" name="password2">
                                     </div>
 
-                                    <button type="button" class="btn signin-button">Sign Up</button>
+                                    <button type="submit" class="btn signin-button" name="reg_usr">Sign Up</button>
                                     
                                         
                                 </form>
