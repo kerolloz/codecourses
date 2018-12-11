@@ -63,7 +63,7 @@
 
                                     <div class="profile-logout">
                                         <img src="../assets/images/logout.png" width="17px" height="17px">                                        
-                                        <label>Logout</label>
+                                        <label><a href="../back/logout.php">Logout</a></label>
                                     </div>
                                 </div>
                             </div>
