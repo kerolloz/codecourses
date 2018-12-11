@@ -63,8 +63,7 @@ if (isset($_POST['reg_usr'])) {
     $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
     $_SESSION['username'] = $username;
-    $_SESSION['success'] = "You are now logged in";
-    header('location: index.php');
+    header('location: ../index.php');
   }
 }
 
@@ -93,7 +92,7 @@ if (isset($_POST['login'])) {
         $_SESSION['fname']=$user[first_name];
         $_SESSION['lname']=$user[last_name];
         $_SESSION['username']=$username;
-        $_SESSION['success'] = "You are now logged in";
+        $_SESSION['loggedin'] = true;
         header('location: ../index.php');
 
     }
