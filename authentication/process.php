@@ -10,6 +10,10 @@ $passwordSalt= "^>.2k2m+ya$?";
 $errors = [];           //Errors Array
 
 
+$fname = $lname = $username = $email = $password1 = $password2 = '';
+
+
+
 $conn = mysqli_connect("$servername", "$sqlUsername", "$password", "$db");
 
 // Data comes from register form >> 
@@ -68,11 +72,11 @@ if (isset($_POST['reg_usr'])) {
 // Data comes from login form
 if (isset($_POST['login'])) {
 
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-  if (empty($username)) {
-    array_push($errors, "Username is required");
+  if (empty($email)) {
+    array_push($errors, "Email is required");
   }
   if (empty($password)) {
     array_push($errors, "Password is required");
@@ -80,7 +84,7 @@ if (isset($_POST['login'])) {
 
   if (count($errors) == 0) {
     $password = md5("$password" . "$passwordSalt");
-    $user_check_query = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
+    $user_check_query = "SELECT * FROM users WHERE email='$email' and password='$password' LIMIT 1";
     $result = mysqli_query($conn, $user_check_query);
     $user = mysqli_fetch_assoc($result);
 
@@ -90,7 +94,7 @@ if (isset($_POST['login'])) {
         $_SESSION['lname']=$user[last_name];
         $_SESSION['username']=$username;
         $_SESSION['success'] = "You are now logged in";
-        header('location: index.php');
+        header('location: ../index.php');
 
     }
     else  {

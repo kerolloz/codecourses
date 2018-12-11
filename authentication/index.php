@@ -45,6 +45,7 @@
                                 <h1 class="signin-header">Sign In</h1>
 
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+                                    <?php require 'pr_errors.php'; ?>
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
                                             <?php
@@ -76,7 +77,8 @@
                         <div class="card signin-card">
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
-                                <form class="signin-form">
+                                <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+                                    <?php require 'pr_errors.php'; ?>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
@@ -132,8 +134,8 @@
                                     </div>
 
                                     <button type="submit" class="btn signin-button" name="reg_usr">Sign Up</button>
-                                    
-                                        
+
+
                                 </form>
                             </div>
                         </div>
@@ -142,38 +144,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!--Scripts for BS-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-
