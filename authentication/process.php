@@ -63,6 +63,7 @@ if (isset($_POST['reg_usr'])) {
     mysqli_query($conn, $query);
     $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
+    $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
     header('location: ../index.php');
   }
