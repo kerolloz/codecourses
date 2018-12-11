@@ -70,11 +70,11 @@ nav img {
     border-right: 1px solid #aa9b9b;
 }
 
-.sbtn:hover {
+.sbtn:hover, .click {
     background-color: #C8B50B;
     cursor: pointer;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    border: 1px solid #aa9b9b;
+    
 }
 /*###Sign In###*/
 .container.signin-container{
@@ -97,6 +97,7 @@ nav img {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    
 }
 
 h1.signin-header {

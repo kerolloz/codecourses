@@ -31,8 +31,8 @@
             <div class="container signin-container">
                 <!--Choice btns-->
                 <div class="row rbtnrow">
-                    <div class="col-6 sbtn" onclick="signIn()">Sign In</div>
-                    <div class="col-6 sbtn" onclick="signUp()">Sign Up</div>
+                    <div id="signin-btn" class="col-6 sbtn" onclick="signIn()">Sign In</div>
+                    <div id="signup-btn" class="col-6 sbtn" onclick="signUp()">Sign Up</div>
                 </div>
                 
                 <div class="row">
@@ -40,6 +40,7 @@
                     <div id="signinCard" class="col-12">
                         <div class="card signin-card">
                             <div class="card-body">
+                                <div class="blur"></div>
                                 <h1 class="signin-header">Sign In</h1>
 
                                 <form class="signin-form">
