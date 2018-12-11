@@ -9,12 +9,9 @@ function my_print($string){
 }
 
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
-my_print($source_code_name);
 
 $command = "g++ " . $source_code_name;
-my_print($command);
 exec($command, $output, $compilation_state);
-my_print($compilation_state);
 
 if($compilation_state){ // compile success if (compilation_state == 0)
     echo "compilation FAILED";
@@ -22,7 +19,6 @@ if($compilation_state){ // compile success if (compilation_state == 0)
 }
 
 $problem_id = $_POST['problem_id']; # get problem ID form link 
-echo $problem_id;
 
 // add_submission_to_database();
 
@@ -32,12 +28,13 @@ $submissions_dir_input = __DIR__ . "/../problems_db/" . $problem_id . "/test_cas
 $submissions_dir_output = __DIR__ . "/../problems_db/" . $problem_id . "/test_cases/";
 $submissions_dir_my_out = __DIR__ . "/../problems_db/" . $problem_id . "/test_cases/my_out/";
 
-mkdir($submissions_dir_my_out);
+
+if (!file_exists($submissions_dir_my_out) && !is_dir($submissions_dir_my_out)) {
+    mkdir($submissions_dir_my_out);
+} 
 
 $test_cases = file_get_contents($submissions_dir);
 
-my_print($test_cases . " test cases");
-echo "<br>";
 for($i = 1; $i <= $test_cases; $i++){
     $input_file = $submissions_dir_input . $i .".in";
     exec("./a.out < " . $input_file . " > " . $submissions_dir_my_out . $i . ".out"); 
@@ -49,4 +46,5 @@ for($i = 1; $i <= $test_cases; $i++){
 }
 
 my_print("ACCEPTED");
+
 return;

@@ -3,6 +3,8 @@
 *.gz
 
 # ingnore user-uploaded assets (images, PDFs, videos)
+*.mp4
+
 # ingnore logs & Databases  
 .*
 .idea/*.xml
