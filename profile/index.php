@@ -33,7 +33,15 @@
                             <div class="card-body">
                                 <div class="avatar">
                                     <img src="../assets/images/avatar.jpg" width="100px" height="100px"><br>
-                                    <h3>Username</h3><br>
+                                    <?php
+                                    if(!isset($_SESSION))
+                                        session_start();
+                                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
+                                    ?>
+                                    <h3><?= $_SESSION['fname']?></h3><br>
+                                    <?php else :?>
+                                    <h3>User</h3><br>
+                                    <?php endif ?>
                                     <label>“ We cannot solve our problems with the same thinking that created them.”</label>
                                 </div>
                             
@@ -55,7 +63,7 @@
 
                                     <div class="profile-logout">
                                         <img src="../assets/images/logout.png" width="17px" height="17px">                                        
-                                        <label>Logout</label>
+                                        <label><a href="../back/logout.php">Logout</a></label>
                                     </div>
                                 </div>
                             </div>
