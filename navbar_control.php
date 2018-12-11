@@ -17,7 +17,7 @@
         ?>
 
         <li class="nav-right"><a href="/codecourses/back/logout.php" >Logout</a></li>
-        <li class="nav-right">Welcome <?=  $_SESSION['fname']?></li>
+        <li class="nav-right"><a href="/codecourses/profile"><?=  $_SESSION['fname']?>,</a></li>
         <?php 
         else:
         ?>
