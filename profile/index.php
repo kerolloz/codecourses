@@ -13,12 +13,17 @@
 
         <!--Google Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet"> 
-        
+
+        <!--Standard CSS -->
+        <link rel="stylesheet" href="../styles/style.css">
         <!--Custom CSS-->
         <link rel="stylesheet" href="style.css">        
     </head>
 
     <body>
+
+        <!--include navigation bar from a preset php file-->
+        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
 
         <div class="color">
             <div class="container profile-container">
