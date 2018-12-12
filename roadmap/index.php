@@ -150,7 +150,7 @@
 
         <script src = "/codecourses/assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
         <script src = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
-        <script src= "/codecourses/scripts/script.js" "></script>
+        <script src= "/codecourses/scripts/script.js"></script>
 
     </body>
 </html>
