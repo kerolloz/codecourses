@@ -34,6 +34,8 @@ sudo apt-get install docker-ce
 # with something like:
 sudo usermod -aG docker $USER
 # Remember to log out and back in for this to take effect!
+docker pull kerolloz/codecourses_judge
+# download the judge image to the local docker repository
 ```
 1. install php `sudo apt-get install php`
 

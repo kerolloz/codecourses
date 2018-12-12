@@ -49,7 +49,7 @@ $in_container_command = "\"./tester; exit $?\"";
 // append the time limit as $TLE so that it can be read inside the container 
 // use system function to execute timeout $TLE (inside c++ tester)
 
-$docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes ubuntu bash -c './tester/a.out; exit $?'";
+$docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge codecourses_judge " . $problem_time_limit;
 
 exec($docker_run, $out, $return_value);
 
