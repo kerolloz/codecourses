@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
 	
     $destination =  "../source_codes/"; 
 
-    echo $destination;
     $text_area_has_code = false;
     $file_has_been_uploaded = false;
 
@@ -33,9 +32,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
         // [0] => name , [1] => extension
         $file_extension_arr = explode(".", $_FILES['my_file']['name']);
         $extension = strtolower(end($file_extension_arr));
-        echo $extension;
+
         // if the file is uploaded successfully (NO ERRORS)
-        if($text_area_has_code) $errors_array[] = "Put source code into the textarea OR choose the sourcecode file!";
+        if($text_area_has_code) 
+        	$errors_array[] = "Put source code into the textarea OR choose the sourcecode file!";
         else {
             if ($_FILES['my_file']['size'] > MAX_BYTES_FOR_CODE) {
                 $errors_array[] = "Field should contain no more than ". MAX_BYTES_FOR_CODE ." characters";
@@ -72,7 +72,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
     }else if($file_has_been_uploaded){
         $res = move_uploaded_file($_FILES['my_file']['tmp_name'],
             $destination . $submission_id);
-        print_r($_FILES['my_file']);
 
     }else if($text_area_has_code){
         $res = file_put_contents($destination . $submission_id, $_POST['code']);
@@ -83,11 +82,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
 
     if($res){
         // res == 1, if uploaded successfully
-        require "../judge_tester/tester.php";// go test the uploaded file
+        require "../judge_tester/tester.php"; 
+        // go test the uploaded file
     }else{
+    	// res == 0, something went wrong
         echo "problem moving the file";
     }
-    echo "</pre>";
 
 endif;
 
