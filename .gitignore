@@ -12,3 +12,4 @@
 
 # ignore soultions
 source_codes/*
+problems_db/*/test_cases/my_out/*
