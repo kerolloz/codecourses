@@ -9,3 +9,6 @@
 .*
 .idea/*.xml
 .idea/*.iml
+
+# ignore soultions
+source_codes/*

@@ -91,7 +91,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="col-8">
                                         <div class="sendSubmit">
-                                            <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post" enctype="multipart/form-data">
+                                            <form action="" method="post" enctype="multipart/form-data">
                                                 <textarea name="code" rows="20"><?php if($errors_array){ echo htmlentities($code);}?></textarea>
                                                 <br>
                                                 <br>

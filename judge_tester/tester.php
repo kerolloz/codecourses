@@ -9,8 +9,10 @@ function my_print($string){
 }
 
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
+$object_file_name = __DIR__ . "/../source_codes/" . "a.out";
 
-$command = "g++ " . $source_code_name;
+$compilation_flags = " -static -DONLINE_JUDGE -lm -s -x c++ -Wl,--stack=268435456 -O2 -std=c++11 ";
+$command = "g++ " . $compilation_flags . $source_code_name . " -o " . $object_file_name;
 exec($command, $output, $compilation_state);
 
 if($compilation_state){ // compile success if (compilation_state == 0)
@@ -37,7 +39,7 @@ $test_cases = file_get_contents($submissions_dir);
 
 for($i = 1; $i <= $test_cases; $i++){
     $input_file = $submissions_dir_input . $i .".in";
-    exec("./a.out < " . $input_file . " > " . $submissions_dir_my_out . $i . ".out"); 
+    exec($object_file_name . " < " . $input_file . " > " . $submissions_dir_my_out . $i . ".out"); 
     // the previous line should be replaced wiith docker
     $diff_command = "diff -s -q -Z " . $submissions_dir_my_out  . $i . ".out " . $submissions_dir_output . $i . ".out";
     exec($diff_command, $ot, $ret_val);
