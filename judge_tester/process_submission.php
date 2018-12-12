@@ -31,7 +31,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
         // explode(): splits the string according to the delimiter
         // so it will split the file name into two-element array
         // [0] => name , [1] => extension
-        $extension = strtolower(end(explode(".", $_FILES['my_file']['name'])));
+        $file_extension_arr = explode(".", $_FILES['my_file']['name']);
+        $extension = strtolower(end($file_extension_arr));
         echo $extension;
         // if the file is uploaded successfully (NO ERRORS)
         if($text_area_has_code) $errors_array[] = "Put source code into the textarea OR choose the sourcecode file!";
