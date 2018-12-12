@@ -5,9 +5,6 @@
         <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="/codecourses/styles/style.css">
         <link rel="stylesheet" href="style.css">
-
-        <link rel = "script"   href = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
-        <script src="script.js"></script>
        
     </head>
     <body>
@@ -151,9 +148,9 @@
             </div>
         </div>     
 
-        <script src="js/jQuery.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/script.js"></script>
+        <script src = "/codecourses/assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
+        <script src = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
+        <script src= "/codecourses/scripts/script.js" "></script>
 
     </body>
 </html>

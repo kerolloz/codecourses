@@ -3,7 +3,7 @@
     <head>
         <title>CodeCourses</title>
         <link rel="stylesheet" href= "style.css">
-        <script src="script.js"></script>
+        <script src="/codecourses/scripts/script.js"></script>
     </head>
     <body>
         <!--include navigation bar from a preset php file-->

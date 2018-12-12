@@ -26,19 +26,19 @@
                 
                 <div class="col-4">
                     <!-- Accordion Collapse -->
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion1" id="accordion1">
                         <!-- Beginner section -->
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header" id="headingOne1">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1"
                                             style>
                                         BEGINNERS
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordion1">
                                 <div class="card-body">
                                     <br> 
                                     <a href="../TutorialsPage/index.html" target="_blank">1- Data Types</a>
@@ -59,15 +59,15 @@
 
                         <!-- intermediate section -->
                         <div class="card">
-                            <div class="card-header" id="headingTwo">
+                            <div class="card-header" id="headingTwo2">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
                                         INTERMEDIATE
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordion1">
                                 <div class="card-body">
                                     <br> 
                                     <a href="###" target="_blank">1- Vector</a>
@@ -96,15 +96,15 @@
 
                         <!-- Intermediate section -->
                         <div class="card">
-                            <div class="card-header" id="headingThree">
+                            <div class="card-header" id="headingThree3">
                               <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
                                     ADVANCED
                                 </button>
                               </h5>
                             </div>
 
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapseThree3" class="collapse" aria-labelledby="headingThree3" data-parent="#accordion1">
                                 <div class="card-body">
                                     <br> 
                                     <a href="###" target="_blank">1- Backtracking1</a>
@@ -191,12 +191,11 @@
                     </div>
                 </div>
             </div>
-        </div>      
-
+        </div>
+        
         <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
         <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
         <script src="/codecourses/scripts/script.js"></script>
-        <script src="script.js"></script>
 
 
     </body>

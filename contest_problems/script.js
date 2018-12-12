@@ -1,16 +1,3 @@
-function dropdownMenu() {
-    var x = document.getElementById('dropdownClick');
-    var y = document.getElementById('imgMobile');
-    
-    if(x.className === 'nav-left' && y.className === 'nav-left') {
-        x.className += ' responsive';
-        y.className += ' responsive';
-    } else {
-        x.className = 'nav-left';
-        y.className = 'nav-left';
-    }
-}
-
 // a code to make countdown
 
 var countDownDate = new Date("Dec 6, 2018 13:00:00").getTime();

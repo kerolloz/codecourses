@@ -23,6 +23,7 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $_GET['id'];
 
         <link rel = "script"   href = "/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
         <script src="script.js"></script>
+        <script src="/codecourses/scripts/script.js"></script>
     </head>
     <body>
         
