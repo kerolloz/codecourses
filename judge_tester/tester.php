@@ -8,6 +8,11 @@ function my_print($string){
     echo "<br>";
 }
 
+function get_problem_time_limit_from_database($problem_id){
+
+	return 1; // JUST FOR TESTING
+}
+
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
 $object_file_name = __DIR__ . "/../source_codes/" . "a.out";
 
@@ -38,15 +43,19 @@ if (!file_exists($problem_dir_my_out) && !is_dir($problem_dir_my_out)) {
 
 $test_cases = file_get_contents($problem_dir_tests);
 
-for($i = 1; $i <= $test_cases; $i++){
-    $input_file = $problem_dir_in_out . $i .".in";
-    exec($object_file_name . " < " . $input_file . " > " . $problem_dir_my_out . $i . ".out"); 
-    // the previous line should be replaced wiith docker
-    $diff_command = "diff -s -q -Z " . $problem_dir_my_out  . $i . ".out " . $problem_dir_in_out . $i . ".out";
-    exec($diff_command, $ot, $ret_val);
-    if($ret_val == 0) my_print("OKay test " . $i);
-    else {my_print("ERROR ON TEST " . $i); my_print("WRONG ANSWER"); return;}
-}
+$problem_time_limit = get_problem_time_limit_from_database($problem_id);
+
+$in_container_command = "\"./tester; exit $?\""; 
+// append the time limit as $TLE so that it can be read inside the container 
+// use system function to execute timeout $TLE (inside c++ tester)
+
+$docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/1/:/problem -v ~/codecourses/source_codes/:/source_codes ubuntu bash -c './tester/a.out; exit $?'";
+
+exec($docker_run, $out, $return_value);
+
+echo $return_value;
+
+
 
 my_print("ACCEPTED");
 
