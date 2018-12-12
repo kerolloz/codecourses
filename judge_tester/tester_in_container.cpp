@@ -3,7 +3,7 @@
 using namespace std;
 
 int main (int argc, char *argv[])  {
-	string time_limit;
+	string time_limit = "0";
 
 	if(argc > 1){
 		time_limit = argv[1]; // time limit as a string from first argument

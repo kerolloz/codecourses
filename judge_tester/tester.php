@@ -49,7 +49,7 @@ $in_container_command = "\"./tester; exit $?\"";
 // append the time limit as $TLE so that it can be read inside the container 
 // use system function to execute timeout $TLE (inside c++ tester)
 
-$docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge codecourses_judge " . $problem_time_limit;
+$docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge:latest codecourses_judge " . $problem_time_limit;
 
 exec($docker_run, $out, $return_value);
 
@@ -62,6 +62,9 @@ switch ($return_value) {
 		break;
 	case -1:
 		my_print("NOT JUDGED - SOMETHING WENT WRONG INNER_TESTER");
+		break;
+	case 124:
+		my_print("TIME LIMIT EXCEEDED");
 		break;
 	default:
 		my_print("CONTAINER DIDN'T EXIT PROPERLY");
