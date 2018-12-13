@@ -5,7 +5,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "Kk012053310258";
+$password = "";
 $dbname = "ojDB";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
