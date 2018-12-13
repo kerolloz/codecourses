@@ -3,16 +3,22 @@
 # WARNING: This is just a very basic tester!!!
 # should be integrated with docker
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ojDB";
+function get_sql_connection()
+{
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "ojDB";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+
+	return $conn;
+
 }
 
 function my_print($string){
@@ -21,12 +27,13 @@ function my_print($string){
 }
 
 function get_problem_time_limit_from_database($problem_id){
+	$connection = get_sql_connection();
     $sql = "SELECT time_limit FROM problems WHERE problem_id = $problem_id";
-    $result = $GLOBALS['conn']->query($sql);
+    $result = $connection->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            return $row["time_limit"]. "<br>";
+            return $row["time_limit"];
         }
     } else {
         return 0;
