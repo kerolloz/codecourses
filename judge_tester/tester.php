@@ -2,22 +2,22 @@
 
 # WARNING: This is just a very basic tester!!!
 # should be integrated with docker
-
 function get_sql_connection()
 {
+    /*DONT FORGET TO CLOSE THE CONNECTION USING STATEMENT OBJECT_NAME->close();*/
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
 	$dbname = "ojDB";
 
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($servername, $username, $password, $dbname);//connect to database
 
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	return $conn;
+	return $conn; //return rhe connection object
 
 }
 
@@ -27,18 +27,18 @@ function my_print($string){
 }
 
 function get_problem_time_limit_from_database($problem_id){
-	$connection = get_sql_connection();
-    $sql = "SELECT time_limit FROM problems WHERE problem_id = $problem_id";
-    $result = $connection->query($sql);
+	$connection = get_sql_connection();//getting the connection object
+    $sql = "SELECT time_limit FROM problems WHERE problem_id = $problem_id"; //prepare the sql statement
+    $result = $connection->query($sql); //execute the sql statement and get the result object
     if ($result->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
-            return $row["time_limit"];
+        while($row = $result->fetch_assoc()) { //fetching data from result object row by row
+            return $row["time_limit"]; //return the time limit of rhe problem
         }
     } else {
-        return 0;
+        return 0; //if there is no time limit stored on database (for safety)
     }
-
+    $connection->close(); //closing the connection
 }
 
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
