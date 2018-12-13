@@ -1,12 +1,12 @@
 <?php
 
-function database_connection_object(){
+function get_sql_connection(){
     $servername = "localhost";
     $username = "root";
-    $password = "Kk012053310258";
+    $password = "";
     $dbname = "ojDB";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);//connect to database
+    $conn = new mysqli($servername, $username, $password, $dbname); //connect to database
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -15,7 +15,7 @@ function database_connection_object(){
 }
 
 
-function get_problem_time_limit_from_database($problem_id,$connection){
+function get_problem_details_from_database($problem_id, &$connection){
 
     $sql = "SELECT memory_limit, time_limit FROM problems WHERE problem_id = $problem_id"; //prepare the sql statement
     $result = $connection->query($sql); //execute the sql statement and get the result object
@@ -40,7 +40,7 @@ function add_submission_to_database($problem_id, $user_id, $problem_status, $sol
 
 }
 
-function close_and_delete_database_object(&$connection){
+function close_sql_connection(&$connection){
   $connection->close();
   $connection = null;
 }

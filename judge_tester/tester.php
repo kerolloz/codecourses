@@ -1,5 +1,13 @@
 <?php
 
+require 'database_connection.php';
+
+function my_print($string)
+{
+	echo $string;
+	echo "<br>";
+}
+
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
 $object_file_name = __DIR__ . "/../source_codes/" . "a.out";
 
@@ -13,9 +21,13 @@ if($compilation_state){ // compile success if (compilation_state == 0)
     return(1);
 }
 
-$problem_id = $_POST['problem_id']; # get problem ID form link 
+$sql_connection = get_sql_connection();
 
-// add_submission_to_database();
+$problem_id = $_POST['problem_id']; // get problem ID form link 
+$problem_details = get_problem_details_from_database($problem_id, $sql_connection);
+$problem_time_limit = $problem_details['time_limit'];
+$problem_memory_limit = $problem_details['memory_limit'];
+close_sql_connection($sql_connection);
 
 $problem_directory = __DIR__ . "/../problems_db/" . $problem_id;
 
@@ -30,11 +42,6 @@ if (!file_exists($problem_dir_my_out) && !is_dir($problem_dir_my_out)) {
 
 $test_cases = file_get_contents($problem_dir_tests);
 
-$problem_time_limit = get_problem_time_limit_from_database($problem_id,$conn);
-
-$in_container_command = "\"./tester; exit $?\""; 
-// append the time limit as $TLE so that it can be read inside the container 
-// use system function to execute timeout $TLE (inside c++ tester)
 
 $docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge:latest codecourses_judge " . $problem_time_limit;
 
@@ -58,5 +65,4 @@ switch ($return_value) {
 		break;
 }
 
-$conn->close(); //closing the connection
 return;
