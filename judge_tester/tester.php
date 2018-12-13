@@ -1,7 +1,6 @@
 <?php
 
-# WARNING: This is just a very basic tester!!!
-# should be integrated with docker
+
 function get_sql_connection()
 {
     /*DONT FORGET TO CLOSE THE CONNECTION USING STATEMENT OBJECT_NAME->close();*/
@@ -27,10 +26,10 @@ function my_print($string){
 }
 
 function get_problem_time_limit_from_database($problem_id){
-	$connection = get_sql_connection();//getting the connection object
+	$connection = get_sql_connection(); //getting the connection object
     $sql = "SELECT time_limit FROM problems WHERE problem_id = $problem_id"; //prepare the sql statement
     $result = $connection->query($sql); //execute the sql statement and get the result object
-    if ($result->num_rows > 0) {
+    if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
         // output data of each row
         while($row = $result->fetch_assoc()) { //fetching data from result object row by row
             return $row["time_limit"]; //return the time limit of rhe problem
