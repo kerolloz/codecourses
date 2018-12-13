@@ -5,7 +5,7 @@ $password = "";
 $dbname = "ojDB";
 
 $users_columns = ["user_id","first_name","last_name","username","gender","privileges", "email", "password"]; //users_columns names
-$contests_columns = ["contest_id","name","date","time","setter"];
+$contests_columns = ["contest_id","name","date","length","setter"];
 $submissions_columns = ["submission_id", "problem_id", "user_id",
     "status", "sol_language","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
 $problems_columns = ["problem_id", "name", "types", "level","contest_id","number_of_solvers","time_limit","memory_limit","FOREIGN KEY"]; //problems_columns names

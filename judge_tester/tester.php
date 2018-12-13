@@ -1,65 +1,5 @@
 <?php
 
-
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ojDB";
-
-$conn = new mysqli($servername, $username, $password, $dbname);//connect to database
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-
-
-function my_print($string){
-    echo $string;
-    echo "<br>";
-}
-
-function get_problem_time_limit_from_database($problem_id,$connection){
-
-    $sql = "SELECT time_limit FROM problems WHERE problem_id = $problem_id"; //prepare the sql statement
-    $result = $connection->query($sql); //execute the sql statement and get the result object
-    if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
-        // output data of each row
-        while($row = $result->fetch_assoc()) { //fetching data from result object row by row
-            return $row["time_limit"]; //return the time limit of rhe problem
-        }
-    } else {
-        return 0; //if there is no time limit stored on database (for safety)
-    }
-}
-
-
-function get_problem_memory_limit_from_database($problem_id,$connection){
-    $sql = "SELECT memory_limit FROM problems WHERE problem_id = $problem_id"; //prepare the sql statement
-    $result = $connection->query($sql); //execute the sql statement and get the result object
-    if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
-        // output data of each row
-        while($row = $result->fetch_assoc()) { //fetching data from result object row by row
-            return $row["memory_limit"]; //return the memory limit of rhe problem
-        }
-    } else {
-        return 0; //if there is no memory limit stored on database (for safety)
-    }
-}
-
-function add_submission_to_database($problem_id, $user_id, $problem_status, $sol_language, $connection){
-    $sql = "INSERT INTO submissions (problem_id, user_id, status, sol_language)
-    VALUES ($problem_id, $user_id , '$problem_status', '$sol_language')";//prepare the sql statement
-    if ($connection->query($sql) === TRUE) {//execute the sql statement
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
-    }
-
-}
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
 $object_file_name = __DIR__ . "/../source_codes/" . "a.out";
 
@@ -118,5 +58,5 @@ switch ($return_value) {
 		break;
 }
 
-$connection->close(); //closing the connection
+$conn->close(); //closing the connection
 return;
