@@ -6,11 +6,14 @@
         <link rel="stylesheet" href="style.css">
 
         <link rel = "script"   href = "../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
-        <script src="script.js"></script>
         <script src="/codecourses/scripts/script.js"></script>
     </head>
 
     <body>
+
+        <!--include navigation bar from a preset php file-->
+        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
+        
       	<div class ="tableWidth">
       	<p> <bold> Standings </bold> </p>
        <div class="table-responsive">
