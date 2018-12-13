@@ -5,14 +5,14 @@ __NOTE: compatible with Linux ONLY__
 
 ### How to deploy project
 1. clone the project into your home directory `cd ~; git clone https://github.com/kerolloz/codecourses.git`
-1. install [dependencies](#dependencies-installation) `xampp, docker`
+1. install [dependencies](#dependencies-installation) or use `cd ~/codecourses/initiate\ project/; sh INSTALL_DEPENDENCIES.sh` 
 1. execute `ln -s ~/codecourses  /opt/lampp/htdocs` to link the project to the server
 1. go to initiate project folder and run the following command `sh RUN_THIS_FILE.sh`
 
 #### Dependencies installation
 1. install xampp for linux https://www.apachefriends.org/download.html _Version: ***7.2.12 / PHP 7.2.12***_
 1. install docker
-```
+```bash
 sudo apt-get update
 
 sudo apt-get install \
