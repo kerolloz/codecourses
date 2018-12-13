@@ -6,8 +6,8 @@
     <ul id = "dropdownClick" class = "nav-left">
         <li><a href="/codecourses">Home</a></li>
         <li><a href="/codecourses/problemset/">Problem Set</a></li>
-        <li><a href="/codecourses/roadmap/">Road Map</a></li>
         <li><a href="/codecourses/contests/">Contests</a></li>
+        <li><a href="/codecourses/roadmap/">Road Map</a></li>
         <li><a href="/codecourses/tutorials/">Tutorials</a></li>
         <?php 
         if(!isset($_SESSION))
