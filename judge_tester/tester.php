@@ -3,14 +3,35 @@
 # WARNING: This is just a very basic tester!!!
 # should be integrated with docker
 
+$servername = "localhost";
+$username = "root";
+$password = "Kk012053310258";
+$dbname = "ojDB";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 function my_print($string){
     echo $string;
     echo "<br>";
 }
 
 function get_problem_time_limit_from_database($problem_id){
+    $sql = "SELECT time_limit FROM problems WHERE problem_id = $problem_id";
+    $result = $GLOBALS['conn']->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            return $row["time_limit"]. "<br>";
+        }
+    } else {
+        return 0;
+    }
 
-	return 1; // JUST FOR TESTING
 }
 
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
