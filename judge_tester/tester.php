@@ -50,8 +50,16 @@ function get_problem_memory_limit_from_database($problem_id,$connection){
     }
 }
 
+function add_submission_to_database($problem_id, $user_id, $problem_status, $sol_language, $connection){
+    $sql = "INSERT INTO submissions (problem_id, user_id, status, sol_language)
+    VALUES ($problem_id, $user_id , '$problem_status', '$sol_language')";//prepare the sql statement
+    if ($connection->query($sql) === TRUE) {//execute the sql statement
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $connection->error;
+    }
 
-
+}
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
 $object_file_name = __DIR__ . "/../source_codes/" . "a.out";
 
