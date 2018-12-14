@@ -28,7 +28,13 @@ if(isset($_POST['submit'])){
             <div class="row">
                 <div class="col">
                     <!--Problem pdf -->
-                    <embed class="pdfContainer" src="/codecourses/problems_db/<?= $_GET['id'] ?>/<?= $_GET['id'] ?>.pdf"> <!--src=#problem pdf-->
+                    <?php 
+                    $problem_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE); 
+                    if(!$problem_id)
+                    	header("location: /codecourses/errors/404.html");
+
+                    ?>
+                    <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/<?= $problem_id ?>.pdf"> <!--src=#problem pdf-->
                     <br><br><br>
                 </div>
             </div>

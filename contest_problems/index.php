@@ -11,7 +11,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM problems WHERE contest_id=" . $_GET['id'];
+$contest_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE); 
+if(!$contest_id)
+    header("location: /codecourses/errors/404.html");
+$sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 
 ?>
 <!doctype html>
@@ -46,13 +49,13 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $_GET['id'];
                	<th> <img src="/codecourses/assets/images/ok.png" > </th> 
            	</tr>
            	<?php 
-			$result = $conn->query($sql);
+      			$result = $conn->query($sql);
 
-			if ($result->num_rows > 0) :
-			    // output data of each row
-			    $problem_character = "A";
-			    while($row = $result->fetch_assoc()) :
-			?>
+      			if ($result->num_rows > 0) :
+      			    // output data of each row
+      			    $problem_character = "A";
+      			    while($row = $result->fetch_assoc()) :
+      			?>
 			    	<tr>
 			    		<td> <?= $problem_character++ ?> </td>
 		                <td> <a  href="/codecourses/problem?id=<?= $row['problem_id'] ?>"> <?= $row['name'] ?> </a> </td>
