@@ -58,7 +58,7 @@ $sql = "SELECT * FROM contests";
 		                <td> <a  href="/codecourses/contest_problems?id=<?= $row['contest_id'] ?>"> <?= $row['name'] ?> </a> </td>
 		                <td> <?= $row['setter'] ?> </td>
 		                <td> <?= $row['date'] ?> </td> 
-		                <td> <?= $row['time'] ?> </td>
+		                <td> <?= $row['length'] ?>m </td>
 		                <td> <button id="register"> <span class="badge badge-primary"> &gt Register</span> </button> </td>
 		            </tr>
 			<?php
