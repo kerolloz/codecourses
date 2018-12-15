@@ -110,12 +110,13 @@ if (isset($_POST['submit'])) {
             <!-- MAIN CONTENT-->
 
             <div class="main-content">
-            <!-- modal small -->
-           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <!-- modal PDF Downloader -->
+           <div class="modal fade" id="cfPDFDownloader" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Problem PDF</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -123,23 +124,80 @@ if (isset($_POST['submit'])) {
                   <div class="modal-body">
                     <form>
                       <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="message-text" class="col-form-label">Problem Link:</label>
+                        <input type="url" class="form-control" id="text-input"></textarea>
+                      </div>
+                     
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Download PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end modal PDF Downloader -->
+           
+            <!-- modal CF-PARSER -->
+           <div class="modal fade" id="cfSubmissionParserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New TestCases</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Submission Link:</label>
+                        <input type="url" class="form-control" id="text-input"></textarea>
+                      </div>
+                     
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Parse Test Cases</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end modal CF-PARSER -->
+
+
+            <!-- modal TESTCASE -->
+           <div class="modal fade" id="testcaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New TestCase</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Input:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
                       </div>
                       <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
+                        <label for="message-text" class="col-form-label">Output:</label>
                         <textarea class="form-control" id="message-text"></textarea>
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-primary">Add Test Case</button>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- end modal small -->
+            <!-- end modal TESTCASE -->
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
@@ -223,7 +281,7 @@ if (isset($_POST['submit'])) {
                                                 <!-- Button trigger modal -->
                                                 <div class="col-12 col-md-9 input-group">
                                                     
-                                                    <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                    <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#cfPDFDownloader" data-whatever="@mdo">
                                                         CF PDF Downloader&nbsp;
                                                         <i class="fa fa-file-pdf-o" style="color:white"></i>
 
@@ -243,7 +301,7 @@ if (isset($_POST['submit'])) {
                                                 <!-- Button trigger modal -->
                                                 <div class="col-12 col-md-9 input-group">
                                                     
-                                                    <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                    <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#cfSubmissionParserModal" data-whatever="@mdo">
                                                         CF TestCases Submission Parser&nbsp;
                                                         <i class="fa fa-lightbulb-o"></i>
 
@@ -251,7 +309,7 @@ if (isset($_POST['submit'])) {
                                                     <div>
                                                     </div>
                                                     &nbsp;<strong class="md-1">Or</strong>&nbsp;
-                                                    <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                    <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#testcaseModal" data-whatever="@mdo">
                                                         Add TestCases Manually&nbsp;
                                                         <i class="fa fa-terminal" style="color:white"></i>
 
