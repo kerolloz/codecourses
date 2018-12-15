@@ -111,26 +111,33 @@ if (isset($_POST['submit'])) {
 
             <div class="main-content">
             <!-- modal small -->
-            <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="smallmodalLabel">Small Modal</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                But your link here to get it
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Confirm</button>
-                        </div>
-                    </div>
+           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                  </div>
                 </div>
+              </div>
             </div>
             <!-- end modal small -->
                 <div class="section__content section__content--p30">
@@ -215,7 +222,8 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Button trigger modal -->
                                                 <div class="col-12 col-md-9 input-group">
-                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#smallmodal">
+                                                    
+                                                    <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
                                                         Codeforces PDF Downloader
                                                         <i class="fa fa-file-pdf-o" style="color:white"></i>
 
