@@ -224,7 +224,7 @@ if (isset($_POST['submit'])) {
                                                 <div class="col-12 col-md-9 input-group">
                                                     
                                                     <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                                                        Codeforces PDF Downloader
+                                                        CF PDF Downloader&nbsp;
                                                         <i class="fa fa-file-pdf-o" style="color:white"></i>
 
                                                     </button>
@@ -233,6 +233,29 @@ if (isset($_POST['submit'])) {
                                                     &nbsp;<strong class="md-1">Or</strong>&nbsp;
                                                     <input type="file" accept=".pdf" class="btn btn-danger">
                                                      
+                                                </div>
+                                                                                        
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Test Cases</label>
+                                                </div>
+                                                <!-- Button trigger modal -->
+                                                <div class="col-12 col-md-9 input-group">
+                                                    
+                                                    <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                        CF TestCases Submission Parser&nbsp;
+                                                        <i class="fa fa-lightbulb-o"></i>
+
+                                                    </button>
+                                                    <div>
+                                                    </div>
+                                                    &nbsp;<strong class="md-1">Or</strong>&nbsp;
+                                                    <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                        Add TestCases Manually&nbsp;
+                                                        <i class="fa fa-terminal" style="color:white"></i>
+
+                                                    </button>
                                                 </div>
                                                                                         
                                             </div>
