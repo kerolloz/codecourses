@@ -8,7 +8,6 @@ if(isset($_POST)):
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql_stmnt = "INSERT INTO problems (name, level, contest_id, time_limit, memory_limit) VALUES (:name, :level, :contest_id, :time_limit, :memory_limit)";
 		$stmt = $dbh->prepare($sql_stmnt);
-	    print_r($_POST);
 	    $stmt->bindParam(':name', $_POST['problem_name']);
 	    $stmt->bindParam(':level', $_POST['problem_level']);
 	    $stmt->bindParam(':contest_id', $_POST['contest_id']);
@@ -16,9 +15,8 @@ if(isset($_POST)):
 	    $stmt->bindParam(':memory_limit', $_POST['memory_limit']);
 		$stmt->execute();
 	    $dbh = null;
-	    echo "Contest created successfully";
 	} catch (PDOException $e) {
-	    print "Error!: " . $e->getMessage() . "<br/>";
-	    die();
+	    $Error = "Error!: " . $e->getMessage() . "<br/>";
+
 	}
 endif;

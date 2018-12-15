@@ -1,6 +1,6 @@
 <?php
 
-require 'database_connection.php';
+require '../back/database_connection.php';
 
 function my_print($string)
 {
@@ -23,7 +23,7 @@ if($compilation_state){ // compile success if (compilation_state == 0)
 
 $sql_connection = get_sql_connection();
 
-$problem_id = $_POST['problem_id']; // get problem ID form link 
+$problem_id = $_GET['id']; // get problem ID form link 
 $problem_details = get_problem_details_from_database($problem_id, $sql_connection);
 $problem_time_limit = $problem_details['time_limit'];
 $problem_memory_limit = $problem_details['memory_limit'];

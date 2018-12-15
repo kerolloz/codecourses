@@ -1,9 +1,9 @@
 <?php
 
-require '../judge_tester/database_connection.php';
-
+require '../back/database_connection.php';
 $sql_connection = get_sql_connection();
 
+$Error = null;
 if (isset($_POST['submit'])) {
     require '../back/problem_creation.php';
 }
@@ -121,19 +121,25 @@ if (isset($_POST['submit'])) {
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <label for="message-text" class="col-form-label">Problem Link:</label>
-                        <input type="url" class="form-control" id="text-input"></textarea>
+                  <form action="" method="post">
+
+                      <div class="modal-body">
+                          <div class="form-group">
+                            <label for="message-text" class="col-form-label">Problem Link:</label>
+                            <input type="url" class="form-control" id="text-input"></textarea>
+                          </div>
+                         <div class="progress mb-2" id="cfPDFDownloaderProgressBarr" style="visibility: hidden;">
+                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 5%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
                       </div>
-                     
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Download PDF</button>
-                  </div>
+                      
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'hidden';">Close</button>
+                        <button type="button" name="download_pdf" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'visible';"
+                         class="btn btn-primary">Download PDF</button>
+                      </div>
+                  </form>
+
                 </div>
               </div>
             </div>
@@ -243,6 +249,11 @@ if (isset($_POST['submit'])) {
                                                         <?php
                                                             endwhile;
                                                             close_sql_connection($sql_connection);
+                                                        else:
+                                                        ?>
+
+                                                            <option value="-1" disabled>NO AVAILABLE CONTESTS</option>
+                                                        <?php
                                                         endif;
                                                         ?>
                                                     </select>
@@ -330,6 +341,27 @@ if (isset($_POST['submit'])) {
                                 </div>
 
                             </div>
+                            <?php
+                                if(!isset($Error) && isset($_POST['submit'])):
+                                ?>
+                                <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                                    <span class="badge badge-pill badge-success">Success</span>
+                                    You successfully created this Contest.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <?php
+                                elseif (isset($Error)):
+                                ?>
+                                <div class="alert alert-danger" role="alert">
+                                            <?=  $Error ?>
+                                            Please make sure MySQL Database is working properly.
+
+                                </div>
+                                <?php
+                                endif;
+                                ?>
                         </div>
                     
                     </div>
