@@ -24,10 +24,11 @@ if (isset($_POST['submit'])) {
     <!-- Title Page-->
     <title>Problem Creation</title>
 
+    
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -44,6 +45,7 @@ if (isset($_POST['submit'])) {
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+
 
 </head>
 
@@ -106,10 +108,35 @@ if (isset($_POST['submit'])) {
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
+
             <div class="main-content">
+            <!-- modal small -->
+            <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="smallmodalLabel">Small Modal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                But your link here to get it
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end modal small -->
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
+
 
                             <div class="col-lg-12">
                                 <div class="card">
@@ -182,12 +209,34 @@ if (isset($_POST['submit'])) {
 
 
                                             </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Problem PDF</label>
+                                                </div>
+                                                <!-- Button trigger modal -->
+                                                <div class="col-12 col-md-9 input-group">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#smallmodal">
+                                                        Codeforces PDF Downloader
+                                                        <i class="fa fa-file-pdf-o" style="color:white"></i>
+
+                                                    </button>
+                                                    <div>
+                                                    </div>
+                                                    &nbsp;&nbsp;
+                                                    <input type="file" class="btn btn-secondary">
+                                                     
+                                                </div>
+                                                                                        
+                                            </div>
+                                        
+
                                         
                                         <div class="card-footer">
                                             <button type="submit" name="submit" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-dot-circle-o"></i> Create
                                             </button>
                                         </div>
+
                                     </form>
                                 </div>
 
@@ -200,7 +249,6 @@ if (isset($_POST['submit'])) {
         </div>
 
     </div>
-
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->

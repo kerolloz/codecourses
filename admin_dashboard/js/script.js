@@ -21,3 +21,8 @@ now =  new Date().toLocaleTimeString('en-US', { hour12: false,
 
 document.getElementById("time-field").value = now;
 document.getElementById("time-field").min = now;
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+  $('#myModal').modal('show')
+})
