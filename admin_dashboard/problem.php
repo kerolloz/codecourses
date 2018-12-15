@@ -215,15 +215,15 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Button trigger modal -->
                                                 <div class="col-12 col-md-9 input-group">
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#smallmodal">
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#smallmodal">
                                                         Codeforces PDF Downloader
                                                         <i class="fa fa-file-pdf-o" style="color:white"></i>
 
                                                     </button>
                                                     <div>
                                                     </div>
-                                                    &nbsp;&nbsp;
-                                                    <input type="file" class="btn btn-secondary">
+                                                    &nbsp;<strong class="md-1">Or</strong>&nbsp;
+                                                    <input type="file" accept=".pdf" class="btn btn-danger">
                                                      
                                                 </div>
                                                                                         
