@@ -34,6 +34,7 @@ def download_problem_pdf(url, name):
 
 
 if __name__ == "__main__":
+    import os
     if len(sys.argv) < 3:
         print("Please provide the problem link and the pdf name")
         exit(1)
