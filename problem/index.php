@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
                                                 <br>
                                                 <br>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
+                                                    <button type="submit" class="btn btn-primary" name="submit" onclick="$('#exampleModalLong').modal('hide')">SUBMIT</button>
                                                 </div>
 
                                             </form>
