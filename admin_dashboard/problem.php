@@ -126,7 +126,7 @@ if (isset($_POST['submit'])) {
                       <div class="modal-body">
                           <div class="form-group">
                             <label for="message-text" class="col-form-label">Problem Link:</label>
-                            <input type="url" class="form-control" id="text-input"></textarea>
+                            <input type="url" name="pdf_problem_link" class="form-control" id="text-input"></textarea>
                           </div>
                          <div class="progress mb-2" id="cfPDFDownloaderProgressBarr" style="visibility: hidden;">
                                             <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 5%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
                       
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'hidden';">Close</button>
-                        <button type="button" name="download_pdf" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'visible';"
+                        <button type="submit" formaction="../back/download_pdf.php" name="download_pdf" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'visible';"
                          class="btn btn-primary">Download PDF</button>
                       </div>
                   </form>
@@ -155,19 +155,21 @@ if (isset($_POST['submit'])) {
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  <form method="post" action="">
                   <div class="modal-body">
-                    <form>
+                    
                       <div class="form-group">
                         <label for="message-text" class="col-form-label">Submission Link:</label>
-                        <input type="url" class="form-control" id="text-input"></textarea>
+                        <input type="url" name="submission_link" class="form-control" id="text-input" required>
                       </div>
                      
-                    </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Parse Test Cases</button>
+                    <button type="submit" formaction="../back/download_test_cases.php" class="btn btn-primary">Parse Test Cases</button>
                   </div>
+                  </form>
+
                 </div>
               </div>
             </div>
