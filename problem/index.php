@@ -106,9 +106,10 @@ if(isset($_POST['submit'])){
                                                 <br>
                                                 <br>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
+                                                    <button id="resbtn" type="submit" class="btn btn-primary" name="submit">
+                                                        SUBMIT
+                                                    </button>                                                   
                                                 </div>
-
                                             </form>
                                         </div>
                                     </div>
@@ -119,6 +120,33 @@ if(isset($_POST['submit'])){
                         </div>
                     </div>
                 </div>
+            </div>
+            <!--3 Models ACC, WA, TLE -->
+            <!-- 1 -->
+            <div id="res" class="result">
+              <!-- Modal content -->
+              <div class="resultMod">
+                <span class="closeRes">&times;</span>
+                <h3>Accepted</h3>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div id="res" class="result">
+              <!-- Modal content -->
+              <div class="resultMod">
+                <span class="closeRes">&times;</span>
+                <h3>Wrong Answer</h3>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div id="res" class="result">
+              <!-- Modal content -->
+              <div class="resultMod">
+                <span class="closeRes">&times;</span>
+                <h3>Time Limt Error</h3>
+              </div>
             </div>
         </div>
         
