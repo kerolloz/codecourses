@@ -47,6 +47,8 @@ $docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codec
 
 exec($docker_run, $out, $return_value);
 
+return $return_value;
+
 switch ($return_value) {
 	case 0:
 		my_print("ACCEPTED");

@@ -1,11 +1,8 @@
 <?php
-
 $errors_array = [];
-
 if(isset($_POST['submit'])){
     require '../judge_tester/process_submission.php';
 }
-
 ?>
 
 <!doctype html>
@@ -32,7 +29,6 @@ if(isset($_POST['submit'])){
                     $problem_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE); 
                     if(!$problem_id)
                     	header("location: /codecourses/errors/404.html");
-
                     ?>
                     <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/problem.pdf"> <!--src=#problem pdf-->
                     <br><br><br>
@@ -123,37 +119,84 @@ if(isset($_POST['submit'])){
             </div>
             <!--3 Models ACC, WA, TLE -->
             <!-- 1 -->
+      <?php
+if (isset($return_value)):
+	
+switch ($return_value) {
+	case 0:
+
+	echo '<div id="res" class="finalResultClass">
+      <!-- Modal content -->
+      <div class="resultMod">
+        <span class="closeRes">&times;</span>
+        <h3>Accepted</h3>
+      </div>
+    </div>';
+
+		break;
+	case 1:
+
+	echo '<div id="res" class="finalResultClass">
+      <!-- Modal content -->
+      <div class="resultMod">
+        <span class="closeRes">&times;</span>
+        <h3>Wrong Answer</h3>
+      </div>
+    </div>';
+
+		break;
+	case -1:
+
+	echo '<div id="res" class="finalResultClass">
+      <!-- Modal content -->
+      <div class="resultMod">
+        <span class="closeRes">&times;</span>
+        <h3>Not Judged</h3>
+      </div>
+    </div>';
+
+		break;
+	case 124:
+
+	echo '<div id="res" class="finalResultClass">
+      <!-- Modal content -->
+      <div class="resultMod">
+        <span class="closeRes">&times;</span>
+        <h3>TIME LIMIT EXCEEDED</h3>
+      </div>
+    </div>';
+		break;
+	default:
+	echo'
+	<div id="res" class="finalResultClass">
+      <!-- Modal content -->
+      <div class="resultMod">
+        <span class="closeRes">&times;</span>
+        <h3>Something Went Wrong</h3>
+
+      </div>
+    </div>';
+		break;
+}
+$return_value = NULL;
+endif;
+?>
+
             <div id="res" class="result">
               <!-- Modal content -->
               <div class="resultMod">
                 <span class="closeRes">&times;</span>
-                <h3>Accepted</h3>
+                <h3>Please Wait!</h3>
               </div>
             </div>
 
-            <!-- 2 -->
-            <div id="res" class="result">
-              <!-- Modal content -->
-              <div class="resultMod">
-                <span class="closeRes">&times;</span>
-                <h3>Wrong Answer</h3>
-              </div>
-            </div>
-
-            <!-- 3 -->
-            <div id="res" class="result">
-              <!-- Modal content -->
-              <div class="resultMod">
-                <span class="closeRes">&times;</span>
-                <h3>Time Limt Error</h3>
-              </div>
-            </div>
         </div>
         
         <br>
         <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
         <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
         <script src="/codecourses/scripts/script.js"></script>
+        <script src="script.js"></script>
 
     </body>
 </html>
