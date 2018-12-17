@@ -7,6 +7,13 @@ $Error = null;
 if (isset($_POST['submit'])) {
     require '../back/problem_creation.php';
 }
+if (isset($_POST['download_pdf'])) {
+    # code...
+    require '../back/download_pdf.php';
+}
+if (isset($_POST['download_test_cases'])) {
+    require '../back/download_test_cases.php';
+}
 
 ?>
 
@@ -121,22 +128,24 @@ if (isset($_POST['submit'])) {
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <form action="" method="post">
+                  <form id="noRefreshForm" method="post">
 
                       <div class="modal-body">
                           <div class="form-group">
                             <label for="message-text" class="col-form-label">Problem Link:</label>
                             <input type="url" name="pdf_problem_link" class="form-control" id="text-input"></textarea>
                           </div>
-                         <div class="progress mb-2" id="cfPDFDownloaderProgressBarr" style="visibility: hidden;">
-                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 5%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                          <div class="progress mb-2" id="cfPDFDownloaderProgressBarr" style="visibility: hidden;">
+                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Please Wait While Downloading Your PDF</div>
                         </div>
+
+                         
                       </div>
                       
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'hidden';">Close</button>
-                        <button type="submit" formaction="../back/download_pdf.php" name="download_pdf" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'visible';"
-                         class="btn btn-primary">Download PDF</button>
+                        <button class="submit btn btn-primary" type="submit" value="Send" name="download_pdf" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'visible';"
+                         >Download PDF</button>
                       </div>
                   </form>
 
@@ -162,11 +171,15 @@ if (isset($_POST['submit'])) {
                         <label for="message-text" class="col-form-label">Submission Link:</label>
                         <input type="url" name="submission_link" class="form-control" id="text-input" required>
                       </div>
+                      <div class="progress mb-2" id="cfSubmissionParserProgressBarr" style="visibility: hidden;">
+                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Please Wait While Downloading Your TestCases</div>
+                        </div>
                      
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" formaction="../back/download_test_cases.php" class="btn btn-primary">Parse Test Cases</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('cfSubmissionParserProgressBarr').style.visibility = 'hidden';">Close</button>
+                    <button type="submit" name="download_test_cases" class="btn btn-primary" onclick="document.getElementById('cfSubmissionParserProgressBarr').style.visibility = 'visible';
+                    ">Parse Test Cases</button>
                   </div>
                   </form>
 
@@ -299,11 +312,20 @@ if (isset($_POST['submit'])) {
                                                         <i class="fa fa-file-pdf-o" style="color:white"></i>
 
                                                     </button>
+                                                    
                                                     <div>
                                                     </div>
                                                     &nbsp;<strong class="md-1">Or</strong>&nbsp;
                                                     <input type="file" accept=".pdf" class="btn btn-danger">
-                                                     
+                                                    <?php
+                                                    if (isset($download_pdf_error)):
+                                                        echo $download_pdf_error;
+                                                    elseif (isset($download_pdf_success)):
+                                                    ?>
+                                                    &nbsp; <i class="fa fa-check-square" style="color:green"></i> 
+                                                    <?php
+                                                    endif;
+                                                    ?>
                                                 </div>
                                                                                         
                                             </div>
@@ -319,6 +341,7 @@ if (isset($_POST['submit'])) {
                                                         <i class="fa fa-lightbulb-o"></i>
 
                                                     </button>
+                                                    
                                                     <div>
                                                     </div>
                                                     &nbsp;<strong class="md-1">Or</strong>&nbsp;
@@ -327,6 +350,17 @@ if (isset($_POST['submit'])) {
                                                         <i class="fa fa-terminal" style="color:white"></i>
 
                                                     </button>
+                                                     <?php
+                                                    if (isset($download_test_cases_submission_folder_name)):
+                                                        echo '&nbsp; <i class="fa fa-check-square" style="color:green"></i>';
+                                                        echo $download_test_cases_submission_folder_name;
+                                                    ?>
+                                                    <input type="text" name="download_test_cases_submission_folder_name" value="<?= $download_test_cases_submission_folder_name ?>" hidden>
+                                                    <?php
+                                                    elseif (isset($download_test_cases_error)):
+                                                        echo $download_test_cases_error;
+                                                    endif;
+                                                    ?>
                                                 </div>
                                                                                         
                                             </div>
@@ -348,7 +382,7 @@ if (isset($_POST['submit'])) {
                                 ?>
                                 <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
                                     <span class="badge badge-pill badge-success">Success</span>
-                                    You successfully created this Contest.
+                                    You successfully created this Problem.
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>

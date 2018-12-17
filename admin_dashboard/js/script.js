@@ -27,5 +27,7 @@ $('#myModal').on('shown.bs.modal', function () {
   $('#myModal').modal('show')
 })
 
-
+$('#noRefreshForm').submit(function () {
+ return false;
+});
 

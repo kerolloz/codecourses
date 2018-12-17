@@ -8,12 +8,6 @@ import sys
 try:
     from bs4 import BeautifulSoup
 except Exception as e:
-    print(e, "\n------------------------------------------------"
-             "\nYout should have BeautifulSoup installed\n"
-             "You can use the following command to install it\n",
-          "sudo apt-get install python3-bs4\n"
-          "------------------------------------------------"
-          )
     raise e
 
 soup = None
@@ -26,7 +20,7 @@ def parse_it(div_class, file_name):
     test_number = 0
     for div in soup.find_all("div", div_class):
         test_number += 1
-        print(">> Parsing", element, "#", test_number)
+        # print(">> Parsing", element, "#", test_number)
         with open(str(test_number) + file_name, 'w') as out_file:
             out_file.writelines(div.contents[len(div.contents) - 2].pre.contents)
 
@@ -35,16 +29,16 @@ def parse_it(div_class, file_name):
 
 def main():
     problem_link = sys.argv[1]
-    print(">> Please wait while downloading the submission content")
+    # print(">> Please wait while downloading the submission content")
     try:
         my_request = urllib.request.urlopen(problem_link)
         my_html = my_request.read()
     except Exception as __connection_error__:
-        print(">> Something went wrong while reading the submission link!", __connection_error__)
+        # print(">> Something went wrong while reading the submission link!", __connection_error__)
         return -1
 
-    print(">> Submission HTML Downloaded successfully")
-    print(">> Extraction input and output from submission HTML")
+    # print(">> Submission HTML Downloaded successfully")
+    # print(">> Extraction input and output from submission HTML")
 
     numbers_in_link = re.findall("([0-9]+)", problem_link)  # numbers
 
@@ -64,10 +58,9 @@ def main():
 
     number_of_testcases = parse_it("file input-view", "in")
     if parse_it("file answer-view", "out"):
-        print(">> Parsed", number_of_testcases, "test case")
-        print(">> DONE!",
-              "\n>> Submission has been parsed Successfully to", dir_name, "!"
-              )
+        # print(">> Parsed", number_of_testcases, "test case")
+        # print(">> DONE!",
+        print(dir_name)
         os.chdir("..")
         with open("number_of_test_cases.txt", "w") as n_ts:
             n_ts.write(str(number_of_testcases))

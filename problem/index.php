@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
                     	header("location: /codecourses/errors/404.html");
 
                     ?>
-                    <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/<?= $problem_id ?>.pdf"> <!--src=#problem pdf-->
+                    <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/problem.pdf"> <!--src=#problem pdf-->
                     <br><br><br>
                 </div>
             </div>

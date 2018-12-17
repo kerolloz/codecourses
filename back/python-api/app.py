@@ -1,7 +1,14 @@
-#!/usr/bin/env python3
+from flask import Flask, request
 import pdfkit
 import PyPDF2
-import sys
+
+
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+
 
 def cut_problem_pdf(pdf_name, out_name):
     with open(pdf_name, "rb") as in_f:
@@ -14,9 +21,9 @@ def cut_problem_pdf(pdf_name, out_name):
             page = input1.getPage(i)
             page.cropBox.lowerLeft = (10, 0)
             if i == 0:  # if it's the first page cut the navigation bar
-                page.cropBox.upperRight = (403, 690)
+                page.cropBox.upperRight = (415, 705)
             else:
-                page.cropBox.upperRight = (403, page.mediaBox.getUpperRight_y())
+                page.cropBox.upperRight = (415, page.mediaBox.getUpperRight_y())
             output.addPage(page)
 
         with open(out_name, "wb") as out_f:
@@ -33,13 +40,22 @@ def download_problem_pdf(url, name):
     pdfkit.from_url(url, name, options=options)
 
 
-if __name__ == "__main__":
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello_world():
     import os
-    if len(sys.argv) < 3:
-        print("Please provide the problem link and the pdf name")
-        exit(1)
-    link = sys.argv[1]
-    out_name = sys.argv[2]
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+    link = request.args.get('link')
+    out_name = "problem.pdf"
     pdf_name = "original_problem.pdf"
     download_problem_pdf(link, pdf_name)
     cut_problem_pdf(pdf_name, out_name)
+    os.remove(pdf_name)
+    return "problem.pdf"
+
+
+if __name__ == '__main__':
+    app.run()
+
