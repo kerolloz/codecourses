@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
                     <?php 
                     $problem_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE); 
                     if(!$problem_id)
-                    	header("location: /codecourses/errors/404.html");
+                        header("location: /codecourses/errors/404.html");
                     ?>
                     <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/problem.pdf"> <!--src=#problem pdf-->
                     <br><br><br>
@@ -119,77 +119,58 @@ if(isset($_POST['submit'])){
             </div>
             <!--3 Models ACC, WA, TLE -->
             <!-- 1 -->
-      <?php
-if (isset($return_value)):
-	
-switch ($return_value) {
-	case 0:
 
-	echo '<div id="res" class="finalResultClass">
-      <!-- Modal content -->
-      <div class="resultMod">
-        <span class="closeRes">&times;</span>
-        <h3>Accepted</h3>
-      </div>
-    </div>';
-
-		break;
-	case 1:
-
-	echo '<div id="res" class="finalResultClass">
-      <!-- Modal content -->
-      <div class="resultMod">
-        <span class="closeRes">&times;</span>
-        <h3>Wrong Answer</h3>
-      </div>
-    </div>';
-
-		break;
-	case -1:
-
-	echo '<div id="res" class="finalResultClass">
-      <!-- Modal content -->
-      <div class="resultMod">
-        <span class="closeRes">&times;</span>
-        <h3>Not Judged</h3>
-      </div>
-    </div>';
-
-		break;
-	case 124:
-
-	echo '<div id="res" class="finalResultClass">
-      <!-- Modal content -->
-      <div class="resultMod">
-        <span class="closeRes">&times;</span>
-        <h3>TIME LIMIT EXCEEDED</h3>
-      </div>
-    </div>';
-		break;
-	default:
-	echo'
-	<div id="res" class="finalResultClass">
-      <!-- Modal content -->
-      <div class="resultMod">
-        <span class="closeRes">&times;</span>
-        <h3>Something Went Wrong</h3>
-
-      </div>
-    </div>';
-		break;
-}
-$return_value = NULL;
-endif;
-?>
-
-            <div id="res" class="result">
+            <div id="res" class="finalResultClass">
               <!-- Modal content -->
               <div class="resultMod">
                 <span class="closeRes">&times;</span>
-                <h3>Please Wait!</h3>
+                <h3 id="judgeResult">Please Wait!</h3>
               </div>
             </div>
 
+      <?php
+if (isset($return_value)):
+    
+switch ($return_value) {
+    case 0:
+    echo '<script>
+    	var jr = document.getElementById("judgeResult");
+    	jr.innerHTML = "Accepted";
+    </script>';
+        break;
+    case 1:
+    echo '<script>
+    	var jr = document.getElementById("judgeResult");
+    	jr.innerHTML = "WrongAnswer";
+    </script>';
+        break;
+    case -1:
+    echo '<script>
+    	var jr = document.getElementById("judgeResult");
+    	jr.innerHTML = "Not Judged";
+    </script>';
+        break;
+    case 124:
+    echo '<script>
+    	var jr = document.getElementById("judgeResult");
+    	jr.innerHTML = "Time Limit Exceed";
+    </script>';
+        break;
+    default:
+    echo '<script>
+    	var jr = document.getElementById("judgeResult");
+    	jr.innerHTML = "Something Went Wrong";
+    </script>';
+        break;
+}
+else:
+	echo '<script>
+		document.getElementById("res").className = "result";
+	</script>';
+endif;
+
+$return_value = null;
+?>
         </div>
         
         <br>

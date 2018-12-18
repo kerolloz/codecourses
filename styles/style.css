@@ -142,6 +142,9 @@ ul.nav-left li.dropdownIcon {
     color:#fff;
     font-size:15px;
     border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
 }
 
