@@ -133,19 +133,23 @@ if (isset($_POST['download_test_cases'])) {
                       <div class="modal-body">
                           <div class="form-group">
                             <label for="message-text" class="col-form-label">Problem Link:</label>
-                            <input type="url" name="pdf_problem_link" class="form-control" id="text-input"></textarea>
+                            <input type="url" name="pdf_problem_link" class="form-control" id="pdf_problem_link" required>
                           </div>
                           <div class="progress mb-2" id="cfPDFDownloaderProgressBarr" style="visibility: hidden;">
                                             <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Please Wait While Downloading Your PDF</div>
                         </div>
 
                          
+                      <div id="pdf_result">
+					   <!-- All data will display here  -->
+					   </div>
                       </div>
                       
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'hidden';">Close</button>
-                        <button class="submit btn btn-primary" type="submit" value="Send" name="download_pdf" onclick="document.getElementById('cfPDFDownloaderProgressBarr').style.visibility = 'visible';"
+                        <button class="submit btn btn-primary" type="button" value="Submit" name="download_pdf" onclick="SubmitDownloadPDF();"
                          >Download PDF</button>
+
                       </div>
                   </form>
 
@@ -169,17 +173,20 @@ if (isset($_POST['download_test_cases'])) {
                     
                       <div class="form-group">
                         <label for="message-text" class="col-form-label">Submission Link:</label>
-                        <input type="url" name="submission_link" class="form-control" id="text-input" required>
+                        <input type="url" name="submission_link" class="form-control" id="submission_link" required>
                       </div>
                       <div class="progress mb-2" id="cfSubmissionParserProgressBarr" style="visibility: hidden;">
                                             <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Please Wait While Downloading Your TestCases</div>
                         </div>
+                        <div id="testcases_result">
+					   <!-- All data will display here  -->
+					   </div>
+
                      
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('cfSubmissionParserProgressBarr').style.visibility = 'hidden';">Close</button>
-                    <button type="submit" name="download_test_cases" class="btn btn-primary" onclick="document.getElementById('cfSubmissionParserProgressBarr').style.visibility = 'visible';
-                    ">Parse Test Cases</button>
+                    <button type="button" name="download_test_cases" class="btn btn-primary" onclick="SubmitParseTestCases();">Parse Test Cases</button>
                   </div>
                   </form>
 
@@ -429,6 +436,7 @@ if (isset($_POST['download_test_cases'])) {
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script src="js/no_refresh_submit.js"></script>
 
 </body>
 

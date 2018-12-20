@@ -1,6 +1,6 @@
 <?php
 
-function check_url($url) {
+function download_problem($url) {
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -13,27 +13,16 @@ function check_url($url) {
     return $headers['http_code'];
 }
 
-function download_problem($url){
 
-	$curl = curl_init();
-	// Set some options - we are passing in a useragent too here
-	curl_setopt_array($curl, array(
-	    CURLOPT_RETURNTRANSFER => 1,
-	    CURLOPT_URL => $url,
-	));
-	// Send the request & save response to $resp
-	$resp = curl_exec($curl);
-	// Close request to clear up some resources
-	curl_close($curl);
+if(isset($_POST)){
+  $url = "http://127.0.0.1:5000/?link=". $_POST['pdf_problem_link'];
+  $check_url_status = download_problem($url);
+  if ($check_url_status == '200'){
+     $download_pdf_success = true;
+     echo "Done";
+  }
+  else{
+     $download_pdf_error = "<strong>Please activate the API:</strong> <br> <code>python3 ~/codecourses/back/python-api/app.py</code>";
+    echo $download_pdf_error;
+  }
 }
-
-
-$url = "http://127.0.0.1:5000/?link=". $_POST['pdf_problem_link'];
-$check_url_status = check_url($url);
-if ($check_url_status == '200'){
-   download_problem($url);
-   $download_pdf_success = true;
-}
-else
-   $download_pdf_error = "Please activate the api server: python3 ~/codecourses/back/python-api/app.py";
-

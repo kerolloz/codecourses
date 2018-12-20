@@ -12,5 +12,6 @@ back/python-api/problem.pdf
 
 # ignore soultions
 source_codes/*
-problems_db/*/test_cases/my_out/*
-problems_db/*
+problems_db/*/test_cases/*
+problems_db/*/problem.pdf
+
