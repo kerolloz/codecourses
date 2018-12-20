@@ -11,8 +11,3 @@ back/python-api/problem.pdf
 .idea/*.iml
 
 # ignore soultions
-source_codes/TEST.cpp
-source_codes/a.out
-problems_db/*/test_cases/*
-problems_db/*/problem.pdf
-back/*/
