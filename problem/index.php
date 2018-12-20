@@ -159,7 +159,7 @@ switch ($return_value) {
     default:
     echo '<script>
     	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Something Went Wrong";
+    	jr.innerHTML = "Cannot run docker container, Something went wrong";
     </script>';
         break;
 }
