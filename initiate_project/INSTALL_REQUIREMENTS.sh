@@ -30,6 +30,8 @@ sudo apt-get install docker-ce
 # with something like:
 sudo usermod -aG docker $USER
 sudo usermod -aG docker daemon
+sudo docker pull kerolloz/codecourses_judge
+
 # Remember to log out and back in for this to take effect!
 
 echo "Downloading XAMPP";
@@ -42,5 +44,5 @@ read user_choice;
 if [ "$user_choice" = "Y" ]; then
 	reboot;
 else 
-	docker pull kerolloz/codecourses_judge
+	echo "Docker Commands may not work properly!";
 fi
