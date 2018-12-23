@@ -49,22 +49,3 @@ exec($docker_run, $out, $return_value);
 
 return $return_value;
 
-switch ($return_value) {
-	case 0:
-		my_print("ACCEPTED");
-		break;
-	case 1:
-		my_print("WRONG ANSWER");
-		break;
-	case -1:
-		my_print("NOT JUDGED - SOMETHING WENT WRONG INNER_TESTER");
-		break;
-	case 124:
-		my_print("TIME LIMIT EXCEEDED");
-		break;
-	default:
-		my_print("CONTAINER DIDN'T EXIT PROPERLY");
-		break;
-}
-
-return;
