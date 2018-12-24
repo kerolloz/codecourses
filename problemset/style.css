@@ -1,9 +1,4 @@
 /*### Defaults ###*/
-
-* {
-    box-sizing: border-box;
-}
-
 body {
     line-height: 1;
     margin: 0;
@@ -75,22 +70,7 @@ body {
     }
 
 }
-/*
 
-
-/*### Footer ###*/
-#footer {
-    padding:5px 20px;
-    background-color:#9E1A70;
-    text-align:right;
-    color:#fff;
-    font-size:15px;
-    border-radius: 5px;
-
-}
-
-#footer a
-{
-    text-decoration: none;
-    color: white;
+div.color {
+    height: 535px; 
 }

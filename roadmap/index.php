@@ -11,7 +11,6 @@
        
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
-        <br>
         <div class="container">
             
             <!-- Map Section -->
@@ -86,7 +85,7 @@
                             </div>
                         </div>
 
-                        <!-- Intermediate section -->
+                        <!-- Advanced section -->
                         <div class="card">
                             <div class="card-header" id="headingThree">
                               <h5 class="mb-0">
@@ -125,8 +124,12 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
 
+        <!-- Footer Section-->
+        <div id="footer">
+            &copy 2018 CodeCourses.com | All Rights Reserved
+        </div>   
 
 
         <script src = "/codecourses/assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>

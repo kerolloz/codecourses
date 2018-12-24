@@ -48,7 +48,7 @@
                             <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
                         </div>
                         <br>
-                        <label>Problem Set</label>
+                        <label><a href="../problemset/index.php">Problem Set</a></label>
                         <hr>
                         <p>A large, varient and good staff of problems
                             that you can solve depending on your level 
@@ -64,7 +64,7 @@
                             <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
                         </div>
                         <br>
-                        <label>Road Map</label>
+                        <label><a href="../roadmap/index.php">Road Map</a></label>
                         <hr>
                         <p>With us, now you can know how to start 
                             you journy with problem solving. If you
@@ -81,7 +81,7 @@
                             <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
                         </div>
                         <br>
-                        <label>Contests</label>
+                        <label><a href="../contests/index.php">Contests</a></label>
                         <hr>
                         <p>When time to test yourself comes, you will find 
                             range of contests with their upcoming dates and 

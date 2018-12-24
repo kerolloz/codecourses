@@ -11,6 +11,7 @@ body {
     padding:0; 
     margin:0; 
     position:relative; 
+    background-image: url(../assets/images/acm.jpg);
 }
 
 body::after { 
@@ -22,6 +23,12 @@ body::after {
 nav, header, footer {
     display: block;
 }
+
+
+.color {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 
 /*### Navbar ###*/
 nav {
@@ -71,6 +78,7 @@ ul.nav-left li a {
 ul.nav-left li a:hover {
     background-color: #9E1A70;
     color: #fff;
+    border-radius: 3px;
 }
 
 ul.nav-left li.dropdownIcon {

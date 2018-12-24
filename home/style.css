@@ -177,3 +177,8 @@ div.box p {
     font-size: 20px;
     line-height: 1.2;
 }
+
+div.box a {
+    text-decoration: none;
+    color: #9E1A70;
+}
