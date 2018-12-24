@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>CodeCourses</title>
+        <link rel="stylesheet" href="/codecourses/styles/style.css">        
         <link rel="stylesheet" href= "style.css">
         <script src="/codecourses/scripts/script.js"></script>
     </head>

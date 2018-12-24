@@ -5,7 +5,6 @@
         <link rel="stylesheet" href = "/codecourses/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="/codecourses/styles/style.css">
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="../styles/style.css">
        
     </head>
     <body>

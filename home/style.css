@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-nav, header, footer {
-    display: block;
-}
-
 body {
     line-height: 1;
     margin: 0;
@@ -41,62 +37,6 @@ body {
 .col-10 {width: 83.33%}
 .col-11 {width: 91.66%}
 .col-12 {width: 100%}
-
-/*### Navbar ###*/
-nav {
-    background-color: #fff;
-    width: 100%;
-    margin: 0;
-    border-radius: 5px; 
-    padding-bottom: 0.5%;
-    padding-top: 0.5%;
-}
-
-nav img {
-    width: 15%;
-    height: 90px;
-    margin-left: 2%;
-}
-
-nav ul {
-    overflow: hidden;
-    margin: 0;
-    margin-bottom: 2%;
-    margin-left: 2%;
-    padding: 0;
-    display: inline-block;
-    width: 79%;
-}
-
-ul.nav-left li {
-    list-style: none;
-    float: left;
-}
-
-ul.nav-left li.nav-right {
-    float: right;
-}
-
-ul.nav-left li a {
-    text-decoration: none;
-    display: block;
-    min-height: 16px;
-    text-align: center;
-    padding: 14px;
-    text-transform: uppercase;
-    color: #2B3386;
-}
-
-ul.nav-left li a:hover {
-    background-color: #9E1A70;
-    color: #fff;
-}
-
-ul.nav-left li.dropdownIcon {
-    display: none;
-}
-
-
 
 /*### Mobile ###*/
 @media screen and (max-width: 850px) {
@@ -215,7 +155,7 @@ div.box {
     margin: 24px;
     padding: 36px 24px 40px 24px;
     border-radius: 7px;
-    height: 420px;
+    height: 380px;
     color: #9E1A70;
 }
 
@@ -254,43 +194,3 @@ div.box p {
     text-decoration: none;
     color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
