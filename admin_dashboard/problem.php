@@ -63,7 +63,7 @@ if (isset($_POST['download_test_cases'])) {
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="../home">
                     <img src="../assets/images/codeCourses_opt.png" alt="CodeCourses" width="65%" />
                 </a>
             </div>
