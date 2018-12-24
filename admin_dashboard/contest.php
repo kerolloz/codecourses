@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
                                                     <label for="text-input" class=" form-control-label">Duration in minutes</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="number" id="text-input" name="contest_length"  class="form-control" required>
+                                                    <input type="number" id="text-input" name="contest_length"  class="form-control" min="30" required>
                                                 </div>
                                             </div>
                                         
