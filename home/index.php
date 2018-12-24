@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>CodeCourses</title>
-        <link rel="stylesheet" href="/codecourses/styles/style.css">        
+        <link rel="stylesheet" href="../styles/style.css">        
         <link rel="stylesheet" href= "style.css">
-        <script src="/codecourses/scripts/script.js"></script>
+        <script src="../scripts/script.js"></script>
     </head>
     <body>
         <!--include navigation bar from a preset php file-->

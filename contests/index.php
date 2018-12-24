@@ -24,7 +24,7 @@ $sql = "SELECT * FROM contests";
         <link rel="stylesheet" href="../styles/style.css">
 
         <link rel = "script"   href = "../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
-        <script src="/codecourses/scripts/script.js"></script>
+        <script src="../scripts/script.js"></script>
        
     </head>
     <body>
