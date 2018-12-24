@@ -177,20 +177,3 @@ div.box p {
     font-size: 20px;
     line-height: 1.2;
 }
-
-/*### Footer ###*/
-#footer {
-    padding:5px 20px;
-    background-color:#9E1A70;
-    text-align:right;
-    color:#fff;
-    font-size:15px;
-    border-radius: 5px;
-
-}
-
-#footer a
-{
-    text-decoration: none;
-    color: white;
-}
