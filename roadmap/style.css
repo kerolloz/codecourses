@@ -6,6 +6,10 @@ body {
     
     font-family: sans-serif;
 }
+
+.color {
+    height: 535px;
+}
 /*###articl ###*/
 .articl{
     color: #9E1A70;

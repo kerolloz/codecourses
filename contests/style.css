@@ -11,6 +11,10 @@ body {
     font-family: sans-serif;
 }
 
+.color {
+    height: 535px;
+}
+
 /**# Styling Table ##*/
 .table-responsive{
     width: 80%;
