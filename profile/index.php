@@ -88,10 +88,12 @@ if ($conn->connect_error) {
                 <div class="card details-card">
                     <div class="card-body">
                         <div class="row row-div">
-                            <?php $sql = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = 4 AND status = 'accepted'";
+                            <?php $sql = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND status = 'accepted'";
                             $result1 = $conn->query($sql);
-                            $sql = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = 4 AND NOT  status = 'accepted'";
-                            $result2 = $conn->query($sql);
+                            $sql2 = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND NOT  status = 'accepted'";
+                            $result2 = $conn->query($sql2);
+                            $levels = array(1=>"Beginner",2=>"Intermediate",3=>"Advanced");
+
                             ?>
                             <div class="col-4 tried-col" onclick="sub_tried()">
                                 <h4>Tried</h4>
@@ -123,7 +125,7 @@ if ($conn->connect_error) {
                                         <tr>
                                             <td><?= $row['problem_id'] ?></td>
                                             <td><a href="#"><?= $row['name'] ?></a></td>
-                                            <td><span class="badge badge-success"><?= $row['level'] ?></span></td>
+                                            <td><span class="badge badge-success"><?= $levels[$row['level']] ?></span></td>
                                             <td><?= $row['status'] ?></td>
                                         </tr>
                                     <?php
@@ -141,7 +143,7 @@ if ($conn->connect_error) {
                                         <tr>
                                             <td><?= $row['problem_id'] ?></td>
                                             <td><a href="#"><?= $row['name'] ?></a></td>
-                                            <td><span class="badge badge-success"><?= $row['level'] ?></span></td>
+                                            <td><span class="badge badge-success"><?= $levels[$row['level']] ?></span></td>
                                             <td><?= $row['status'] ?></td>
                                         </tr>
                                     <?php
@@ -150,7 +152,6 @@ if ($conn->connect_error) {
                                 else:
                                     echo "0 results";
                                 endif;
-                                $conn->close();
                                 ?>
 
                             </table>
@@ -158,33 +159,33 @@ if ($conn->connect_error) {
 
                         <div id="solved-table">
                             <table class="table table-bordered table-striped">
+
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Level</th>
                                     <th>Status</th>
                                 </tr>
+                                <?php
+                                $result1 = $conn->query($sql);
+                                if ($result1->num_rows > 0) :
+                                    // output data of each row
+                                    while($row = $result1->fetch_assoc()) :
+                                        ?>
+                                        <tr>
+                                            <td><?= $row['problem_id'] ?></td>
+                                            <td><a href="#"><?= $row['name'] ?></a></td>
+                                            <td><span class="badge badge-success"><?= $levels[$row['level']] ?></span></td>
+                                            <td><?= $row['status'] ?></td>
+                                        </tr>
+                                    <?php
+                                    endwhile;
 
-                                <tr>
-                                    <td>45561</td>
-                                    <td><a href="#">Codecourses</a></td>
-                                    <td><span class="badge badge-success">beginner</span></td>
-                                    <td>Accepted</td>
-                                </tr>
+                                else:
+                                    echo "0 results";
+                                endif;
+                                ?>
 
-                                <tr>
-                                    <td>13546</td>
-                                    <td><a href="#">Even-Odd</a></td>
-                                    <td><span class="badge badge-success">intermediate</span></td>
-                                    <td>Accepted</td>
-                                </tr>
-
-                                <tr>
-                                    <td>1548</td>
-                                    <td><a href="#">Graph</a></td>
-                                    <td><span class="badge badge-success">advenced</span></td>
-                                    <td>Accepted</td>
-                                </tr>
                             </table>
                         </div>
 
@@ -197,26 +198,25 @@ if ($conn->connect_error) {
                                     <th>Status</th>
                                 </tr>
 
-                                <tr>
-                                    <td>45561</td>
-                                    <td><a href="#">Codecourses</a></td>
-                                    <td><span class="badge badge-success">beginner</span></td>
-                                    <td>Memory Limit Exced</td>
-                                </tr>
+                                <?php
+                                $result2 = $conn->query($sql2);
+                                if ($result2->num_rows > 0) :
+                                    // output data of each row
+                                    while($row = $result2->fetch_assoc()) :
+                                        ?>
+                                        <tr>
+                                            <td><?= $row['problem_id'] ?></td>
+                                            <td><a href="#"><?= $row['name'] ?></a></td>
+                                            <td><span class="badge badge-success"><?= $levels[$row['level']] ?></span></td>
+                                            <td><?= $row['status'] ?></td>
+                                        </tr>
+                                    <?php
+                                    endwhile;
 
-                                <tr>
-                                    <td>13546</td>
-                                    <td><a href="#">Even-Odd</a></td>
-                                    <td><span class="badge badge-success">intermediate</span></td>
-                                    <td>Time Limit Exced</td>
-                                </tr>
-
-                                <tr>
-                                    <td>1548</td>
-                                    <td><a href="#">Graph</a></td>
-                                    <td><span class="badge badge-success">advenced</span></td>
-                                    <td>Wrong Answer</td>
-                                </tr>
+                                else:
+                                    echo "0 results";
+                                endif;
+                                ?>
                             </table>
                         </div>
                     </div>
@@ -243,9 +243,6 @@ if ($conn->connect_error) {
 </div>
 
 
-<div id="footer">
-    &copy 2018 CodeCourses.com | All Rights Reserved
-</div> 
 
 <!--Scripts for BS-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-
