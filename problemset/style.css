@@ -72,5 +72,5 @@ body {
 }
 
 div.color {
-    height: 535px; 
+    min-height: 540px; 
 }
