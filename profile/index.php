@@ -206,7 +206,10 @@
             </div>
         </div>
 
-
+        <!-- Footer Section-->
+        <div id="footer">
+            &copy 2018 CodeCourses.com | All Rights Reserved
+        </div>   
 
         <!--Scripts for BS-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-
