@@ -94,7 +94,8 @@ if (isset($_POST['login'])) {
         $_SESSION['fname']=$user[first_name];
         $_SESSION['lname']=$user[last_name];
         $_SESSION['username']=$username;
-        $_SESSION['loggedin'] = true;
+        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['is_logged_in'] = true;
         header('location: ../index.php');
 
     }

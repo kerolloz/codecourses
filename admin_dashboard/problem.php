@@ -63,7 +63,7 @@ if (isset($_POST['download_test_cases'])) {
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="../home">
                     <img src="../assets/images/codeCourses_opt.png" alt="CodeCourses" width="65%" />
                 </a>
             </div>
@@ -253,7 +253,12 @@ if (isset($_POST['download_test_cases'])) {
                                                     <label for="text-input" class=" form-control-label">Problem Level</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="number" id="text-input" name="problem_level" placeholder="Problem level" class="form-control" required>
+                                                    <select name="problem_level" id="select" class="form-control" required>
+                                                        <option value="1" >Beginner</option>
+                                                        <option value="2" >Intermediate</option>
+                                                        <option value="3" >Advanced</option>
+
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row form-group">

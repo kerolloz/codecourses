@@ -88,6 +88,10 @@ div.profile-logout {
     border-bottom: rgb(209, 191, 25);
 }
 
+div.profile-logout a {
+    text-decoration: none;
+    color: black;
+}
 /*###Details Submission###*/
 
 .card.details-card {
