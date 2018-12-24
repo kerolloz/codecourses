@@ -8,7 +8,7 @@ body {
 }
 
 .color {
-    height: 535px;
+    height: 600px;
 }
 /*###articl ###*/
 .articl{
@@ -44,4 +44,8 @@ hr{
 
 .card-body a{
     color: #2B3386;
+}
+
+#accordionExample {
+    margin-top: 3%;
 }
