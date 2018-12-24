@@ -6,8 +6,12 @@ back/python-api/problem.pdf
 *.mp4
 
 # ingnore logs & Databases  
-.*
+
 .idea/*.xml
 .idea/*.iml
 
-# ignore soultions
+# ignore compiled files
+*.pyc
+
+# ignore parsed submissions 
+back/[0-9]*_[0-9]*/

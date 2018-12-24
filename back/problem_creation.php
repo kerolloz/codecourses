@@ -20,10 +20,11 @@ if(isset($_POST)):
 	} catch (PDOException $e) {
 	    $Error = "Error!: " . $e->getMessage() . "<br/>";
 	}
+
 	mkdir("../problems_db/".$last_problem_id);
 	$cmd = "mv " . __DIR__ . "/python-api/problem.pdf ". __DIR__ . "/../problems_db/" . $last_problem_id . "/";
-
 	exec($cmd, $out, $ret_val);
+	
 	if($_POST['download_test_cases_submission_folder_name']){
 		$from = __DIR__ . '/../admin_dashboard/' . $_POST['download_test_cases_submission_folder_name'] . "/*";
 		$to   = __DIR__ . "/../problems_db/" . $last_problem_id . "/";
