@@ -88,24 +88,29 @@ if ($conn->connect_error) {
                 <div class="card details-card">
                     <div class="card-body">
                         <div class="row row-div">
-                            <?php $sql = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND status = 'accepted'";
-                            $result1 = $conn->query($sql);
+
+                            <?php
+                            //sql statement that join tow tables and get all accepted submisssions to that user
+                            $sql = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND status = 'accepted'";
+                            $accepted_submissions = $conn->query($sql);
+                            //sql statement that join tow tables and get all that not accepted submisssions to that user
                             $sql2 = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND NOT  status = 'accepted'";
-                            $result2 = $conn->query($sql2);
-                            $levels = array(1=>"Beginner",2=>"Intermediate",3=>"Advanced");
+                            $wrong_submissions = $conn->query($sql2);
+                            //dictionary to make the levels deceptive
+                           $levels = array(1=>"Beginner",2=>"Intermediate",3=>"Advanced");
 
                             ?>
                             <div class="col-4 tried-col" onclick="sub_tried()">
                                 <h4>Tried</h4>
-                                <span> <?= $result2->num_rows + $result1->num_rows?> </span>
+                                <span> <?= $wrong_submissions->num_rows + $accepted_submissions->num_rows?> </span>
                             </div>
                             <div id="solved-col" class="col-4 solved-col" onclick="sub_solved()">
                                 <h4>Solved</h4>
-                                <span><?= $result1->num_rows?></span>
+                                <span><?= $accepted_submissions->num_rows?></span>
                             </div>
                             <div id="notsolved-col" class="col-4 notsolved-col" onclick="sub_notsolved()">
                                 <h4>Not solved</h4>
-                                <span><?= $result2->num_rows?></span>
+                                <span><?= $wrong_submissions->num_rows?></span>
                             </div>
                         </div>
 
@@ -118,9 +123,9 @@ if ($conn->connect_error) {
                                     <th>Status</th>
                                 </tr>
                                 <?php
-                                if ($result1->num_rows > 0) :
+                                if ($accepted_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $result1->fetch_assoc()) :
+                                    while($row = $accepted_submissions->fetch_assoc()) :
                                         ?>
                                         <tr>
                                             <td><?= $row['problem_id'] ?></td>
@@ -136,9 +141,9 @@ if ($conn->connect_error) {
                                 endif;
                                 ?>
                                 <?php
-                                if ($result2->num_rows > 0) :
+                                if ($wrong_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $result2->fetch_assoc()) :
+                                    while($row = $wrong_submissions->fetch_assoc()) :
                                         ?>
                                         <tr>
                                             <td><?= $row['problem_id'] ?></td>
@@ -167,10 +172,10 @@ if ($conn->connect_error) {
                                     <th>Status</th>
                                 </tr>
                                 <?php
-                                $result1 = $conn->query($sql);
-                                if ($result1->num_rows > 0) :
+                                $accepted_submissions = $conn->query($sql);
+                                if ($accepted_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $result1->fetch_assoc()) :
+                                    while($row = $accepted_submissions->fetch_assoc()) :
                                         ?>
                                         <tr>
                                             <td><?= $row['problem_id'] ?></td>
@@ -199,10 +204,10 @@ if ($conn->connect_error) {
                                 </tr>
 
                                 <?php
-                                $result2 = $conn->query($sql2);
-                                if ($result2->num_rows > 0) :
+                                $wrong_submissions = $conn->query($sql2);
+                                if ($wrong_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $result2->fetch_assoc()) :
+                                    while($row = $wrong_submissions->fetch_assoc()) :
                                         ?>
                                         <tr>
                                             <td><?= $row['problem_id'] ?></td>
