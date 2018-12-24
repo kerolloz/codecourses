@@ -23,9 +23,9 @@
     <body <?php if(isset($_POST['reg_usr']) && count($reg_errors) > 0) echo 'onload="signUp()"'?> >
         <!--Navbar Section-->
         <nav>
-            <img src="../assets/images/codeCourses.png" 
+            <a href="/codecourses/home/index.php"><img src="../assets/images/codeCourses.png" 
                     class = "nav-left"
-                    id = "imgMobile">
+                    id = "imgMobile"></a>
         </nav>
         
         <!--Sign In/Up Card-->

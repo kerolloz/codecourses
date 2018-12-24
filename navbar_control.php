@@ -1,8 +1,8 @@
 <!--Navbar Section-->
 <nav>
-    <img src="/codecourses/assets/images/codeCourses.png" 
+    <a href="/codecourses/home/index.php"><img src="/codecourses/assets/images/codeCourses.png" 
          class = "nav-left"
-         id = "imgMobile">
+         id = "imgMobile"></a>
     <ul id = "dropdownClick" class = "nav-left">
         <li><a href="/codecourses">Home</a></li>
         <li><a href="/codecourses/problemset/">Problem Set</a></li>
