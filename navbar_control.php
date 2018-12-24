@@ -8,11 +8,10 @@
         <li><a href="/codecourses/problemset/">Problem Set</a></li>
         <li><a href="/codecourses/contests/">Contests</a></li>
         <li><a href="/codecourses/roadmap/">Road Map</a></li>
-        <li><a href="/codecourses/tutorials/">Tutorials</a></li>
         <?php 
         if(!isset($_SESSION))
             session_start();
-        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
+        if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
         ?>
 
         <li class="nav-right"><a href="/codecourses/back/logout.php" >Logout</a></li>
@@ -27,3 +26,4 @@
         <li class="dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
     </ul>
 </nav>
+
