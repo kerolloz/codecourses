@@ -53,7 +53,22 @@ $sql = "SELECT * FROM problems";
                     ?>
                             <tr>
                                 <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>" target="_blank"> <?= $row['name'] ?> </td>
-                                <td> <?= $row['level'] ?>  </td>
+                                <?php
+                                switch ($row['level']) {
+                                    case 1:
+                                        echo "<td>Beginner </td>";
+                                        # code...
+                                        break;
+                                    case 2:
+                                         echo "<td>Intermediate </td>";
+                                         break;
+                                    case 3:
+                                        echo "<td>Advanced </td>";
+                                    default:
+                                        # code...
+                                        break;
+                                }
+                                ?>
                                 <td> <?= $row['number_of_solvers'] ?>  </td> 
                                 <td> no  </td>
                             </tr>
