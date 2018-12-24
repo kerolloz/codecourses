@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
         <title>Problem</title>
 
         <link rel="stylesheet" href = "../assets/bootstrap-4.1.3-dist/css/bootstrap.css">
-        <link rel="stylesheet" href="/codecourses/styles/style.css">
+        <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="style.css">
    
     </head>
@@ -176,7 +176,7 @@ $return_value = null;
         <br>
         <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
         <script src="/codecourses/assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
-        <script src="/codecourses/scripts/script.js"></script>
+        <script src="../scripts/script.js"></script>
         <script src="script.js"></script>
 
     </body>
