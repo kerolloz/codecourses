@@ -6,7 +6,6 @@ back/python-api/problem.pdf
 *.mp4
 
 # ingnore logs & Databases  
-.*
 .idea/*.xml
 .idea/*.iml
 
