@@ -90,10 +90,10 @@ if ($conn->connect_error) {
                         <div class="row row-div">
 
                             <?php
-                            //sql statement that join tow tables and get all accepted submisssions to that user
+                            //sql statement that join two tables and get all accepted submisssions to that user
                             $sql = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND status = 'accepted'";
                             $accepted_submissions = $conn->query($sql);
-                            //sql statement that join tow tables and get all that not accepted submisssions to that user
+                            //sql statement that join two tables and get all that not accepted submisssions to that user
                             $sql2 = "SELECT submissions.problem_id,status,level,name  FROM submissions,problems WHERE submissions.problem_id = problems.problem_id AND user_id = ".$_SESSION['user_id']." AND NOT  status = 'accepted'";
                             $wrong_submissions = $conn->query($sql2);
                             //dictionary to make the levels deceptive
