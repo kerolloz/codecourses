@@ -40,7 +40,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 					
 				<div class="table-responsive">
 
-					<table class ="table   table-striped  table-bordered" > 
+					<table class ="table table-dark  table-striped  table-bordered" > 
 						
 						<tr>
 							<th> # </th>
@@ -90,7 +90,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
 				<div class = "countDownTable">
 
-					<table class ="table table-bordered table-striped">
+					<table class ="table table-dark table-bordered table-striped">
 
 						<tr>
 							<th> <span class="badge badge-danger"> CountDown !</span> </th> 
