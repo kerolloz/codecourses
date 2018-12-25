@@ -1,5 +1,12 @@
-<?php 
-require 'process.php';
+
+<?php
+if(!isset($_SESSION))
+    session_start();
+if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+  header("location: ../home/");
+else:
+    require 'process.php';
+endif;
 
 ?>
 
@@ -17,20 +24,20 @@ require 'process.php';
         <link rel="stylesheet" href="../assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
 
         <!--Google Fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet"> 
-        
+        <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
+
         <!--Custom CSS-->
-        <link rel="stylesheet" href="style.css">        
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body <?php if(isset($_POST['reg_usr']) && count($reg_errors) > 0) echo 'onload="signUp()"'?> >
         <!--Navbar Section-->
         <nav>
-            <a href="/codecourses/home/index.php"><img src="../assets/images/codeCourses.png" 
+            <a href="/codecourses/home/index.php"><img src="../assets/images/codeCourses.png"
                     class = "nav-left"
                     id = "imgMobile"></a>
         </nav>
-        
+
         <!--Sign In/Up Card-->
         <div class="color">
             <div class="container signin-container">
@@ -39,7 +46,7 @@ require 'process.php';
                     <div id="signin-btn" class="col-6 sbtn" onclick="signIn()">Sign In</div>
                     <div id="signup-btn" class="col-6 sbtn" onclick="signUp()">Sign Up</div>
                 </div>
-                
+
                 <div class="row">
                     <!--Sign In Card-->
                     <div id="signinCard" class="col-12">
@@ -74,17 +81,21 @@ require 'process.php';
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--Sign Up Card-->
                     <div id="signupCard" class="col-12">
                         <div class="card signin-card">
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+<<<<<<< HEAD
                                     <?php
                                         if(isset($reg_errors))
                                             echo "<span>" . $reg_errors['password'] . "</span>";
                                     ?>
+=======
+
+>>>>>>> 13e33853269688d4367d5d30310baa5ed8194c4b
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
@@ -110,7 +121,7 @@ require 'process.php';
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required
                                             <?php
@@ -120,7 +131,7 @@ require 'process.php';
                                             ?>
                                         >
                                     </div>
-        
+
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username" required
                                             <?php
@@ -149,6 +160,10 @@ require 'process.php';
                     </div>
                 </div>
             </div>
+
+            <div id="footer">
+				&copy 2018 CodeCourses.com | All Rights Reserved
+			</div>
         </div>
 
         <!--Scripts for BS-->
