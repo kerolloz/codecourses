@@ -33,7 +33,7 @@
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <br> 
-                                        <a href="../TutorialsPage/index.html" target="_blank">1- Data Types</a>
+                                        <a href="../tutorials/index.php" target="_blank">1- Data Types</a>
                                         <br><br>
                                         <a href="#" target="_self">2- Operators</a>
                                         <br><br>
