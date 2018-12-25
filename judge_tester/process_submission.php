@@ -87,7 +87,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
         // add submission before judging...
 				add_submission_to_database($_POST['problem_id'], $_SESSION['user_id'], "c++", $conn);
         $last_insert_id = get_last_insert_id($conn);
-        $last_insert_id = reset($last_insert_id);
         require "../judge_tester/tester.php"; // go judge it
         // go test the uploaded file
     }else{
