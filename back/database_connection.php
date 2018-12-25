@@ -33,7 +33,7 @@ function add_submission_to_database($problem_id, $user_id, $sol_language, $conne
     $sql = "INSERT INTO submissions (problem_id, user_id, status, sol_language)
     VALUES ($problem_id, $user_id , 'binding', '$sol_language')";//prepare the sql statement
     if ($connection->query($sql) === TRUE) {//execute the sql statement
-        return $connection->insert_id;
+        return $connection->insert_id; //return submission id
     } else {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
@@ -42,7 +42,6 @@ function add_submission_to_database($problem_id, $user_id, $sol_language, $conne
 function change_submission_status($submission_id, $status, $connection){
     $sql = "UPDATE submissions SET status='$status' WHERE submission_id=$submission_id";
     if ($connection->query($sql) === TRUE) {
-        echo "done";
     } else {
         echo "Error updating record: " . $connection->error.$sql;
     }
