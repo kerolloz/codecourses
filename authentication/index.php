@@ -46,7 +46,6 @@
                                 <h1 class="signin-header">Sign In</h1>
 
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
-                                    <?php require 'pr_log_errors.php'; ?>
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
                                             <?php
@@ -79,7 +78,7 @@
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
-                                    <?php require 'pr_reg_errors.php'; ?>
+            
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
