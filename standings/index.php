@@ -17,7 +17,7 @@
         <div class="color">
             <div class ="tableWidth">
                 <div class="table-responsive">
-                    <table class ="table table-striped table-bordered" > 
+                    <table class ="table table-dark table-striped table-bordered" > 
                         <tr>
                             <th> # </th>
                             <th> Participant </th>

@@ -37,7 +37,7 @@ $sql = "SELECT * FROM problems";
         <!-- ProblemSection -->
         <div class="color">
             <div class="table-responsive">
-                <table class ="table   table-striped  table-bordered" > 
+                <table class ="table table-dark  table-striped  table-bordered" > 
                     <tr>
                         <th class= "topLeftRad"> Name </th>
                         <th> <span class="badge badge-success"> Level </span> </th>
