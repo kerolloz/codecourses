@@ -43,6 +43,7 @@ function add_submission_to_database($problem_id, $user_id, $sol_language, &$conn
     }
 
 }
+
 function change_submission_status($submission_id, $status, &$connection){
     $sql = "UPDATE submissions SET status='$status' WHERE submission_id=$submission_id";
     if ($connection->query($sql) === TRUE) {
@@ -50,7 +51,10 @@ function change_submission_status($submission_id, $status, &$connection){
         echo "Error updating record: " . $connection->error.$sql;
     }
 }
+
 function increment_number_of_solvers($problem_id,&$connection){
+    if(is_solved_for_user($problem_id, $_SESSION['user_id'], $connection))
+      return 0;
     $sql = "SELECT number_of_solvers FROM problems WHERE problem_id = $problem_id";
     $result = $connection->query($sql);
     if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
