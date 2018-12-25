@@ -34,6 +34,11 @@ body {
     text-align: center;
     float:left;
  }
+
+.table{
+    margin-top:7%;
+            
+}
  
  /*## styling count down table ##*/
 .countDownTable{
@@ -41,6 +46,7 @@ body {
     display: inline-block;
     float:right;
     width:25%;
+    margin-top:7%;
 }
  
 
