@@ -52,16 +52,17 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<th> Status </th> 
 						</tr>
 						<tr>
-							<th> 1 </th>
-							<th> <a href = "#"> Sample </a> </th>
-							<th> 10 </th>
-							<th> <img src="/codecourses/assets/images/ok.png"> </th> 
+							<td> 1 </td>
+							<td> <a href = "#"> Sample </a> </td>
+							<td> 10 </td>
+							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
 						</tr>
-						tr>
-							<th> 2 </th>
-							<th> <a href = "#"> Sample </a> </th>
-							<th> 10 </th>
-							<th> <img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> </th> 
+						
+						<tr>
+							<td> 2 </td>
+							<td> <a href = "#"> Sample </a> </td>
+							<td> 10 </td>
+							<td> <img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> </td> 
 						</tr>
 						<?php 
 							$result = $conn->query($sql);
