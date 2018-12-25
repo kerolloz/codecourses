@@ -23,6 +23,15 @@
         <?php
         endif;
         ?>
+        <?php
+            if(isset($_SESSION['standing']) && $_SESSION['standing'] ==true):
+
+        ?>
+         <li class="nav-left"><a href="/codecourses/standings/">Standing</a></li>
+         <?
+            $_SESSION['standing'] = false;
+            endif;
+        ?>
         <li class="dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
     </ul>
 </nav>

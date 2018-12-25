@@ -1,4 +1,6 @@
  <?php
+session_start();
+$_SESSION['standing'] = true;
 $servername = "localhost";
 $username = "root";
 $password = "";
