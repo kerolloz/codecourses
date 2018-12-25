@@ -1,15 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ojDB";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
+if(!isset($_SESSION))
+    session_start();
+if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+    require '../back/database_connection.php';
+    // Create connection
+    $conn = get_sql_connection();
+else:
+    header("location: ../authentication/");
+endif;
+
 
 ?>
 <!doctype html>
@@ -50,7 +51,7 @@ if ($conn->connect_error) {
                             <?php
                             if(!isset($_SESSION))
                                 session_start();
-                            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
+                            if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
                                 ?>
                                 <h3><?= $_SESSION['fname']?></h3><br>
                             <?php else :?>
@@ -248,7 +249,7 @@ if ($conn->connect_error) {
 
     <div id="footer">
         &copy 2018 CodeCourses.com | All Rights Reserved
-    </div> 
+    </div>
 </div>
 
 

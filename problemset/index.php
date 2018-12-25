@@ -35,10 +35,10 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
         <!-- ProblemSection -->
         <div class="color">
             <div class="table-responsive">
-                <table class ="table table-dark  table-striped  table-bordered" > 
+                <table class ="table table-striped table-bordered table-dark" > 
                     <tr>
                         <th class= "topLeftRad"> Name </th>
-                        <th> <span class="badge badge-success"> Level </span> </th>
+                        <th>Level</th>
                         <th> <img src="/codecourses/assets/images/user.png"> </th> 
                         <th class = "topRightRad"> Status </th>
                     </tr>

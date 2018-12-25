@@ -17,7 +17,7 @@ $fname = $lname = $username = $email = $password1 = $password2 = '';
 
 $conn = mysqli_connect("$servername", "$sqlUsername", "$password", "$db");
 
-// Data comes from register form >> 
+// Data comes from register form >>
 
 if (isset($_POST['reg_usr'])) {
 
@@ -37,7 +37,7 @@ if (isset($_POST['reg_usr'])) {
     array_push($reg_errors, "The two passwords do not match");
   }
 
-  // Check database to make sure 
+  // Check database to make sure
   // a user does not already exist
   $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
   $result = mysqli_query($conn, $user_check_query);
@@ -57,14 +57,15 @@ if (isset($_POST['reg_usr'])) {
   if (count($reg_errors) == 0) {
     $password = md5("$password1" . "$passwordSalt");
 
-    $query = "INSERT INTO users (first_name, last_name, username, email, password) 
+    $query = "INSERT INTO users (first_name, last_name, username, email, password)
               VALUES('$fname', '$lname', '$username', '$email', '$password')";
 
     mysqli_query($conn, $query);
     $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
-    $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
+    $_SESSION['user_id'] = $user['user_id'];
+    $_SESSION['is_logged_in'] = true;
     header('location: ../index.php');
   }
 }
