@@ -126,12 +126,13 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Footer Section-->
-        <div id="footer">
-            &copy 2018 CodeCourses.com | All Rights Reserved
-        </div>   
+            <!-- Footer Section-->
+            <div id="footer">
+                &copy 2018 CodeCourses.com | All Rights Reserved
+            </div>
+        </div>
+   
 
 
         <script src = "../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>

@@ -8,7 +8,7 @@ body {
 }
 
 .color {
-    height: 600px;
+    min-height: 540px;
 }
 /*###articl ###*/
 .articl{
