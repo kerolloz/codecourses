@@ -15,5 +15,6 @@ back/python-api/problem.pdf
 # ignore parsed submissions 
 back/[0-9]*_[0-9]*/
 # ignore Soruce codes, problems_db
+!problems_db/1
 problems_db/
 source_codes/
