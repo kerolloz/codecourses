@@ -34,7 +34,7 @@ if (isset($_POST['reg_usr'])) {
   if (empty($email)) { array_push($reg_errors, "Email is required"); }
   if (empty($password1)) { array_push($reg_errors, "Password is required"); }
   if ($password1 != $password2) {
-    array_push($reg_errors, "The two passwords do not match");
+    $reg_errors['password'] = "The two passwords do not match"; 
   }
 
   // Check database to make sure
@@ -82,6 +82,7 @@ if (isset($_POST['login'])) {
   }
   if (empty($password)) {
     array_push($log_errors, "Password is required");
+
   }
 
   if (count($reg_errors) == 0) {
