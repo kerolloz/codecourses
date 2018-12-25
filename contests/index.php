@@ -73,11 +73,13 @@ $sql = "SELECT * FROM contests";
                 
                 </table>
             </div>
-        </div>
 
-        <div id="footer">
-            &copy 2018 CodeCourses.com | All Rights Reserved
-        </div>        
+
+            <div id="footer">
+                &copy 2018 CodeCourses.com | All Rights Reserved
+            </div>  
+        </div>
+      
 
     </body>  
 
