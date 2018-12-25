@@ -1,19 +1,22 @@
  <?php
 session_start();
 $_SESSION['standing'] = true;
-
-require '../back/database_connection.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ojDB";
 
 // Create connection
-$conn = get_sql_connection();
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 $contest_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE); 
 if(!$contest_id)
     header("location: /codecourses/errors/404.html");
 $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
-
-$accepted_img_dir = "../assets/images/ok.png";
-$wrong_answer_img_dir = "../assets/images/wrong.png";
 
 ?>
 <!doctype html>
@@ -40,7 +43,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 					
 				<div class="table-responsive">
 
-					<table class ="table   table-striped  table-bordered" > 
+					<table class ="table  table-dark  table-striped  table-bordered" > 
 						
 						<tr>
 							<th> # </th>
@@ -61,18 +64,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 									<td> <?= $problem_character++ ?> </td>
 									<td> <a  href="/codecourses/problem?id=<?= $row['problem_id'] ?>"> <?= $row['name'] ?> </a> </td>
 									<td> <?= $row['number_of_solvers'] ?>  </td>
-									<td>
-										<img src=
-										<?php
-										if (is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
-											# code...
-											echo "$accepted_img_dir";
-										}else{
-											echo "$wrong_answer_img_dir";
-										}
-										?>
-										style="width:16px;height:16px;"> 
-									</td>
+									<td> no  </td>
 								</tr>
 						<?php
 							endwhile;
@@ -91,7 +83,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
 				<div class = "countDownTable">
 
-					<table class ="table table-bordered table-striped">
+					<table class ="table table-dark table-bordered table-striped">
 
 						<tr>
 							<th> <span class="badge badge-danger"> CountDown !</span> </th> 
