@@ -107,13 +107,12 @@ body {
 
 /*### Home ###*/
 div.homeContainer {
-    background-color: rgba(255, 255, 255, 0.7);
     width:100%;
     margin: auto;
     padding-top: 4%;
     padding-bottom: 4%;
-    height: 30%; 
-    
+    height: 30%;
+
 }
 
 .push-left{
@@ -151,7 +150,7 @@ div.box {
     text-align: center;
     background-color: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15),
-                0 2px 3px rgba(0, 0, 0, 0.1); 
+                0 2px 3px rgba(0, 0, 0, 0.1);
     margin: 24px;
     padding: 36px 24px 40px 24px;
     border-radius: 7px;
