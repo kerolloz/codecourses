@@ -1,8 +1,7 @@
 
 <?php
 require 'process.php';
-print_r($log_errors);
-print_r($reg_errors);
+
 if(!isset($_SESSION))
     session_start();
 if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
