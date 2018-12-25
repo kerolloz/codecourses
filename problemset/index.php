@@ -8,6 +8,9 @@ $conn = get_sql_connection();
 
 $sql = "SELECT * FROM problems";
 
+$accepted_img_dir = "../assets/images/ok.png";
+$wrong_answer_img_dir = "../assets/images/wrong.png";
+
 ?>
 <!doctype html>
 <html>
@@ -39,18 +42,6 @@ $sql = "SELECT * FROM problems";
                         <th> <img src="/codecourses/assets/images/user.png"> </th> 
                         <th class = "topRightRad"> Status </th>
                     </tr>
-                    <tr>
-                        <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
-                        <td> Intermediate </td>
-                        <td> 10 </td> 
-                        <td class = "topRightRad"> <img src="/codecourses/assets/images/ok.png"> </td>
-                    </tr>
-                <tr>
-                        <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
-                        <td> Intermediate </td>
-                        <td> 10 </td> 
-                        <td class = "topRightRad"> <img src="/codecourses/assets/images/wrong.png"  width="16" height="16"> </td>
-                    </tr>
                     
                     <?php 
                     $result = $conn->query($sql);
@@ -78,7 +69,18 @@ $sql = "SELECT * FROM problems";
                                 }
                                 ?>
                                 <td> <?= $row['number_of_solvers'] ?>  </td> 
-                                <td> no  </td>
+                                <td>
+										<img src=
+										<?php
+										if (is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
+											# code...
+											echo "$accepted_img_dir";
+										}else{
+											echo "$wrong_answer_img_dir";
+										}
+										?>
+										style="width:16px;height:16px;"> 
+									</td>
                             </tr>
                     <?php
                         endwhile;
