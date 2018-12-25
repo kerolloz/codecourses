@@ -2,28 +2,28 @@
 <html>
     <head>
         <title>CodeCourses</title>
-        
+
         <link rel="stylesheet" href = "../assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../styles/style.css">     
-        <link rel="stylesheet" href="style.css">       
-       
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
-       
+
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <!-- VideoContainer -->        
+                    <!-- VideoContainer -->
                     <div class="videooContainer">
-                         <iframe width="750" height="500" 
+                         <iframe width="750" height="500"
                              src="https://www.youtube.com/embed/RRouhxZJKak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                     </div>
                 </div>
-                
+
                 <div class="col-4">
                     <!-- Accordion Collapse -->
                     <div class="accordion1" id="accordion1">
@@ -40,18 +40,18 @@
 
                             <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordion1">
                                 <div class="card-body">
-                                    <br> 
-                                    <a href="../TutorialsPage/index.html" target="_blank">1- Data Types</a>
+                                    <br>
+                                    <a href="../tutorials/index.php">1- Data Types</a>
                                     <br><br>
-                                    <a href="###" target="_blank">2- Operators</a>
+                                    <a href="###">2- Operators</a>
                                     <br><br>
-                                    <a href="###" target="_blank">3- Array</a>
+                                    <a href="###">3- Array</a>
                                     <br><br>
-                                    <a href="###" target="_blank">4- String</a>
+                                    <a href="###">4- String</a>
                                     <br><br>
-                                    <a href="###" target="_blank">5- Loop</a>
-                                    <br><br>    
-                                    <a href="###" target="_blank">6- Function</a>
+                                    <a href="###">5- Loop</a>
+                                    <br><br>
+                                    <a href="###">6- Function</a>
                                     <br><br>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
 
                             <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordion1">
                                 <div class="card-body">
-                                    <br> 
+                                    <br>
                                     <a href="###" target="_blank">1- Vector</a>
                                     <br><br>
                                     <a href="###" target="_blank">2- List</a>
@@ -106,7 +106,7 @@
 
                             <div id="collapseThree3" class="collapse" aria-labelledby="headingThree3" data-parent="#accordion1">
                                 <div class="card-body">
-                                    <br> 
+                                    <br>
                                     <a href="###" target="_blank">1- Backtracking1</a>
                                     <br><br>
                                     <a href="###" target="_blank">2- Backtracking2</a>
@@ -151,7 +151,7 @@
 
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <br> 
+                                    <br>
                                     <a href="https://www.geeksforgeeks.org/c-data-types/" target="_blank">Article 1</a>
                                     <br><br>
                                     <a href="https://www.tutorialspoint.com/cplusplus/cpp_data_types.htm" target="_blank">Article 2</a>
@@ -174,7 +174,7 @@
 
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <br> 
+                                    <br>
                                     <a href="###" target="_blank">Problem 1</a>
                                     <br><br>
                                     <a href="###" target="_blank">Problem 2</a>
@@ -192,11 +192,11 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Footer Section-->
         <div id="footer">
             &copy 2018 CodeCourses.com | All Rights Reserved
-        </div>   
+        </div>
         <script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
         <script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
         <script src="../scripts/script.js"></script>

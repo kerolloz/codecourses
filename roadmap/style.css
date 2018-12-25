@@ -1,30 +1,13 @@
 /*### Defaults ###*/
-
 body {
     line-height: 1;
     margin: 0;
-    
     font-family: sans-serif;
 }
 
 .color {
     min-height: 540px;
 }
-/*###articl ###*/
-.articl{
-    color: #9E1A70;
-    font-size: 18px;
-    
-}
-.study{
-    color: #9E1A70;
-    font-size: 18px;    
-}
-hr{
-    color: #2B3386;
-    width: 75%;
-}
-
 /*### Training Section ###*/
 .btn {
     color: #fff;
@@ -41,7 +24,6 @@ hr{
     background-color: #fff;
     margin-left: 6.25%;
 }
-
 .card-body a{
     color: #2B3386;
 }

@@ -5,13 +5,13 @@
         <link rel="stylesheet" href = "../assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="style.css">
-       
+
     </head>
     <body>
-       
+
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
-        
+
         <div class="color">
             <div class="container">
                 <!-- Map Section -->
@@ -32,8 +32,8 @@
 
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <br> 
-                                        <a href="../TutorialsPage/index.html" target="_blank">1- Data Types</a>
+                                        <br>
+                                        <a href="../tutorials/index.php" target="_blank">1- Data Types</a>
                                         <br><br>
                                         <a href="#" target="_self">2- Operators</a>
                                         <br><br>
@@ -42,7 +42,7 @@
                                         <a href="#" target="_self">4- String</a>
                                         <br><br>
                                         <a href="#" target="_self">5- Loop</a>
-                                        <br><br>    
+                                        <br><br>
                                         <a href="#" target="_self">6- Function</a>
                                         <br><br>
                                     </div>
@@ -61,7 +61,7 @@
 
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <br> 
+                                        <br>
                                         <a href="###" target="_blank">1- Vector</a>
                                         <br><br>
                                         <a href="###" target="_blank">2- List</a>
@@ -98,7 +98,7 @@
 
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <br> 
+                                        <br>
                                         <a href="###" target="_blank">1- Backtracking1</a>
                                         <br><br>
                                         <a href="###" target="_blank">2- Backtracking2</a>
@@ -132,7 +132,7 @@
                 &copy 2018 CodeCourses.com | All Rights Reserved
             </div>
         </div>
-   
+
 
 
         <script src = "../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>

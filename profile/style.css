@@ -15,9 +15,7 @@ body {
     background-image: url(../assets/images/acm.jpg);
 }
 
-.color {
-    background-color: rgba(255, 255, 255, 0.8);
-}
+
 
 /*###Avatar###*/
 .profile-container {
@@ -46,7 +44,7 @@ body {
 .avatar h3 {
     display: inline-block;
     font-family: 'Text Me One';
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 .avatar label{
@@ -65,7 +63,7 @@ body {
     padding-top: 2%;
     padding-left: 2%;
     border-bottom: 1px solid #2c2e28;
-    border-radius: 3px; 
+    border-radius: 3px;
 }
 
 .profile-linewrapper div span {
@@ -110,7 +108,7 @@ div.row-div {
 div.tried-col {
     background: #dee2e6;
     padding: 2%;
-    cursor: pointer;        
+    cursor: pointer;
 }
 
 div.tried-col:hover {
@@ -120,11 +118,11 @@ div.tried-col:hover {
 div.solved-col {
     padding: 2%;
     background: #8bea61;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 div.solved-col:hover {
-    background: #8aea61b0;    
+    background: #8aea61b0;
 }
 
 div.notsolved-col {

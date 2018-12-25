@@ -6,18 +6,18 @@
 
 html { height:100%; }
 
-body { 
-    min-height:100%; 
-    padding:0; 
-    margin:0; 
-    position:relative; 
+body {
+    min-height:100%;
+    padding:0;
+    margin:0;
+    position:relative;
     background-image: url(../assets/images/acm.jpg);
 }
 
-body::after { 
-    content:''; 
-    display:block; 
-    height:30px; 
+body::after {
+    content:'';
+    display:block;
+    height:30px;
 }
 
 nav, header, footer {
@@ -25,17 +25,13 @@ nav, header, footer {
 }
 
 
-.color {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
 
 /*### Navbar ###*/
 nav {
     background-color: #fff;
     width: 100%;
     margin: 0;
-    border-radius: 5px; 
+    border-radius: 5px;
     padding-bottom: 0.5%;
     padding-top: 0.5%;
 }
@@ -163,9 +159,9 @@ ul.nav-left li.dropdownIcon {
     color:#fff;
     font-size:15px;
     border-radius: 5px;
-    position: absolute; 
-    bottom:0; 
-    width:100%; 
+    position: absolute;
+    bottom:0;
+    width:100%;
     height:30px;
 
 }
