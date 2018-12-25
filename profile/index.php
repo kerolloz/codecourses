@@ -3,7 +3,7 @@
 
 if(!isset($_SESSION))
     session_start();
-if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
+if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
     require '../back/database_connection.php';
     // Create connection
     $conn = get_sql_connection();
@@ -51,7 +51,7 @@ endif;
                             <?php
                             if(!isset($_SESSION))
                                 session_start();
-                            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
+                            if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
                                 ?>
                                 <h3><?= $_SESSION['fname']?></h3><br>
                             <?php else :?>
@@ -249,7 +249,7 @@ endif;
 
     <div id="footer">
         &copy 2018 CodeCourses.com | All Rights Reserved
-    </div> 
+    </div>
 </div>
 
 
