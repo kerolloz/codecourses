@@ -1,7 +1,5 @@
 <?php
 
-require '../back/database_connection.php';
-
 function my_print($string)
 {
 	echo $string;
@@ -23,7 +21,7 @@ if($compilation_state){ // compile success if (compilation_state == 0)
 
 $sql_connection = get_sql_connection();
 
-$problem_id = $_GET['id']; // get problem ID form link 
+$problem_id = $_GET['id']; // get problem ID form link
 $problem_details = get_problem_details_from_database($problem_id, $sql_connection);
 $problem_time_limit = $problem_details['time_limit'];
 $problem_memory_limit = $problem_details['memory_limit'];
@@ -38,7 +36,7 @@ $problem_dir_my_out = $problem_directory . "/test_cases/my_out/";
 
 if (!file_exists($problem_dir_my_out) && !is_dir($problem_dir_my_out)) {
     mkdir($problem_dir_my_out);
-} 
+}
 
 $test_cases = file_get_contents($problem_dir_tests);
 
@@ -47,5 +45,27 @@ $docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codec
 
 exec($docker_run, $out, $return_value);
 
-return $return_value;
+$verdict = "";
 
+switch ($return_value) {
+    case 0:
+    		$verdict = "accepted";
+				increment_number_of_solvers($_POST['problem_id'], $conn);
+        break;
+    case 1:
+				$verdict = "wrong answer";
+        break;
+    case -1:
+				$verdict = "compilation error";
+        break;
+    case 124:
+				$verdict = "time limit exceeded";
+        break;
+    default:
+				$verdict = "JUDGE ERROR";
+        break;
+}
+
+change_submission_status($last_insert_id, $verdict, $conn);
+
+return $return_value;

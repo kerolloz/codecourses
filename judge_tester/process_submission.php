@@ -4,8 +4,8 @@
 const MAX_BYTES_FOR_CODE = 67072;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'):
-	
-    $destination =  "../source_codes/"; 
+
+    $destination =  "../source_codes/";
 
     $text_area_has_code = false;
     $file_has_been_uploaded = false;
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
         $extension = strtolower(end($file_extension_arr));
 
         // if the file is uploaded successfully (NO ERRORS)
-        if($text_area_has_code) 
+        if($text_area_has_code)
         	$errors_array[] = "Put source code into the textarea OR choose the sourcecode file!";
         else {
             if ($_FILES['my_file']['size'] > MAX_BYTES_FOR_CODE) {
@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
     # file name is going to be saved in the following format
     # (submission_id).cpp (get it from the DB) *AUTO INCREMENT*
     #
-    $submission_id = "TEST.cpp"; // JUST FOR TESTING !
+		$submission_id = "TEST.cpp"; // JUST FOR TESTING !
     $res = 0;
 
     if($errors_array){
@@ -82,7 +82,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
 
     if($res){
         // res == 1, if uploaded successfully
-        require "../judge_tester/tester.php"; 
+				require '../back/database_connection.php';
+				$conn = get_sql_connection();
+        // add submission before judging...
+				add_submission_to_database($_POST['problem_id'], $_SESSION['user_id'], "c++", $conn);
+        $last_insert_id = get_last_insert_id($conn);
+        $last_insert_id = reset($last_insert_id);
+        require "../judge_tester/tester.php"; // go judge it
         // go test the uploaded file
     }else{
     	// res == 0, something went wrong

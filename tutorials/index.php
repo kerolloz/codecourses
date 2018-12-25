@@ -40,6 +40,7 @@
 
                             <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordion1">
                                 <div class="card-body">
+<<<<<<< HEAD
                                     <br>
                                     <a href="../tutorials/index.php">1- Data Types</a>
                                     <br><br>
@@ -51,6 +52,19 @@
                                     <br><br>
                                     <a href="###">5- Loop</a>
                                     <br><br>
+=======
+                                    <br> 
+                                    <a href="../tutorials/index.php">1- Data Types</a>
+                                    <br><br>
+                                    <a href="###">2- Operators</a>
+                                    <br><br>
+                                    <a href="###">3- Array</a>
+                                    <br><br>
+                                    <a href="###">4- String</a>
+                                    <br><br>
+                                    <a href="###">5- Loop</a>
+                                    <br><br>    
+>>>>>>> 1a7d9ef1ad9475bcf1ec73ff2074e489a64ea4f9
                                     <a href="###">6- Function</a>
                                     <br><br>
                                 </div>

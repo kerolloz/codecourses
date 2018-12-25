@@ -14,6 +14,18 @@ function get_sql_connection(){
     return $conn;
 }
 
+function get_last_insert_id(&$connection){
+  $sql = "SELECT LAST_INSERT_ID()";
+  $result = $connection->query($sql);
+  if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
+      // output data of each row
+      if($row = $result->fetch_assoc()) { //fetching data from result object row by row
+          return $row; //return the time limit of rhe problem
+      }
+  }
+  return null;
+}
+
 
 function get_problem_details_from_database($problem_id, &$connection){
 
@@ -29,9 +41,9 @@ function get_problem_details_from_database($problem_id, &$connection){
     }
 }
 
-function add_submission_to_database($problem_id, $user_id, $sol_language, $connection){
+function add_submission_to_database($problem_id, $user_id, $sol_language, &$connection){
     $sql = "INSERT INTO submissions (problem_id, user_id, status, sol_language)
-    VALUES ($problem_id, $user_id , 'binding', '$sol_language')";//prepare the sql statement
+    VALUES ($problem_id, $user_id , 'pending', '$sol_language')";//prepare the sql statement
     if ($connection->query($sql) === TRUE) {//execute the sql statement
         return $connection->insert_id; //return submission id
     } else {
@@ -39,7 +51,7 @@ function add_submission_to_database($problem_id, $user_id, $sol_language, $conne
     }
 
 }
-function change_submission_status($submission_id, $status, $connection){
+function change_submission_status($submission_id, $status, &$connection){
     $sql = "UPDATE submissions SET status='$status' WHERE submission_id=$submission_id";
     if ($connection->query($sql) === TRUE) {
     } else {
@@ -64,7 +76,6 @@ function increment_number_of_solvers($problem_id,&$connection){
     }
 }
 
-
 function is_solved_for_user($problem_id, $user_id, &$connection){
 
     $sql = "SELECT problem_id FROM submissions WHERE problem_id = $problem_id AND user_id = $user_id AND status = 'accepted'"; //prepare the sql statement
@@ -74,11 +85,7 @@ function is_solved_for_user($problem_id, $user_id, &$connection){
 
 }
 
-
-
 function close_sql_connection(&$connection){
     $connection->close();
     $connection = null;
 }
-
-

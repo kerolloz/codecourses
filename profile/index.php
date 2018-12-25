@@ -66,7 +66,7 @@ endif;
                                 <label>Submissions</label>
                             </div>
 
-                            <div onclick="myprofile()">
+                            <!--<div onclick="myprofile()">
                                 <img src="../assets/images/person.png" width="15px" height="15px">
                                 <label>My Profile</label>
                             </div>
@@ -75,7 +75,7 @@ endif;
                                 <img src="../assets/images/book.jpg" width="17px" height="17px">
                                 <label>Tutorials</label>
                             </div>
-
+                            -->
                             <div class="profile-logout">
                                 <img src="../assets/images/logout.png" width="17px" height="17px">
                                 <label><a href="../back/logout.php">Logout</a></label>
@@ -229,7 +229,7 @@ endif;
                 </div>
             </div>
 
-            <div id="myprofile-card" class="col-7">
+            <!--<div id="myprofile-card" class="col-7">
                 <div class="card details-card">
                     <div class="card-body">
                         profile
@@ -243,7 +243,7 @@ endif;
                         tutorials
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
