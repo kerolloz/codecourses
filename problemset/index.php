@@ -85,13 +85,11 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                     <?php
                         endwhile;
 
-                    else:
-                        echo "0 results";
-                    endif;
-                    $conn->close();
+                        else:
+                            echo "0 results";
+                        endif;
+                        $conn->close();
                     ?>
-
-
                 </table>
             </div>
 
