@@ -53,8 +53,9 @@ function change_submission_status($submission_id, $status, &$connection){
 }
 
 function increment_number_of_solvers($problem_id,&$connection){
+    // check if the user has solved the problem before
     if(is_solved_for_user($problem_id, $_SESSION['user_id'], $connection))
-      return 0;
+      return 0; // don't add it
     $sql = "SELECT number_of_solvers FROM problems WHERE problem_id = $problem_id";
     $result = $connection->query($sql);
     if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
