@@ -55,11 +55,11 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<th> 10 </th>
 							<th> <img src="/codecourses/assets/images/ok.png"> </th> 
 						</tr>
-						tr>
+						<tr>
 							<th> 2 </th>
 							<th> <a href = "#"> Sample </a> </th>
 							<th> 10 </th>
-							<th> <img class style="width:16px;height:16px;"> src="/codecourses/assets/images/wrong.png"> </th> 
+							<th> <img class style="width:16px;height:16px;" src="/codecourses/assets/images/wrong.png"> </th> 
 						</tr>
 						<?php 
 							$result = $conn->query($sql);
@@ -85,6 +85,7 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 						?>
 
 
+					
 					</table>
 
 				</div>
@@ -105,10 +106,11 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 				</div>
 
 			</div>
-		</div>
-		<div id="footer">
-            &copy 2018 CodeCourses.com | All Rights Reserved
-        </div>        
+
+			<div id="footer">
+				&copy 2018 CodeCourses.com | All Rights Reserved
+			</div> 
+		</div>       
 
 </body>  
 
