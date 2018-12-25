@@ -103,15 +103,36 @@ endif;
                             ?>
                             <div class="col-4 tried-col" onclick="sub_tried()">
                                 <h4>Tried</h4>
-                                <span> <?= $wrong_submissions->num_rows + $accepted_submissions->num_rows?> </span>
+                                <span>
+                                  <?php if($wrong_submissions && $accepted_submissions)
+                                          echo ($wrong_submissions->num_rows + $accepted_submissions->num_rows);
+                                        else {
+                                          echo 0;
+                                        }
+                                 ?>
+                               </span>
                             </div>
                             <div id="solved-col" class="col-4 solved-col" onclick="sub_solved()">
                                 <h4>Solved</h4>
-                                <span><?= $accepted_submissions->num_rows?></span>
+                                <span>
+                                  <?php if($accepted_submissions)
+                                          echo ($accepted_submissions->num_rows);
+                                        else {
+                                          echo 0;
+                                        }
+                                  ?>
+                                </span>
                             </div>
                             <div id="notsolved-col" class="col-4 notsolved-col" onclick="sub_notsolved()">
                                 <h4>Not solved</h4>
-                                <span><?= $wrong_submissions->num_rows?></span>
+                                <span>
+                                  <?php if($wrong_submissions)
+                                        echo ($wrong_submissions->num_rows);
+                                      else {
+                                        echo 0;
+                                      }
+                               ?>
+                             </span>
                             </div>
                         </div>
 
@@ -124,7 +145,7 @@ endif;
                                     <th>Status</th>
                                 </tr>
                                 <?php
-                                if ($accepted_submissions->num_rows > 0) :
+                                if (isset($accepted_submissions->num_rows) && $accepted_submissions->num_rows > 0) :
                                     // output data of each row
                                     while($row = $accepted_submissions->fetch_assoc()) :
                                         ?>
@@ -137,12 +158,10 @@ endif;
                                     <?php
                                     endwhile;
 
-                                else:
-                                    echo "0 results";
                                 endif;
                                 ?>
                                 <?php
-                                if ($wrong_submissions->num_rows > 0) :
+                                if (isset($wrong_submissions->num_rows) &&$wrong_submissions->num_rows > 0) :
                                     // output data of each row
                                     while($row = $wrong_submissions->fetch_assoc()) :
                                         ?>
@@ -155,8 +174,6 @@ endif;
                                     <?php
                                     endwhile;
 
-                                else:
-                                    echo "0 results";
                                 endif;
                                 ?>
 
@@ -174,7 +191,7 @@ endif;
                                 </tr>
                                 <?php
                                 $accepted_submissions = $conn->query($sql);
-                                if ($accepted_submissions->num_rows > 0) :
+                                if (isset($accepted_submissions->num_rows) && $accepted_submissions->num_rows > 0) :
                                     // output data of each row
                                     while($row = $accepted_submissions->fetch_assoc()) :
                                         ?>
@@ -187,8 +204,6 @@ endif;
                                     <?php
                                     endwhile;
 
-                                else:
-                                    echo "0 results";
                                 endif;
                                 ?>
 
@@ -206,7 +221,7 @@ endif;
 
                                 <?php
                                 $wrong_submissions = $conn->query($sql2);
-                                if ($wrong_submissions->num_rows > 0) :
+                                if (isset($wrong_submissions->num_rows) && $wrong_submissions->num_rows > 0) :
                                     // output data of each row
                                     while($row = $wrong_submissions->fetch_assoc()) :
                                         ?>
@@ -218,9 +233,6 @@ endif;
                                         </tr>
                                     <?php
                                     endwhile;
-
-                                else:
-                                    echo "0 results";
                                 endif;
                                 ?>
                             </table>
