@@ -35,7 +35,7 @@ $sql = "SELECT * FROM contests";
         <!-- Contests Section -->
         <div class="color">
             <div class="table-responsive">
-                <table class ="table   table-striped  table-bordered" > 
+                <table class ="table table-dark  table-striped  table-bordered" > 
                     <caption> <span> Current Or Upcoming Contests </span> </caption>
                     
                     <tr>
