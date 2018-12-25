@@ -11,7 +11,8 @@ body {
     width: 80%;
     border: 5px;
     border-radius: 8px;
-    margin:auto
+    margin:auto;
+    margin-top: 7%;
  }
 
 /*### Mobile ###*/
