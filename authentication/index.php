@@ -1,11 +1,12 @@
 
 <?php
+require 'process.php';
+
 if(!isset($_SESSION))
     session_start();
 if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
   header("location: ../home/");
-else:
-    require 'process.php';
+
 endif;
 
 ?>
@@ -57,7 +58,7 @@ endif;
 
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
                                     <?php
-                                        if(isset($reg_errors))
+                                        if(isset($log_errors) && count($log_errors) > 0)
                                             echo "<span>" . $log_errors['password'] . "</span>";
                                     ?>
                                     <div class="form-group">
@@ -94,8 +95,8 @@ endif;
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
 
                                     <?php
-                                        if(isset($reg_errors))
-                                            echo "<span>" . $reg_errors['password'] . "</span>";
+                                        if(isset($reg_errors) && count($reg_errors) > 0)
+                                            echo "<span>" . $reg_errors['passwordreg'] . "</span>";
                                     ?>
 
                                     <div class="row">
