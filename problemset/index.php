@@ -42,8 +42,21 @@ $sql = "SELECT * FROM problems";
                         <th class= "topLeftRad"> Name </th>
                         <th> <span class="badge badge-success"> Level </span> </th>
                         <th> <img src="/codecourses/assets/images/user.png"> </th> 
-                        <th class = "topRightRad"> <img src ="/codecourses/assets/images/ok.png"> </th>
+                        <th class = "topRightRad"> Status </th>
                     </tr>
+                    <tr>
+                        <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
+                        <td> Intermediate </td>
+                        <td> 10 </td> 
+                        <td class = "topRightRad"> <img src="/codecourses/assets/images/ok.png"> </td>
+                    </tr>
+                <tr>
+                        <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
+                        <td> Intermediate </td>
+                        <td> 10 </td> 
+                        <td class = "topRightRad"> <img src="/codecourses/assets/images/wrong.png"  width="16" height="16"> </td>
+                    </tr>
+                    
                     <?php 
                     $result = $conn->query($sql);
 
