@@ -7,6 +7,9 @@ body {
     font-family: sans-serif;
 }
     
+.color {
+    min-height: 760px;
+}
 .pdfContainer{
     border: 2px solid #ccc;
     box-shadow: 1px 1px 1px #999;
