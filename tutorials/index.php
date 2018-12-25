@@ -41,17 +41,17 @@
                             <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordion1">
                                 <div class="card-body">
                                     <br> 
-                                    <a href="../TutorialsPage/index.html" target="_blank">1- Data Types</a>
+                                    <a href="../tutorials/index.php">1- Data Types</a>
                                     <br><br>
-                                    <a href="###" target="_blank">2- Operators</a>
+                                    <a href="###">2- Operators</a>
                                     <br><br>
-                                    <a href="###" target="_blank">3- Array</a>
+                                    <a href="###">3- Array</a>
                                     <br><br>
-                                    <a href="###" target="_blank">4- String</a>
+                                    <a href="###">4- String</a>
                                     <br><br>
-                                    <a href="###" target="_blank">5- Loop</a>
+                                    <a href="###">5- Loop</a>
                                     <br><br>    
-                                    <a href="###" target="_blank">6- Function</a>
+                                    <a href="###">6- Function</a>
                                     <br><br>
                                 </div>
                             </div>
