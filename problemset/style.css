@@ -75,3 +75,8 @@ body {
 div.color {
     min-height: 540px; 
 }
+
+.topLeftRad a {
+    text-decoration: underline;
+    color: white;
+}

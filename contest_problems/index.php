@@ -43,7 +43,7 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 					
 				<div class="table-responsive">
 
-					<table class ="table   table-striped  table-bordered" > 
+					<table class ="table table-striped table-bordered" > 
 						
 						<tr>
 							<th> # </th>
@@ -56,21 +56,6 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<td> <a href = "#"> Sample </a> </td>
 							<td> 10 </td>
 							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
-						</tr>
-<<<<<<< HEAD
-						<tr>
-							<th> 2 </th>
-							<th> <a href = "#"> Sample </a> </th>
-							<th> 10 </th>
-							<th> <img class style="width:16px;height:16px;" src="/codecourses/assets/images/wrong.png"> </th> 
-=======
-						
-						<tr>
-							<td> B </td>
-							<td> <a href = "#"> Sample </a> </td>
-							<td> 10 </td>
-							<td> <img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> </td> 
->>>>>>> bd87408d3cd94564389aeeae83a8c9997a937964
 						</tr>
 						<?php 
 							$result = $conn->query($sql);

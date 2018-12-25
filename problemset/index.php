@@ -37,24 +37,24 @@ $sql = "SELECT * FROM problems";
         <!-- ProblemSection -->
         <div class="color">
             <div class="table-responsive">
-                <table class ="table   table-striped  table-bordered" > 
+                <table class ="table table-striped table-bordered table-dark" > 
                     <tr>
                         <th class= "topLeftRad"> Name </th>
-                        <th> <span class="badge badge-success"> Level </span> </th>
+                        <th>Level</th>
                         <th> <img src="/codecourses/assets/images/user.png"> </th> 
                         <th class = "topRightRad"> Status </th>
                     </tr>
                     <tr>
                         <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
-                        <td> Intermediate </td>
+                        <td> <span class="badge badge-success">Intermediate<span> </td>
                         <td> 10 </td> 
-                        <td class = "topRightRad"> <img src="/codecourses/assets/images/ok.png"> </td>
+                        <td class = "topRightRad"><span class="badge badge-danger">Wrong Answer</span></td>
                     </tr>
-                <tr>
+                    <tr>
                         <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
-                        <td> Intermediate </td>
+                        <td> <span class="badge badge-success">Beginner<span> </td>
                         <td> 10 </td> 
-                        <td class = "topRightRad"> <img src="/codecourses/assets/images/wrong.png"  width="16" height="16"> </td>
+                        <td class = "topRightRad"><span class="badge badge-success">Accepted</span></td>
                     </tr>
                     
                     <?php 

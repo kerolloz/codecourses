@@ -17,7 +17,7 @@
         <div class="color">
             <div class ="tableWidth">
                 <div class="table-responsive">
-                    <table class ="table table-striped table-bordered" > 
+                    <table class ="table table-striped table-bordered table-dark table-hover" > 
                         <tr>
                             <th> # </th>
                             <th> Participant </th>
@@ -25,6 +25,38 @@
                             <th class="underline"><a href="#">A</a></th>
                             <th class ="underline"><a href="#">B</a></th> 
                             <th class ="underline"><a href="#">C</a></th> 
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> Sample </td>
+                            <td> 10 </td>
+                            <td class ="score"> +3 </td>
+                            <td class ="wrong"> -4 </td> 
+                            <td class ="score"> +3 </td> 
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> Sample </td>
+                            <td> 10 </td>
+                            <td class ="score"> +3 </td>
+                            <td class ="wrong"> -4 </td> 
+                            <td class ="score"> +3 </td> 
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> Sample </td>
+                            <td> 10 </td>
+                            <td class ="score"> +3 </td>
+                            <td class ="wrong"> -4 </td> 
+                            <td class ="score"> +3 </td> 
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> Sample </td>
+                            <td> 10 </td>
+                            <td class ="score"> +3 </td>
+                            <td class ="wrong"> -4 </td> 
+                            <td class ="score"> +3 </td> 
                         </tr>
                         <tr>
                             <td> 1 </td>

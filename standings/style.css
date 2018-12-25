@@ -43,7 +43,7 @@ body {
  
  .underline a {
     text-decoration: underline;
-    color:black;
+    color:white;
  }
 
  .score, .accepted{
