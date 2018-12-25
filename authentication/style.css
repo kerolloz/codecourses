@@ -8,11 +8,24 @@ nav, header, footer {
     display: block;
 }
 
-body {
-    line-height: 1;
-    margin: 0;
-    font-family: sans-serif;
+
+html { height:100%; }
+
+body { 
+    min-height:100%; 
+    padding:0; 
+    margin:0; 
+    position:relative; 
     background-image: url(../assets/images/acm.jpg);
+    font-family: sans-serif;
+    line-height: 1;
+
+}
+
+body::after { 
+    content:''; 
+    display:block; 
+    height:30px; 
 }
 
 /*### Navbar ###*/
@@ -83,7 +96,7 @@ nav img {
 
 .color {
     background-color: rgba(255, 255, 255, 0.8);
-    height: 650px;
+    min-height: 600px;
 }
 
 #signinCard, #signupCard {
@@ -130,4 +143,25 @@ a.need-help {
 
 .siinves {
     display: none;
+}
+
+/*### Footer ###*/
+#footer {
+    padding:7px 20px;
+    background-color:#9E1A70;
+    text-align:right;
+    color:#fff;
+    font-size:15px;
+    border-radius: 5px;
+    position: absolute; 
+    bottom:0; 
+    width:100%; 
+    height:30px;
+
+}
+
+#footer a
+{
+    text-decoration: none;
+    color: white;
 }
