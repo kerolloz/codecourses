@@ -29,17 +29,24 @@ function get_problem_details_from_database($problem_id, &$connection){
     }
 }
 
-function add_submission_to_database($problem_id, $user_id, $problem_status, $sol_language, $connection){
+function add_submission_to_database($problem_id, $user_id, $sol_language, $connection){
     $sql = "INSERT INTO submissions (problem_id, user_id, status, sol_language)
-    VALUES ($problem_id, $user_id , '$problem_status', '$sol_language')";//prepare the sql statement
+    VALUES ($problem_id, $user_id , 'binding', '$sol_language')";//prepare the sql statement
     if ($connection->query($sql) === TRUE) {//execute the sql statement
-        echo "New record created successfully";
+        return $connection->insert_id;
     } else {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
 
 }
-
+function change_submission_status($submission_id, $status, $connection){
+    $sql = "UPDATE submissions SET status='$status' WHERE submission_id=$submission_id";
+    if ($connection->query($sql) === TRUE) {
+        echo "done";
+    } else {
+        echo "Error updating record: " . $connection->error.$sql;
+    }
+}
 function increment_number_of_solvers($problem_id,&$connection){
     $sql = "SELECT number_of_solvers FROM problems WHERE problem_id = $problem_id";
     $result = $connection->query($sql);
@@ -74,4 +81,5 @@ function close_sql_connection(&$connection){
     $connection->close();
     $connection = null;
 }
+
 
