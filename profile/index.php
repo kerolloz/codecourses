@@ -1,15 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ojDB";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
+if(!isset($_SESSION))
+    session_start();
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
+    require '../back/database_connection.php';
+    // Create connection
+    $conn = get_sql_connection();
+else:
+    header("location: ../authentication/");
+endif;
+
 
 ?>
 <!doctype html>
