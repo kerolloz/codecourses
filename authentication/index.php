@@ -47,7 +47,7 @@
 
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required
                                             <?php
                                             if ($log_errors) {
                                                 echo 'value="'. htmlentities($email) .'"';
@@ -57,7 +57,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password" required>
                                     </div>
 
                                     <button type="submit" class="btn signin-button" name="login">Sign In</button>
@@ -82,7 +82,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname"
+                                                <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname" required
                                                     <?php
                                                     if($reg_errors) {
                                                         echo 'value="' . htmlentities($fname) .'"';
@@ -94,7 +94,7 @@
 
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="lnameInput" placeholder="Last Name" name="lname"
+                                                <input type="text" class="form-control" id="lnameInput" placeholder="Last Name" name="lname" required
                                                     <?php
                                                     if($reg_errors) {
                                                         echo 'value="' . htmlentities($lname) .'"';
@@ -106,7 +106,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email"
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required
                                             <?php
                                             if ($reg_errors) {
                                                 echo 'value="'. htmlentities($email) .'"';
@@ -116,7 +116,7 @@
                                     </div>
         
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username"
+                                        <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username" required
                                             <?php
                                             if($reg_errors) {
                                                 echo 'value="' . htmlentities($username) .'"';
@@ -126,11 +126,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password1">
+                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password1" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="passwordConInput" placeholder="Password Confirmation" name="password2">
+                                        <input type="password" class="form-control" id="passwordConInput" placeholder="Password Confirmation" name="password2" required>
                                     </div>
 
                                     <button type="submit" class="btn signin-button" name="reg_usr">Sign Up</button>
