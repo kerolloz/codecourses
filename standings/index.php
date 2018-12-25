@@ -11,12 +11,6 @@
     </head>
 
     <body>
-<<<<<<< HEAD
-
-=======
-        
-        
->>>>>>> e7451ca936b8095861568df67e78274efd55d8ef
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
         
