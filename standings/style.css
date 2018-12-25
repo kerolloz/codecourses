@@ -15,30 +15,40 @@ body {
     font-family: sans-serif;
 }
 
+.color
+{
+    min-height: 540px;
+}
+
 /**# Styling Table ##*/
 
 .tableWidth{
     width:70%;
     background-color: rgba(128,128,128,.1);
     border-radius: 8px;
+    margin: auto
 }
 
 .table-responsive{
     width:100% ;
     border-radius: 8px;
-
+    margin: auto
  }
 
  .table-bordered{
     text-align: center;
     float:left;
+    margin: auto
  }
  
- .underline{
+ .underline a {
     text-decoration: underline;
-    color:blue;
+    color:black;
  }
 
- .score{
+ .score, .accepted{
     color:green;
  }
+.wrong {
+    color: red;
+}

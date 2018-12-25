@@ -91,7 +91,7 @@ body {
         margin: 15px;
     }
 
-    .videoContainer iframe {
+    .videoContainer video {
         position: relative;
         width: 100%;
         margin: 0;

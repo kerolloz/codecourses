@@ -15,32 +15,34 @@
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
         
-      	<div class ="tableWidth">
-      	<p> <bold> Standings </bold> </p>
-       <div class="table-responsive">
+        <div class="color">
+            <div class ="tableWidth">
+                <div class="table-responsive">
+                    <table class ="table table-striped table-bordered" > 
+                        <tr>
+                            <th> # </th>
+                            <th> Participant </th>
+                            <th> = </th>
+                            <th class="underline"><a href="#">A</a></th>
+                            <th class ="underline"><a href="#">B</a></th> 
+                            <th class ="underline"><a href="#">C</a></th> 
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> Sample </td>
+                            <td> 10 </td>
+                            <td class ="score"> +3 </td>
+                            <td class ="wrong"> -4 </td> 
+                            <td class ="score"> +3 </td> 
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
-    	  <table class ="table   table-striped  table-bordered" > 
-            <tr>
-            	<th> # </th>
-            	<th> Participant </th>
-            	<th> = </th>
-               	<th class="underline"> A </th>
-               	<th class ="underline"> B </th> 
-               	<th class ="underline"> C </th> 
-           	</tr>
-          <tr>
-              <td> 1 </td>
-              <td> Sample </td>
-              <td> 10 </td>
-                <td class ="score"> +3 </td>
-                <td class ="score"> +4 </td> 
-                <td class ="score"> +3 </td> 
-            </tr>
-
-
-           </table>
-       </div>
-      </div>
+            <div id="footer">
+                &copy 2018 CodeCourses.com | All Rights Reserved
+            </div> 
+        </div>
 
 </body>
 

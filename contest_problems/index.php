@@ -1,4 +1,6 @@
  <?php
+session_start();
+$_SESSION['standing'] = true;
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -50,16 +52,25 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<th> Status </th> 
 						</tr>
 						<tr>
-							<th> 1 </th>
-							<th> <a href = "#"> Sample </a> </th>
-							<th> 10 </th>
-							<th> <img src="/codecourses/assets/images/ok.png"> </th> 
+							<td> 1 </td>
+							<td> <a href = "#"> Sample </a> </td>
+							<td> 10 </td>
+							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
 						</tr>
+<<<<<<< HEAD
 						<tr>
 							<th> 2 </th>
 							<th> <a href = "#"> Sample </a> </th>
 							<th> 10 </th>
 							<th> <img class style="width:16px;height:16px;" src="/codecourses/assets/images/wrong.png"> </th> 
+=======
+						
+						<tr>
+							<td> 2 </td>
+							<td> <a href = "#"> Sample </a> </td>
+							<td> 10 </td>
+							<td> <img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> </td> 
+>>>>>>> bd87408d3cd94564389aeeae83a8c9997a937964
 						</tr>
 						<?php 
 							$result = $conn->query($sql);
