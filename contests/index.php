@@ -35,8 +35,7 @@ $sql = "SELECT * FROM contests";
         <!-- Contests Section -->
         <div class="color">
             <div class="table-responsive">
-                <table class ="table   table-striped  table-bordered" > 
-                    <caption> <span> Current Or Upcoming Contests </span> </caption>
+                <table class ="table table-dark  table-striped  table-bordered" > 
                     
                     <tr>
                         <th> Name </th>
@@ -57,7 +56,7 @@ $sql = "SELECT * FROM contests";
                                 <td> <?= $row['setter'] ?> </td>
                                 <td> <?= $row['date'] ?> </td> 
                                 <td> <?= $row['length'] ?>m </td>
-                                <td> <button id="register"> <span class="badge badge-primary"> &gt Register</span> </button> </td>
+                                <td> <button id="register" type="button" class="btn btn-secondary"> Register</button> </td>
                             </tr>
                     <?php
                             endwhile;

@@ -20,13 +20,22 @@ body {
     width: 80%;
     border: 5px;
     border-radius: 8px;
-    maring:auto
+    margin:auto
 }
 
 .table-bordered{
     text-align: center;
+   
 }
 
+.table{
+ margin-top:7%;   
+    
+}
+
+.table td {
+    vertical-align: middle;
+}
 /*### Styling Table Caption ###*/
 
 caption{

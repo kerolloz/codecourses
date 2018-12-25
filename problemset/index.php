@@ -1,17 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ojDB";
+
+
+require '../back/database_connection.php';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$conn = get_sql_connection();
 
 $sql = "SELECT * FROM problems";
+
+$accepted_img_dir = "../assets/images/ok.png";
+$wrong_answer_img_dir = "../assets/images/wrong.png";
 
 ?>
 <!doctype html>
@@ -37,13 +35,18 @@ $sql = "SELECT * FROM problems";
         <!-- ProblemSection -->
         <div class="color">
             <div class="table-responsive">
+<<<<<<< HEAD
                 <table class ="table table-striped table-bordered table-dark" > 
+=======
+                <table class ="table table-dark  table-striped  table-bordered" > 
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
                     <tr>
                         <th class= "topLeftRad"> Name </th>
                         <th>Level</th>
                         <th> <img src="/codecourses/assets/images/user.png"> </th> 
                         <th class = "topRightRad"> Status </th>
                     </tr>
+<<<<<<< HEAD
                     <tr>
                         <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
                         <td> <span class="badge badge-success">Intermediate<span> </td>
@@ -56,6 +59,8 @@ $sql = "SELECT * FROM problems";
                         <td> 10 </td> 
                         <td class = "topRightRad"><span class="badge badge-success">Accepted</span></td>
                     </tr>
+=======
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
                     
                     <?php 
                     $result = $conn->query($sql);
@@ -65,7 +70,7 @@ $sql = "SELECT * FROM problems";
                         while($row = $result->fetch_assoc()) :
                     ?>
                             <tr>
-                                <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>" target="_blank"> <?= $row['name'] ?> </td>
+                                <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>"> <?= $row['name'] ?> </td>
                                 <?php
                                 switch ($row['level']) {
                                     case 1:
@@ -83,7 +88,18 @@ $sql = "SELECT * FROM problems";
                                 }
                                 ?>
                                 <td> <?= $row['number_of_solvers'] ?>  </td> 
-                                <td> no  </td>
+                                <td>
+										<img src=
+										<?php
+										if (is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
+											# code...
+											echo "$accepted_img_dir";
+										}else{
+											echo "$wrong_answer_img_dir";
+										}
+										?>
+										style="width:16px;height:16px;"> 
+									</td>
                             </tr>
                     <?php
                         endwhile;

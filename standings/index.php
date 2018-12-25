@@ -17,7 +17,11 @@
         <div class="color">
             <div class ="tableWidth">
                 <div class="table-responsive">
+<<<<<<< HEAD
                     <table class ="table table-striped table-bordered table-dark table-hover" > 
+=======
+                    <table class ="table table-dark table-striped table-bordered" > 
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
                         <tr>
                             <th> # </th>
                             <th> Participant </th>
