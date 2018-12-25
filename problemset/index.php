@@ -65,7 +65,7 @@ $sql = "SELECT * FROM problems";
                         while($row = $result->fetch_assoc()) :
                     ?>
                             <tr>
-                                <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>" target="_blank"> <?= $row['name'] ?> </td>
+                                <td ><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>"> <?= $row['name'] ?> </td>
                                 <?php
                                 switch ($row['level']) {
                                     case 1:
