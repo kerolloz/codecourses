@@ -15,15 +15,7 @@ function get_sql_connection(){
 }
 
 function get_last_insert_id(&$connection){
-  $sql = "SELECT LAST_INSERT_ID()";
-  $result = $connection->query($sql);
-  if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
-      // output data of each row
-      if($row = $result->fetch_assoc()) { //fetching data from result object row by row
-          return $row; //return the time limit of rhe problem
-      }
-  }
-  return null;
+  return $connection->insert_id;
 }
 
 
