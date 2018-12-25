@@ -11,15 +11,16 @@
     </head>
 
     <body>
-
+        
+        <br> <br> <br>
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
         
       	<div class ="tableWidth">
-      	<p> <bold> Standings </bold> </p>
        <div class="table-responsive">
 
     	  <table class ="table   table-striped  table-bordered" > 
+              <caption> Standings </caption>
             <tr>
             	<th> # </th>
             	<th> Participant </th>
