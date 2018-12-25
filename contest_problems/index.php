@@ -7,7 +7,7 @@ require '../back/database_connection.php';
 // Create connection
 $conn = get_sql_connection();
 
-$contest_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE); 
+$contest_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
 if(!$contest_id)
     header("location: /codecourses/errors/404.html");
 $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
@@ -30,38 +30,26 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
         <script src="../scripts/script.js"></script>
     </head>
     <body>
-        
+
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
 
         <!-- Problems In Contest Section -->
 		<div class="color">
 			<div class = "tableWidth">
-					
+
 				<div class="table-responsive">
 
-<<<<<<< HEAD
-					<table class ="table table-striped table-bordered" > 
-=======
-					<table class ="table table-dark  table-striped  table-bordered" > 
->>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
-						
+					<table class ="table table-dark  table-striped  table-bordered" >
+
 						<tr>
 							<th> # </th>
 							<th> Name </th>
 							<th> <img src="/codecourses/assets/images/user.png"> </th>
-							<th> Status </th> 
+							<th> Status </th>
 						</tr>
-<<<<<<< HEAD
-						<tr>
-							<td> A </td>
-							<td> <a href = "#"> Sample </a> </td>
-							<td> 10 </td>
-							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
-						</tr>
-=======
->>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
-						<?php 
+
+						<?php
 							$result = $conn->query($sql);
 
 							if ($result->num_rows > 0) :
@@ -76,27 +64,27 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 									<td>
 										<img src=
 										<?php
-										if (is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
+										if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
 											# code...
 											echo "$accepted_img_dir";
 										}else{
 											echo "$wrong_answer_img_dir";
 										}
 										?>
-										style="width:16px;height:16px;"> 
+										style="width:16px;height:16px;">
 									</td>
 								</tr>
 						<?php
 							endwhile;
 
-						else: 
+						else:
 							echo "<pre><br>NO PROBLEMS IN THIS CONTEST</pre>";
 						endif;
 						$conn->close();
 						?>
 
 
-					
+
 					</table>
 
 				</div>
@@ -106,7 +94,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 					<table class ="table table-dark table-bordered table-striped">
 
 						<tr>
-							<th> <span class="badge badge-danger"> CountDown !</span> </th> 
+							<th> <span class="badge badge-danger"> CountDown !</span> </th>
 						</tr>
 
 						<tr>
@@ -120,9 +108,9 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
 			<div id="footer">
 				&copy 2018 CodeCourses.com | All Rights Reserved
-			</div> 
-		</div>       
+			</div>
+		</div>
 
-</body>  
+</body>
 
 </html>
