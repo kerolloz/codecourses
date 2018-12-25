@@ -33,7 +33,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
 
         <!-- ProblemSection -->
-        <div class="color">
+        <div>
             <div class="table-responsive">
                 <table class ="table table-striped table-bordered table-dark" >
                     <tr>
@@ -55,14 +55,14 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                                 <?php
                                 switch ($row['level']) {
                                     case 1:
-                                        echo "<td>Beginner </td>";
+                                        echo "<td><span class='badge badge-success'>Beginner </span></td>";
                                         # code...
                                         break;
                                     case 2:
-                                         echo "<td>Intermediate </td>";
+                                         echo "<td><span class='badge badge-success'>Intermediate </span></td>";
                                          break;
                                     case 3:
-                                        echo "<td>Advanced </td>";
+                                        echo "<td><span class='badge badge-success'>Advanced </span></td>";
                                     default:
                                         # code...
                                         break;

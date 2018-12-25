@@ -32,7 +32,8 @@ body {
 .table-responsive{
     width:100% ;
     border-radius: 8px;
-    margin: auto
+    margin: auto;
+    margin-top: 6%;
  }
 
  .table-bordered{
@@ -40,7 +41,7 @@ body {
     float:left;
     margin: auto
  }
- 
+
  .underline a {
     text-decoration: underline;
     color:white;

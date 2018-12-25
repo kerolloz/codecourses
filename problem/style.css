@@ -6,7 +6,7 @@ body {
     /*background-image: url(assets/images/acm.jpg);*/
     font-family: sans-serif;
 }
-    
+
 .color {
     min-height: 760px;
 }
@@ -32,7 +32,7 @@ body {
 .btn{
     background-color: #2B3386;
 }
-textarea { 
+textarea {
     height: auto;
     width: auto;
 }
@@ -46,7 +46,7 @@ textarea {
     border-radius: 2px;
     font-size: 14px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
-    
+
 }
 /* The Modal (background) */
 .result{
@@ -74,6 +74,11 @@ textarea {
   width: 45%;
 }
 
+.accRes {
+  height: 250px;
+  color: green;
+  background-color: #fff;
+}
 /* The Close Button */
 .closeRes {
   color: #000;

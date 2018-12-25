@@ -40,7 +40,9 @@ if(isset($_POST['submit'])){
                         <br><br><br>
                     </div>
                 </div>
-
+                <div class="spinner-grow text-success" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
                 <div class="row">
                     <div class="col">
                         <div class="showsubmit">
@@ -68,7 +70,7 @@ if(isset($_POST['submit'])){
                                                 <div class="col-8">
                                                     <div class="user-select">
                                                         <select name="compiler">
-                                                            C++ 
+                                                            C++
                                                             <option value="1">GNU G++17 7.3.0</option>
                                                         </select>
                                                     </div>
@@ -110,7 +112,6 @@ if(isset($_POST['submit'])){
 
                 <!--3 Models ACC, WA, TLE -->
                 <!-- 1 -->
-
                 <div id="res" class="finalResultClass">
                     <!-- Modal content -->
                     <div class="resultMod">
@@ -130,9 +131,11 @@ if (isset($return_value)):
 
 switch ($return_value) {
     case 0:
-    echo '<script>
+    echo '
+    <script>
     	var jr = document.getElementById("judgeResult");
     	jr.innerHTML = "Accepted";
+      document.getElementById("resultMod").className = "accRes";
     </script>';
         break;
     case 1:
