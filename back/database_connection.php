@@ -40,7 +40,38 @@ function add_submission_to_database($problem_id, $user_id, $problem_status, $sol
 
 }
 
-function close_sql_connection(&$connection){
-  $connection->close();
-  $connection = null;
+function increment_number_of_solvers($problem_id,&$connection){
+    $sql = "SELECT number_of_solvers FROM problems WHERE problem_id = $problem_id";
+    $result = $connection->query($sql);
+    if ($result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
+        // output data of each row
+        while($row = $result->fetch_assoc()) { //fetching data from result object row by row
+            $sql = "UPDATE problems SET number_of_solvers=".($row['number_of_solvers']+1)." WHERE problem_id=$problem_id";
+            if ($connection->query($sql) === TRUE) {
+
+            } else {
+                echo "Error updating record: " . $connection->error;
+            }
+        }
+    } else {
+        return 0; //if there is no time limit stored on database (for safety)
+    }
 }
+
+
+function is_solved_for_user($problem_id, $user_id, &$connection){
+
+    $sql = "SELECT problem_id FROM submissions WHERE problem_id = $problem_id AND user_id = $user_id AND status = 'accepted'"; //prepare the sql statement
+    $result = $connection->query($sql); //execute the sql statement and get the result object
+    //echo $result->num_rows;
+    return ($result->num_rows > 0);
+
+}
+
+
+
+function close_sql_connection(&$connection){
+    $connection->close();
+    $connection = null;
+}
+
