@@ -12,8 +12,11 @@ body {
     border: 5px;
     border-radius: 8px;
     margin:auto;
-    margin-top: 7%;
  }
+
+.table{
+        margin-top: 7%;
+}
 
 /*### Mobile ###*/
 @media screen and (max-width: 850px) {
