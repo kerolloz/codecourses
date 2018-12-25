@@ -56,6 +56,10 @@ endif;
                                 <h1 class="signin-header">Sign In</h1>
 
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+                                    <?php
+                                        if(isset($reg_errors))
+                                            echo "<span>" . $log_errors['password'] . "</span>";
+                                    ?>
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required
                                             <?php
@@ -88,14 +92,12 @@ endif;
                             <div class="card-body">
                                 <h1 class="signin-header">Sign Up</h1>
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
-<<<<<<< HEAD
+
                                     <?php
                                         if(isset($reg_errors))
                                             echo "<span>" . $reg_errors['password'] . "</span>";
                                     ?>
-=======
 
->>>>>>> 13e33853269688d4367d5d30310baa5ed8194c4b
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
