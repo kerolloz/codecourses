@@ -59,7 +59,7 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<th> 2 </th>
 							<th> <a href = "#"> Sample </a> </th>
 							<th> 10 </th>
-							<th> <img class style="width:16px;height:16px;"> src="/codecourses/assets/images/wrong.png"> </th> 
+							<th> <img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> </th> 
 						</tr>
 						<?php 
 							$result = $conn->query($sql);
