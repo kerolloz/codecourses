@@ -52,7 +52,7 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<th> Status </th> 
 						</tr>
 						<tr>
-							<td> 1 </td>
+							<td> A </td>
 							<td> <a href = "#"> Sample </a> </td>
 							<td> 10 </td>
 							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
@@ -66,7 +66,7 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 =======
 						
 						<tr>
-							<td> 2 </td>
+							<td> B </td>
 							<td> <a href = "#"> Sample </a> </td>
 							<td> 10 </td>
 							<td> <img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> </td> 
