@@ -81,7 +81,7 @@ if (isset($_POST['login'])) {
     array_push($log_errors, "Email is required");
   }
   if (empty($password)) {
-    array_push($log_errors, "Password is required");
+    $log_errors['password'] =  "Password is required";
 
   }
 
