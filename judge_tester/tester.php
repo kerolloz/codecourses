@@ -17,8 +17,8 @@ $command = "g++ " . $compilation_flags . $source_code_name . " -o " . $object_fi
 exec($command, $output, $compilation_state);
 
 if($compilation_state){ // compile success if (compilation_state == 0)
-    echo "compilation FAILED";
-    return(1);
+    $return_value = -1;
+    return $return_value;
 }
 
 $sql_connection = get_sql_connection();

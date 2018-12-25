@@ -147,7 +147,7 @@ switch ($return_value) {
     case -1:
     echo '<script>
     	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Not Judged";
+    	jr.innerHTML = "Compilation Error";
     </script>';
         break;
     case 124:

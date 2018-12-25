@@ -6,7 +6,10 @@ back/python-api/problem.pdf
 *.mp4
 
 # ingnore logs & Databases  
+<<<<<<< HEAD
+=======
 
+>>>>>>> 65e0ff7d4112ee2bcd1a023adbbf5be0a29758e2
 .idea/*.xml
 .idea/*.iml
 
@@ -15,3 +18,6 @@ back/python-api/problem.pdf
 
 # ignore parsed submissions 
 back/[0-9]*_[0-9]*/
+# ignore Soruce codes, problems_db
+problems_db/
+source_codes/
