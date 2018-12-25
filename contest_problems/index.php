@@ -48,22 +48,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 							<th> <img src="/codecourses/assets/images/user.png"> </th>
 							<th> Status </th> 
 						</tr>
-						<tr>
-							<td> A </td>
-							<td> <a href = "#"> Sample </a> </td>
-							<td> 10 </td>
-							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
-						</tr>
-
 						
-						<tr>
-							<td> B </td>
-							<td> <a href = "#"> Sample </a> </td>
-							<td> 10 </td>
-							<td> 
-								<img src="/codecourses/assets/images/wrong.png" style="width:16px;height:16px;"> 
-							</td> 
-						</tr>
 						<?php 
 							$result = $conn->query($sql);
 
