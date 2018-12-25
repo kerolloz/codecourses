@@ -40,7 +40,11 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 					
 				<div class="table-responsive">
 
+<<<<<<< HEAD
+					<table class ="table table-striped table-bordered" > 
+=======
 					<table class ="table table-dark  table-striped  table-bordered" > 
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
 						
 						<tr>
 							<th> # </th>
@@ -48,6 +52,15 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 							<th> <img src="/codecourses/assets/images/user.png"> </th>
 							<th> Status </th> 
 						</tr>
+<<<<<<< HEAD
+						<tr>
+							<td> A </td>
+							<td> <a href = "#"> Sample </a> </td>
+							<td> 10 </td>
+							<td> <img src="/codecourses/assets/images/ok.png"> </td> 
+						</tr>
+=======
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
 						<?php 
 							$result = $conn->query($sql);
 

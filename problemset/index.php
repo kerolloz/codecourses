@@ -35,13 +35,32 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
         <!-- ProblemSection -->
         <div class="color">
             <div class="table-responsive">
+<<<<<<< HEAD
+                <table class ="table table-striped table-bordered table-dark" > 
+=======
                 <table class ="table table-dark  table-striped  table-bordered" > 
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
                     <tr>
                         <th class= "topLeftRad"> Name </th>
-                        <th> <span class="badge badge-success"> Level </span> </th>
+                        <th>Level</th>
                         <th> <img src="/codecourses/assets/images/user.png"> </th> 
                         <th class = "topRightRad"> Status </th>
                     </tr>
+<<<<<<< HEAD
+                    <tr>
+                        <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
+                        <td> <span class="badge badge-success">Intermediate<span> </td>
+                        <td> 10 </td> 
+                        <td class = "topRightRad"><span class="badge badge-danger">Wrong Answer</span></td>
+                    </tr>
+                    <tr>
+                        <td class= "topLeftRad"> <a href ="#" > Sample </a> </td>
+                        <td> <span class="badge badge-success">Beginner<span> </td>
+                        <td> 10 </td> 
+                        <td class = "topRightRad"><span class="badge badge-success">Accepted</span></td>
+                    </tr>
+=======
+>>>>>>> f37329722f1d1ac1567d692ff4c89ce0373d095f
                     
                     <?php 
                     $result = $conn->query($sql);

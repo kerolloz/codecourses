@@ -175,3 +175,14 @@ ul.nav-left li.dropdownIcon {
     text-decoration: none;
     color: white;
 }
+
+/*override BS*/
+.table-dark {
+    background-color: #43474b;
+    margin-top: 7%;
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #5d646b;
+    border-radius: 2px;
+}
