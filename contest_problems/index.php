@@ -47,7 +47,19 @@ $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
 							<th> # </th>
 							<th> Name </th>
 							<th> <img src="/codecourses/assets/images/user.png"> </th>
-							<th> <img src="/codecourses/assets/images/ok.png" > </th> 
+							<th> Status </th> 
+						</tr>
+						<tr>
+							<th> 1 </th>
+							<th> <a href = "#"> Sample </a> </th>
+							<th> 10 </th>
+							<th> <img src="/codecourses/assets/images/ok.png"> </th> 
+						</tr>
+						tr>
+							<th> 2 </th>
+							<th> <a href = "#"> Sample </a> </th>
+							<th> 10 </th>
+							<th> <img src="/codecourses/assets/images/wrong.png"> </th> 
 						</tr>
 						<?php 
 							$result = $conn->query($sql);
