@@ -44,7 +44,7 @@ $sql = "SELECT * FROM contests";
                             while($row = $result->fetch_assoc()) :
                     ?>
                             <tr>
-                                <td> <a  href="/codecourses/contest_problems?id=<?= $row['contest_id'] ?>"> <?= $row['name'] ?> </a> </td>
+                                <td> <a  href="../contest_problems?id=<?= $row['contest_id'] ?>"> <?= $row['name'] ?> </a> </td>
                                 <td> <?= $row['setter'] ?> </td>
                                 <td> <?= $row['date'] ?> </td>
                                 <td> <?= $row['length'] ?>m </td>
