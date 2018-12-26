@@ -1,15 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ojDB";
-
+require '../back/database_connection.php';
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$conn = get_sql_connection();
 
 $sql = "SELECT * FROM contests";
 
@@ -25,26 +17,26 @@ $sql = "SELECT * FROM contests";
 
         <link rel = "script"   href = "../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
         <script src="../scripts/script.js"></script>
-       
+
     </head>
     <body>
-       
+
         <!--include navigation bar from a preset php file-->
         <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
 
         <!-- Contests Section -->
         <div class="color">
             <div class="table-responsive">
-                <table class ="table table-dark  table-striped  table-bordered" > 
-                    
+                <table class ="table table-dark  table-striped  table-bordered" >
+
                     <tr>
                         <th> Name </th>
                         <th> Writers  </th>
-                        <th> Start </th> 
+                        <th> Start </th>
                         <th> Length </th>
                         <th>Registeration</th>
                     </tr>
-                    <?php 
+                    <?php
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) :
@@ -54,32 +46,32 @@ $sql = "SELECT * FROM contests";
                             <tr>
                                 <td> <a  href="/codecourses/contest_problems?id=<?= $row['contest_id'] ?>"> <?= $row['name'] ?> </a> </td>
                                 <td> <?= $row['setter'] ?> </td>
-                                <td> <?= $row['date'] ?> </td> 
+                                <td> <?= $row['date'] ?> </td>
                                 <td> <?= $row['length'] ?>m </td>
                                 <td> <button id="register" type="button" class="btn btn-secondary"> Register</button> </td>
                             </tr>
                     <?php
                             endwhile;
 
-                        else: 
+                        else:
                             echo "0 results";
                         endif;
                         $conn->close();
                     ?>
                     <tr>
-                        
+
                     </tr>
-                
+
                 </table>
             </div>
 
 
             <div id="footer">
                 &copy 2018 CodeCourses.com | All Rights Reserved
-            </div>  
+            </div>
         </div>
-      
 
-    </body>  
+
+    </body>
 
 </html>
