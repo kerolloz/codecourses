@@ -5,7 +5,13 @@ require '../back/database_connection.php';
 // Create connection
 $conn = get_sql_connection();
 
-$sql = "SELECT * FROM submissions";
+$sql = "SELECT
+submissions.*,
+users.username AS user_name,
+problems.name AS problem_name
+FROM ((submissions
+INNER JOIN problems ON submissions.problem_id = problems.problem_id)
+INNER JOIN users ON submissions.user_id = users.user_id)"
 
 ?>
 
@@ -32,24 +38,34 @@ $sql = "SELECT * FROM submissions";
                     <table class ="table table-dark table-striped table-bordered" >
                         <tr>
                             <th> # </th>
-                            <th> Problem Name </th>
                             <th> User </th>
+                            <th> Problem Name </th>
                             <th> Status </th>
                             <th> Langage </th>
                         </tr>
 
                         <?php
                             $result = $conn->query($sql);
+                            if (isset($result->num_rows) && $result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) { //fetching data from result object row by row
+                                    ?>
+                                    <tr>
+                                        <td> <?= $row['submission_id'] ?> </td>
+                                        <td> <?= $row['user_name'] ?> </td>
+                                        <td> <a href="../problem/?id=<?= $row['problem_id'] ?>"> <?= $row['problem_name'] ?></a> </td>
+                                        <td> <?= $row['status'] ?> </td>
+                                        <td> <?= $row['sol_language'] ?> </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }else{
+                                echo "No Submissions Yet";
+                            }
+
                         ?>
 
-                            <tr>
-                                <td> </td>
-                                <td> Sample </td>
-                                <td> 10 </td>
-                                <td class ="score"> +3 </td>
-                                <td class ="wrong"> -4 </td>
-                                <td class ="score"> +3 </td>
-                            </tr>
+
 
                     </table>
                 </div>

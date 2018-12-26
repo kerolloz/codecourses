@@ -40,7 +40,7 @@ body {
     float:left;
     margin: auto
  }
- 
+
  .underline a {
     text-decoration: underline;
     color:white;
@@ -51,4 +51,9 @@ body {
  }
 .wrong {
     color: red;
+}
+
+.table{
+ margin-top:7%;
+
 }
