@@ -1,18 +1,24 @@
 # Packages & Compressed files
 *.zip
 *.gz
+
+#ignore downloaded problem pdfs
 back/python-api/problem.pdf
-# ingnore user-uploaded assets (images, PDFs, videos)
+
+# ingnore videos
 *.mp4
 
-# ingnore logs & Databases  
+# ingnore logs & Databases
 .idea/
 
-
-# ignore compiled files
+# ignore python compiled byte code
 *.pyc
 
-# ignore parsed submissions 
+# ignore parsed submissions
 back/[0-9]*_[0-9]*/
+
 # ignore Soruce codes, problems_db
-source_codes/
+source_codes/*
+problems_db/*
+!problems_db/.gitkeep
+!source_codes/.gitkeep
