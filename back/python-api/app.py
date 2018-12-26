@@ -36,7 +36,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
+def main():
     import os
     os.chdir(os.path.dirname(os.path.realpath(__file__)))
     link = request.args.get('link')
@@ -50,4 +50,3 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run()
-
