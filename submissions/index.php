@@ -11,7 +11,9 @@ users.username AS user_name,
 problems.name AS problem_name
 FROM ((submissions
 INNER JOIN problems ON submissions.problem_id = problems.problem_id)
-INNER JOIN users ON submissions.user_id = users.user_id)"
+INNER JOIN users ON submissions.user_id = users.user_id)
+ORDER BY submission_id DESC
+";
 
 ?>
 
