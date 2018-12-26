@@ -7,7 +7,7 @@
         <li><a href="../home">Home</a></li>
         <li><a href="../problemset/">Problem Set</a></li>
         <li><a href="../contests/">Contests</a></li>
-        <li><a href="./roadmap/">Road Map</a></li>
+        <li><a href="../roadmap/">Road Map</a></li>
         <?php
         if(!isset($_SESSION))
             session_start();
