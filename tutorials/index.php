@@ -11,7 +11,7 @@
     <body>
 
         <!--include navigation bar from a preset php file-->
-        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
+         <?php require "../navbar_control.php";?>
 
         <div class="container">
             <div class="row">

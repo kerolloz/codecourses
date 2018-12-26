@@ -32,7 +32,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
     <body>
 
         <!--include navigation bar from a preset php file-->
-        <?php require $_SERVER['DOCUMENT_ROOT'] . "/codecourses/navbar_control.php";?>
+         <?php require "../navbar_control.php";?>
 
         <!-- Problems In Contest Section -->
 		<div class="color">
