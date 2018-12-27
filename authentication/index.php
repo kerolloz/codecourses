@@ -95,7 +95,7 @@ endif;
                                 <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
 
                                     <?php
-                                        if(isset($reg_errors['passwordreg']) && count($reg_errors) > 0)
+                                        if(count($reg_errors) > 0)
                                             echo '<span id="registeration_errors"> ' . $reg_errors["passwordreg"] . ' </span>';
                                     ?>
 
