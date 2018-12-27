@@ -1,6 +1,13 @@
 <?php
-session_start();
-require '../back/database_connection.php';
+
+if(!isset($_SESSION))
+    session_start();
+if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+    require '../back/database_connection.php';
+else:
+    header("location: ../authentication/");
+endif;
+
 $connection = get_sql_connection();
 $user_id = $_SESSION['user_id'];
 $contest_id = $_GET['contest_id'];

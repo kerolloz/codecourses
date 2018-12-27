@@ -47,6 +47,7 @@ $sql = "SELECT * FROM contests";
                                 <td> <?= $row['date'] ?> </td>
                                 <td> <?= $row['length'] ?>m </td>
                                 <td> <a class="btn-secondary" href="register.php?contest_id=<?= $row['contest_id'] ?>"><button id="register" type="button" class="btn btn-secondary"> Register</button></a> </td>
+
                             </tr>
                     <?php
                             endwhile;
