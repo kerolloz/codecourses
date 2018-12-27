@@ -15,8 +15,6 @@ $sql = "SELECT * FROM contests";
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="../styles/style.css">
 
-        <link rel = "script"   href = "../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
-        <script src="../scripts/script.js"></script>
 
     </head>
     <body>
@@ -48,7 +46,7 @@ $sql = "SELECT * FROM contests";
                                 <td> <?= $row['setter'] ?> </td>
                                 <td> <?= $row['date'] ?> </td>
                                 <td> <?= $row['length'] ?>m </td>
-                                <td> <button id="register" type="button" class="btn btn-secondary"> Register</button> </td>
+                                <td> <a class="btn-secondary" href="register.php?contest_id=<?= $row['contest_id'] ?>"><button id="register" type="button" class="btn btn-secondary"> Register</button></a> </td>
                             </tr>
                     <?php
                             endwhile;
@@ -71,6 +69,10 @@ $sql = "SELECT * FROM contests";
             </div>
         </div>
 
+        <script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
+        <script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
+        <script src="../scripts/script.js"></script>
+        <script src="script.js"></script>
 
     </body>
 
