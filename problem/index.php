@@ -153,13 +153,13 @@ switch ($return_value) {
     case 124:
     echo '<script>
     	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Time Limit Exceed";
+    	jr.innerHTML = "Time Limit Exceeded";
     </script>';
         break;
     default:
     echo '<script>
     	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Cannot run docker container, Something went wrong";
+    	jr.innerHTML = "Judge ERROR, Something went wrong";
     </script>';
         break;
 }
