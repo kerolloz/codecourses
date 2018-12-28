@@ -2,7 +2,7 @@ sudo apt-get update
 
 echo "Downloading Python3";
 sudo apt-get install python3 pip3 python3-pdfkit python3-pypdf2  wkhtmltopdf;
-pip3 install beautifulsoup pdfkit PyPDF2 flask;
+pip3 install beautifulsoup4 pdfkit PyPDF2 flask;
 
 sudo apt-get install \
    apt-transport-https \
