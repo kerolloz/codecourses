@@ -8,7 +8,7 @@ $users_columns = ["user_id","first_name","last_name","username","gender","privil
 $contests_columns = ["contest_id","name","date","length","setter"];
 $submissions_columns = ["submission_id", "problem_id", "user_id",
     "status", "sol_language","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
-$usersInContest = ["user_id", "contest_id","PRIMARY KEY","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
+$users_in_contests = ["user_id", "contest_id","PRIMARY KEY","FOREIGN KEY","FOREIGN KEY"]; //submissions_columns names
 $problems_columns = ["problem_id", "name", "types", "level","contest_id","number_of_solvers","time_limit","memory_limit","FOREIGN KEY"]; //problems_columns names
 
 
@@ -30,10 +30,10 @@ $submissions_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
     ["INT(6)","UNSIGNED","NOT NULL"], ["INT(6)","UNSIGNED", "NOT NULL"],
     ["VARCHAR(30)", "NOT NULL"], ["VARCHAR(30)", "NOT NULL"], ["($submissions_columns[1]) REFERENCES problems($problems_columns[0])"],
     ["($submissions_columns[2]) REFERENCES users($users_columns[0])"]];
-$usersInContest_constrains = [["INT(6)", "UNSIGNED", "NOT NULL"],
-    ["INT(6)","UNSIGNED","NOT NULL"],["($usersInContest[0], $usersInContest[1])"],
-    ["($usersInContest[0]) REFERENCES users($users_columns[0])"],
-    ["($usersInContest[0]) REFERENCES contests($contests_columns[0])"]];
+$users_in_contests_constrains = [["INT(6)", "UNSIGNED", "NOT NULL"],
+    ["INT(6)","UNSIGNED","NOT NULL"],["($users_in_contests[0], $users_in_contests[1])"],
+    ["($users_in_contests[0]) REFERENCES users($users_columns[0])"],
+    ["($users_in_contests[0]) REFERENCES contests($contests_columns[0])"]];
 
 try {
     //make PDO object with database information
@@ -127,11 +127,11 @@ try {
     // use exec() because no results are returned
     $conn->exec($sql);
     $sql = "CREATE TABLE IF NOT EXISTS users_in_contests (";
-    $sz = sizeof($usersInContest); //number of users_columns
+    $sz = sizeof($users_in_contests); //number of users_columns
     for ($i=0; $i < $sz; $i++){
-        $sql .= $usersInContest[$i]; //add column name and space
+        $sql .= $users_in_contests[$i]; //add column name and space
         $sql .= " ";
-        foreach ($usersInContest_constrains[$i] as $constrain) //loop on the users_constrains for each column
+        foreach ($users_in_contests_constrains[$i] as $constrain) //loop on the users_constrains for each column
         {
             $sql .= $constrain; //add users_constrains after each column name separated py space
             $sql .= " ";
@@ -142,8 +142,7 @@ try {
             $sql .= ") ENGINE=InnoDB;";
         }else  $sql .= ",";
     }
-    // use exec() because no results are returned
-    echo $sql;
+
     $conn->exec($sql);
     echo "----------Doneee---------\n";
 }
@@ -153,7 +152,7 @@ catch(PDOException $e)//the good thing that the PDO class have his one Exception
 	echo "-------------ERRRRRRRRRRRRRRROR-----------\n";
     echo $sql . "\n" . $e->getMessage();
 }
-	
+
 $conn = null;//closing the connection
 
 ?>
