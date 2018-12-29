@@ -1,5 +1,4 @@
 /*### Defaults ###*/
-
 * {
     box-sizing: border-box;
 }
@@ -8,24 +7,24 @@ nav, header, footer {
     display: block;
 }
 
-
-html { height:100%; }
+html {
+    height: 100%;
+}
 
 body {
-    min-height:100%;
-    padding:0;
-    margin:0;
-    position:relative;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
     background-image: url(../assets/images/acm.jpg);
     font-family: sans-serif;
     line-height: 1;
-
 }
 
 body::after {
-    content:'';
-    display:block;
-    height:30px;
+    content: '';
+    display: block;
+    height: 30px;
 }
 
 /*### Navbar ###*/
@@ -58,7 +57,6 @@ nav img {
     img.nav-left.responsive {
         display: none;
     }
-
 }
 
 /*###Sign Btns###*/
@@ -87,15 +85,13 @@ nav img {
     background-color: #C8B50B;
     cursor: pointer;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-
 }
+
 /*###Sign In###*/
-.container.signin-container{
+.container.signin-container {
     padding-top: 2%;
     margin-bottom: 2%;
 }
-
-
 
 #signinCard, #signupCard {
     padding-right: 20%;
@@ -108,7 +104,6 @@ nav img {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-
 }
 
 h1.signin-header {
@@ -143,7 +138,7 @@ a.need-help {
     display: none;
 }
 
-#registeration_errors{
+#registeration_errors {
     color: white;
     background-color: purple;
     font-size: 20;
@@ -152,29 +147,26 @@ a.need-help {
     height: 30px;
     border-radius: 3%;
     display: flex;
-    justify-content:center;
-    align-content:center;
-    flex-direction:column;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
-
 
 /*### Footer ###*/
 #footer {
-    padding:7px 20px;
-    background-color:#9E1A70;
-    text-align:right;
-    color:#fff;
-    font-size:15px;
+    padding: 7px 20px;
+    background-color: #9E1A70;
+    text-align: right;
+    color: #fff;
+    font-size: 15px;
     border-radius: 5px;
     position: absolute;
-    bottom:0;
-    width:100%;
-    height:30px;
-
+    bottom: 0;
+    width: 100%;
+    height: 30px;
 }
 
-#footer a
-{
+#footer a {
     text-decoration: none;
     color: white;
 }

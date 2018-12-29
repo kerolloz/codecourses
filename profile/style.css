@@ -1,5 +1,4 @@
 /*### Defaults ###*/
-
 * {
     box-sizing: border-box;
 }
@@ -14,7 +13,6 @@ body {
     font-family: sans-serif;
     background-image: url(../assets/images/acm.jpg);
 }
-
 
 /*###Avatar###*/
 .profile-container {
@@ -33,7 +31,8 @@ body {
 .avatar {
     text-align: center;
 }
-.avatar img{
+
+.avatar img {
     border-radius: 50%;
     margin-top: 1%;
     margin-bottom: 3%;
@@ -46,7 +45,7 @@ body {
     font-weight: bold;
 }
 
-.avatar label{
+.avatar label {
     font-family: 'Text Me One';
     font-size: 20px;
 }
@@ -89,8 +88,8 @@ div.profile-logout a {
     text-decoration: none;
     color: black;
 }
-/*###Details Submission###*/
 
+/*###Details Submission###*/
 .card.details-card {
     padding: 40px 0px 20px;
     background-color: #fff;

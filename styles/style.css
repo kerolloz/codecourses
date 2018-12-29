@@ -1,30 +1,29 @@
 /*### Defaults ###*/
-
 * {
     box-sizing: border-box;
 }
 
-html { height:100%; }
+html {
+    height: 100%;
+}
 
 body {
-    min-height:100%;
-    padding:0;
-    margin:0;
-    position:relative;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
     background-image: url(../assets/images/acm.jpg);
 }
 
 body::after {
-    content:'';
-    display:block;
-    height:30px;
+    content: '';
+    display: block;
+    height: 30px;
 }
 
 nav, header, footer {
     display: block;
 }
-
-
 
 /*### Navbar ###*/
 nav {
@@ -81,8 +80,6 @@ ul.nav-left li.dropdownIcon {
     display: none;
 }
 
-
-
 /*### Mobile ###*/
 @media screen and (max-width: 850px) {
     nav img {
@@ -117,6 +114,7 @@ ul.nav-left li.dropdownIcon {
         position: relative;
         width: 100%;
     }
+
     ul.nav-left.responsive li {
         display: inline;
         float: none;
@@ -147,27 +145,23 @@ ul.nav-left li.dropdownIcon {
         padding: 5px;
         display: block;
     }
-
 }
-
 
 /*### Footer ###*/
 #footer {
-    padding:7px 20px;
-    background-color:#9E1A70;
-    text-align:right;
-    color:#fff;
-    font-size:15px;
+    padding: 7px 20px;
+    background-color: #9E1A70;
+    text-align: right;
+    color: #fff;
+    font-size: 15px;
     border-radius: 5px;
     position: absolute;
-    bottom:0;
-    width:100%;
-    height:30px;
-
+    bottom: 0;
+    width: 100%;
+    height: 30px;
 }
 
-#footer a
-{
+#footer a {
     text-decoration: none;
     color: white;
 }

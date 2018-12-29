@@ -1,5 +1,4 @@
 /*### Defaults ###*/
-
 body {
     line-height: 1;
     margin: 0;
@@ -40,10 +39,12 @@ body {
         position: relative;
         width: 100%;
     }
+
     ul.nav-left.responsive li {
         display: inline;
         float: none;
     }
+
     ul.nav-left.responsive li a {
         display: block;
         text-align: left;
@@ -54,31 +55,31 @@ body {
 .btn {
     color: #fff;
 }
-.card-header{
+
+.card-header {
     background-color: #2B3386;
     font: #fff;
 }
 
-.card-body{
+.card-body {
     background-color: #fff;
 }
-.card-body a{
+
+.card-body a {
     color: #2B3386;
 }
 
 /*### Footer ###*/
 #footer {
-    padding:5px 20px;
-    background-color:#9E1A70;
-    text-align:right;
-    color:#fff;
-    font-size:15px;
+    padding: 5px 20px;
+    background-color: #9E1A70;
+    text-align: right;
+    color: #fff;
+    font-size: 15px;
     border-radius: 5px;
-
 }
 
-#footer a
-{
+#footer a {
     text-decoration: none;
     color: white;
 }

@@ -1,5 +1,4 @@
 /*### Defaults ###*/
-
 * {
     box-sizing: border-box;
 }
@@ -15,41 +14,40 @@ body {
     font-family: sans-serif;
 }
 
-.color
-{
+.color {
     min-height: 540px;
 }
 
 /**# Styling Table ##*/
-
-.tableWidth{
-    width:70%;
-    background-color: rgba(128,128,128,.1);
+.tableWidth {
+    width: 70%;
+    background-color: rgba(128, 128, 128, .1);
     border-radius: 8px;
     margin: auto
 }
 
-.table-responsive{
-    width:100% ;
+.table-responsive {
+    width: 100%;
     border-radius: 8px;
     margin: auto;
     margin-top: 6%;
- }
+}
 
- .table-bordered{
+.table-bordered {
     text-align: center;
-    float:left;
+    float: left;
     margin: auto
- }
+}
 
- .underline a {
+.underline a {
     text-decoration: underline;
-    color:white;
- }
+    color: white;
+}
 
- .score, .accepted{
-    color:green;
- }
+.score, .accepted {
+    color: green;
+}
+
 .wrong {
     color: red;
 }

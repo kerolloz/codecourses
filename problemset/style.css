@@ -6,16 +6,15 @@ body {
     font-family: sans-serif;
 }
 
-.table-responsive{
-
+.table-responsive {
     width: 80%;
     border: 5px;
     border-radius: 8px;
-    margin:auto;
- }
+    margin: auto;
+}
 
-.table{
-        margin-top: 7%;
+.table {
+    margin-top: 7%;
 }
 
 /*### Mobile ###*/
@@ -52,6 +51,7 @@ body {
         position: relative;
         width: 100%;
     }
+
     ul.nav-left.responsive li {
         display: inline;
         float: none;
@@ -62,22 +62,18 @@ body {
         text-align: left;
     }
 
-
     .push-left {
         margin: 15px;
     }
-
-   
 
     div.box {
         padding: 5px;
         display: block;
     }
-
 }
 
 div.color {
-    min-height: 540px; 
+    min-height: 540px;
 }
 
 .topLeftRad a {

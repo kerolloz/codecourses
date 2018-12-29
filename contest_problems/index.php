@@ -1,4 +1,4 @@
- <?php
+<?php
 session_start();
 $_SESSION['standing'] = true;
 
@@ -18,38 +18,40 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 ?>
 <!doctype html>
 <html>
-    <head>
-        <title>ProblemsInContest</title>
-        <link rel="stylesheet" href = "../assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../styles/style.css">
 
-        <link rel="stylesheet" href="style.css">
+<head>
+    <title>ProblemsInContest</title>
+    <link rel="stylesheet" href="../assets/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
-        <link rel = "script"   href = "../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
-        <script src="script.js"></script>
-        <script src="../scripts/script.js"></script>
-    </head>
-    <body>
+    <link rel="stylesheet" href="style.css">
 
-        <!--include navigation bar from a preset php file-->
-         <?php require "../navbar_control.php";?>
+    <link rel="script" href="../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
+    <script src="script.js"></script>
+    <script src="../scripts/script.js"></script>
+</head>
 
-        <!-- Problems In Contest Section -->
-		<div class="color">
-			<div class = "tableWidth">
+<body>
 
-				<div class="table-responsive">
+    <!--include navigation bar from a preset php file-->
+    <?php require "../navbar_control.php";?>
 
-					<table class ="table table-dark  table-striped  table-bordered" >
+    <!-- Problems In Contest Section -->
+    <div class="color">
+        <div class="tableWidth">
 
-						<tr>
-							<th> # </th>
-							<th> Name </th>
-							<th> <img src="/codecourses/assets/images/user.png"> </th>
-							<th> Status </th>
-						</tr>
+            <div class="table-responsive">
 
-						<?php
+                <table class="table table-dark  table-striped  table-bordered">
+
+                    <tr>
+                        <th> # </th>
+                        <th> Name </th>
+                        <th> <img src="/codecourses/assets/images/user.png"> </th>
+                        <th> Status </th>
+                    </tr>
+
+                    <?php
 							$result = $conn->query($sql);
 
 							if ($result->num_rows > 0) :
@@ -57,24 +59,30 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 								$problem_character = "A";
 								while($row = $result->fetch_assoc()) :
 							?>
-								<tr>
-									<td> <?= $problem_character++ ?> </td>
-									<td> <a  href="/codecourses/problem?id=<?= $row['problem_id'] ?>"> <?= $row['name'] ?> </a> </td>
-									<td> <?= $row['number_of_solvers'] ?>  </td>
-									<td>
-										<img src=
-										<?php
-										if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
-											# code...
-											echo "$accepted_img_dir";
-										}else{
-											echo "$wrong_answer_img_dir";
-										}
-										?>
-										style="width:16px;height:16px;">
-									</td>
-								</tr>
-						<?php
+                    <tr>
+                        <td>
+                            <?= $problem_character++ ?>
+                        </td>
+                        <td> <a href="/codecourses/problem?id=<?= $row['problem_id'] ?>">
+                                <?= $row['name'] ?> </a> </td>
+                        <td>
+                            <?= $row['number_of_solvers'] ?>
+                        </td>
+                        <td>
+                            <img src=
+                            <?php
+                            if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
+                                 # code...
+                                 echo "$accepted_img_dir" ;
+                             }
+                             else{
+                                 echo "$wrong_answer_img_dir" ;
+                             }
+                             ?>
+                            style="width:16px;height:16px;">
+                        </td>
+                    </tr>
+                    <?php
 							endwhile;
 
 						else:
@@ -85,31 +93,33 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
 
 
-					</table>
+                </table>
 
-				</div>
+            </div>
 
-				<div class = "countDownTable">
+            <div class="countDownTable">
 
-					<table class ="table table-dark table-bordered table-striped">
+                <table class="table table-dark table-bordered table-striped">
 
-						<tr>
-							<th> <span class="badge badge-danger"> CountDown !</span> </th>
-						</tr>
+                    <tr>
+                        <th> <span class="badge badge-danger"> CountDown !</span> </th>
+                    </tr>
 
-						<tr>
-							<td> <p id="countDown"> </p> </td>
-						</tr>
+                    <tr>
+                        <td>
+                            <p id="countDown"> </p>
+                        </td>
+                    </tr>
 
-					</table>
-				</div>
+                </table>
+            </div>
 
-			</div>
+        </div>
 
-			<div id="footer">
-				&copy 2018 CodeCourses.com | All Rights Reserved
-			</div>
-		</div>
+        <div id="footer">
+            &copy 2018 CodeCourses.com | All Rights Reserved
+        </div>
+    </div>
 
 </body>
 

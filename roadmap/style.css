@@ -8,6 +8,7 @@ body {
 .color {
     min-height: 540px;
 }
+
 /*### Training Section ###*/
 .btn {
     color: #fff;
@@ -15,16 +16,17 @@ body {
     margin: 4px 2px;
 }
 
-
-.card-header{
+.card-header {
     background-color: #2B3386;
     font: #fff;
 }
-.card-body{
+
+.card-body {
     background-color: #fff;
     margin-left: 6.25%;
 }
-.card-body a{
+
+.card-body a {
     color: #2B3386;
 }
 
