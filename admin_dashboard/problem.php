@@ -32,28 +32,8 @@ if (isset($_POST['download_test_cases'])) {
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
+            <?php require 'html_includes/header_desktop.html'; ?>
 
-                            <div class="header-button">
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix">
-
-                                        <div>
-                                            Admin
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
 
