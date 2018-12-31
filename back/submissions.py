@@ -22,7 +22,8 @@ def parse_it(div_class, file_name):
         test_number += 1
         # print(">> Parsing", element, "#", test_number)
         with open(str(test_number) + file_name, 'w') as out_file:
-            out_file.writelines(div.contents[len(div.contents) - 2].pre.contents)
+            out_file.writelines(
+                div.contents[len(div.contents) - 2].pre.contents)
 
     return test_number
 

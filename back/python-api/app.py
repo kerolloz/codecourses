@@ -2,6 +2,7 @@ from flask import Flask, request
 import pdfkit
 import PyPDF2
 
+
 def cut_problem_pdf(pdf_name, out_name):
     with open(pdf_name, "rb") as in_f:
         input1 = PyPDF2.PdfFileReader(in_f)
@@ -15,7 +16,8 @@ def cut_problem_pdf(pdf_name, out_name):
             if i == 0:  # if it's the first page cut the navigation bar
                 page.cropBox.upperRight = (415, 705)
             else:
-                page.cropBox.upperRight = (415, page.mediaBox.getUpperRight_y())
+                page.cropBox.upperRight = (
+                    415, page.mediaBox.getUpperRight_y())
             output.addPage(page)
 
         with open(out_name, "wb") as out_f:
