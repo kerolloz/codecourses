@@ -1,9 +1,10 @@
 <?php
 require 'process.php';
 
-if(!isset($_SESSION))
+if (!isset($_SESSION)) {
     session_start();
-if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+}
+if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
   header("location: ../home/");
 
 endif;
@@ -31,7 +32,9 @@ endif;
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body <?php if(isset($_POST['reg_usr']) && count($reg_errors)> 0) echo 'onload="signUp()"'?> >
+<body <?php if (isset($_POST['reg_usr']) && count($reg_errors)> 0) {
+    echo 'onload="signUp()"';
+}?> >
     <!--Navbar Section-->
     <nav>
         <a href="/codecourses/home/index.php"><img src="../assets/images/codeCourses.png" class="nav-left" id="imgMobile"></a>
@@ -56,11 +59,14 @@ endif;
 
                             <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
                                 <?php
-                                        if(isset($log_errors) && count($log_errors) > 0)
+                                        if (isset($log_errors) && count($log_errors) > 0) {
                                             echo "<span>" . $log_errors['password'] . "</span>";
+                                        }
                                     ?>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required <?php if ($log_errors) { echo 'value="' . htmlentities($email) .'"'; } ?>
+                                    <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required <?php if ($log_errors) {
+                                        echo 'value="' . htmlentities($email) .'"';
+                                    } ?>
                                     >
                                 </div>
 
@@ -88,33 +94,42 @@ endif;
                             <form class="signin-form" method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
 
                                 <?php
-                                        if(count($reg_errors) > 0)
+                                        if (count($reg_errors) > 0) {
                                             echo '<span id="registeration_errors"> ' . $reg_errors["passwordreg"] . ' </span>';
+                                        }
                                     ?>
 
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname" required <?php if($reg_errors) { echo 'value="' . htmlentities($fname) .'"'; } ?>
+                                            <input type="text" class="form-control" id="fnameInput" placeholder="First Name" name="fname" required <?php if ($reg_errors) {
+                                        echo 'value="' . htmlentities($fname) .'"';
+                                    } ?>
                                             >
                                         </div>
                                     </div>
 
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="lnameInput" placeholder="Last Name" name="lname" required <?php if($reg_errors) { echo 'value="' . htmlentities($lname) .'"'; } ?>
+                                            <input type="text" class="form-control" id="lnameInput" placeholder="Last Name" name="lname" required <?php if ($reg_errors) {
+                                        echo 'value="' . htmlentities($lname) .'"';
+                                    } ?>
                                             >
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required <?php if ($reg_errors) { echo 'value="' . htmlentities($email) .'"'; } ?>
+                                    <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" required <?php if ($reg_errors) {
+                                        echo 'value="' . htmlentities($email) .'"';
+                                    } ?>
                                     >
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username" required <?php if($reg_errors) { echo 'value="' . htmlentities($username) .'"'; } ?>
+                                    <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username" required <?php if ($reg_errors) {
+                                        echo 'value="' . htmlentities($username) .'"';
+                                    } ?>
                                     >
                                 </div>
 
