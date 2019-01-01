@@ -20,6 +20,15 @@ function get_last_insert_id(&$connection)
     return $connection->insert_id;
 }
 
+function delete_contest_by_id(&$connection, $contest_id)
+{
+    if ($connection === false) {
+        die("ERROR: Could not connect. " . $mysqli->connect_error);
+    }
+
+    $sql = "DELETE FROM contests WHERE contest_id=$contest_id";
+    return ($connection->query($sql) === true);
+}
 
 function get_problem_details_from_database($problem_id, &$connection)
 {
