@@ -1,0 +1,6 @@
+.black-table.table thead th{
+    color: white;
+}
+.black-table.table tbody tr td{
+    font-size: 16px;
+}
