@@ -30,6 +30,16 @@ function delete_contest_by_id(&$connection, $contest_id)
     return ($connection->query($sql) === true);
 }
 
+function delete_problem_by_id(&$connection, $problem_id)
+{
+    if ($connection === false) {
+        die("ERROR: Could not connect. " . $mysqli->connect_error);
+    }
+
+    $sql = "DELETE FROM problems WHERE problem_id=$problem_id";
+    return ($connection->query($sql) === true);
+}
+
 function get_problem_details_from_database($problem_id, &$connection)
 {
     $sql = "SELECT memory_limit, time_limit FROM problems WHERE problem_id = $problem_id"; //prepare the sql statement

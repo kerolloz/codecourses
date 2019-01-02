@@ -56,7 +56,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                                                                     while ($row = $result->fetch_assoc()):
 
                                                                 ?>
-                                            <tr class="tr-shadow <?= $row['contest_id'] ?>">
+                                            <tr class="tr-shadow contest-<?= $row['contest_id'] ?>">
 
                                                 <td>
                                                     <?= $row['contest_id'] ?>
@@ -80,7 +80,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button id="<?= $row['contest_id'] ?>" class="item delete-class" data-toggle="tooltip" type="button" data-placement="top" title="" data-original-title="Delete">
+                                                        <button id="c<?= $row['contest_id'] ?>" class="item delete-contest-button" data-toggle="tooltip" type="button" data-placement="top" title="" data-original-title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
                                                     </div>
@@ -103,7 +103,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                                 </div>
                                 <!-- END DATA TABLE -->
 
-                                <div class="row m-t-30 m-b-50">
+                                <div class="row m-t-50 m-b-50">
                                     <div class="col-md-15">
                                         <!-- DATA TABLE -->
                                         <div class="table-data__tool">
@@ -138,7 +138,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                                                                         while ($row = $result->fetch_assoc()):
 
                                                                     ?>
-                                                    <tr class="tr-shadow">
+                                                    <tr class="tr-shadow problem-<?= $row['problem_id'] ?>">
 
                                                         <td>
                                                             <?= $row['problem_id'] ?>
@@ -169,7 +169,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
                                                                     <i class="zmdi zmdi-edit"></i>
                                                                 </button>
-                                                                <button id="<?= $row['contest_id'] ?>" class="item delete-class" data-toggle="tooltip" type="button" data-placement="top" title="" data-original-title="Delete">
+                                                                <button id="p<?= $row['problem_id'] ?>" class="item delete-problem-button" data-toggle="tooltip" type="button" data-placement="top" title="" data-original-title="Delete">
                                                                     <i class="zmdi zmdi-delete"></i>
                                                                 </button>
                                                             </div>

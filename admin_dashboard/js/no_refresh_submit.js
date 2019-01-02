@@ -32,18 +32,41 @@ function SubmitParseTestCases() {
 }
 
 $(document).ready(function() {
-    $(".delete-class").click(function(evt) {
-        var choice = confirm("By deleteing this contest you are deleting all the associated problems! Are you sure you want to proceed?");
-		var id__ = $(this).attr("id");
-		if (choice == true) {
+    $(".delete-contest-button").click(function(evt) {
+        var choice = confirm("By deleteing this contest you are deleting all the associated problems!\nAre you sure you want to proceed?");
+        var id__ = $(this).attr("id");
+        id__ = id__.replace('c', '');
+
+        if (choice == true) {
             $.post(
                 "../back/delete_contest.php", {
-                    contest_id: $(this).attr("id")
+                    contest_id: id__
                 },
                 function(data) {
-					alert(data);
-					if(data == "Deleted successfully")
-						$("tr").remove("."+id__);
+                    alert(data);
+                    if (data == "Deleted successfully")
+                        $("tr").remove(".contest-" + id__);
+                });
+        }
+
+
+    });
+});
+$(document).ready(function() {
+    $(".delete-problem-button").click(function(evt) {
+        var choice = confirm("This is going to remove all the test cases and the problem pdf associated with this problem!\nAre you sure you want to proceed?");
+        var id__ = $(this).attr("id");
+        id__ = id__.replace('p', '');
+
+        if (choice == true) {
+            $.post(
+                "../back/delete_problem.php", {
+                    problem_id: id__
+                },
+                function(data) {
+                    alert(data);
+                    if (data == "Deleted successfully")
+                        $("tr").remove(".problem-" + id__);
                 });
         }
 
