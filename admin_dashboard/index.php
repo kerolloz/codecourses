@@ -31,8 +31,9 @@ $select_contests_sql_stmnt_string = "SELECT * FROM contests";
                                         <h3 class="title-5">contests table</h3>
                                     </div>
                                     <div class="table-data__tool-right">
+                                        <a href="contest.php">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add contest</button>
+                                            <i class="zmdi zmdi-plus"></i>add contest</button> </a>
                                     </div>
                                 </div>
                                 <div class="table-responsive table--no-card">
