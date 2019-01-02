@@ -206,8 +206,9 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
             </div>
 
         </div>
+    </div>
 
-        <?php require 'html_includes/scripts.html'; ?>
+    <?php require 'html_includes/scripts.html'; ?>
 
 </body>
 
