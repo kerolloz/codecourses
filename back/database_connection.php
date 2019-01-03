@@ -15,6 +15,30 @@ function get_sql_connection()
     return $conn;
 }
 
+function get_pdo_sql_connection()
+{
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "ojDB";
+    //make PDO object with database information
+    $conn = new PDO("mysql:host=$servername", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //create database statement (will execute only if the database doesn't exist)
+    $sql = "CREATE DATABASE IF NOT EXISTS $dbname character set UTF8mb4 collate utf8mb4_bin";
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    //make PDO object again to determine the database
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //create table statement (will execute only if the table doesn't exist)
+    return $conn;
+}
+
 function get_last_insert_id(&$connection)
 {
     return $connection->insert_id;
