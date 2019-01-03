@@ -7,7 +7,7 @@ __NOTE: compatible with Linux ONLY__
 1. clone the project into your home directory `cd ~; git clone https://github.com/kerolloz/codecourses.git`
 1. install [requirements](/initiate_project/INSTALL_REQUIREMENTS.sh) or use `cd ~/codecourses/initiate_project/; sh INSTALL_REQUIREMENTS.sh`
 1. execute `ln -s ~/codecourses  /opt/lampp/htdocs` to link the project to the server
-1. create the database `cd ~/codecourses/initiate_project/; sh RUN_THIS_FILE.sh`
+1. create the database `cd ~/codecourses/initiate_project/; sh CREATE_DB.sh`
 
 ### Noticeable issues
 1. to enable uploading and moving files execute the following command <br>
