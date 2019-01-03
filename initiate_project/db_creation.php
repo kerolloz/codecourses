@@ -33,7 +33,7 @@ $submissions_constrains = [["INT(6)", "UNSIGNED AUTO_INCREMENT", "PRIMARY KEY"],
 $users_in_contests_constrains = [["INT(6)", "UNSIGNED", "NOT NULL"],
     ["INT(6)","UNSIGNED","NOT NULL"],["($users_in_contests[0], $users_in_contests[1])"],
     ["($users_in_contests[0]) REFERENCES users($users_columns[0])"],
-    ["($users_in_contests[0]) REFERENCES contests($contests_columns[0])"]];
+    ["($users_in_contests[1]) REFERENCES contests($contests_columns[0])"]];
 
 try {
     //make PDO object with database information
@@ -142,7 +142,7 @@ try {
             $sql .= ") ENGINE=InnoDB;";
         }else  $sql .= ",";
     }
-
+    echo $sql;
     $conn->exec($sql);
     echo "----------Doneee---------\n";
 }
