@@ -22,12 +22,14 @@ int main (int argc, char *argv[])  {
 	ifstream myfile("/problem/number_of_test_cases.txt");
 	if (myfile.is_open())
 	{
-		while ( getline(myfile,line) )
+		if ( getline(myfile,line) ) // read only the first line
 		{
 		  number_of_test_cases = stoi(line);
 		}
 		myfile.close();
 	}
+	if(!number_of_test_cases)
+		return 15;
 
 	bool judged = false;
 
