@@ -1,7 +1,7 @@
 sudo apt-get update
 
 echo "Downloading Python3";
-sudo apt-get install python3 pip3 python3-pdfkit python3-pypdf2  wkhtmltopdf;
+sudo apt-get install python3 python3-pip python3-pdfkit python3-pypdf2  wkhtmltopdf;
 pip3 install beautifulsoup4 pdfkit PyPDF2 flask;
 
 sudo apt-get install \
