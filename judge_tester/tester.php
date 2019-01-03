@@ -41,7 +41,7 @@ if (!file_exists($problem_dir_my_out) && !is_dir($problem_dir_my_out)) {
 $test_cases = file_get_contents($problem_dir_tests);
 
 
-$docker_run = "docker run --rm -v ~/codecourses/judge_tester/:/tester -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge:latest codecourses_judge " . $problem_time_limit;
+$docker_run = "docker run --rm -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge:latest codecourses_judge " . $problem_time_limit;
 
 exec($docker_run, $out, $return_value);
 
