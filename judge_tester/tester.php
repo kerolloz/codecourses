@@ -2,9 +2,10 @@
 
 function my_print($string)
 {
-	echo $string;
-	echo "<br>";
+    echo $string;
+    echo "<br>";
 }
+
 
 $source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
 $object_file_name = __DIR__ . "/../source_codes/" . "a.out";
@@ -14,7 +15,7 @@ $command = "g++ " . $compilation_flags . $source_code_name . " -o " . $object_fi
 
 exec($command, $output, $compilation_state);
 
-if($compilation_state){ // compile success if (compilation_state == 0)
+if ($compilation_state) { // compile success if (compilation_state == 0)
     $return_value = -1;
     return $return_value;
 }
@@ -49,20 +50,20 @@ $verdict = "";
 
 switch ($return_value) {
     case 0:
-    		$verdict = "accepted";
-				increment_number_of_solvers($_POST['problem_id'], $conn);
+        $verdict = "accepted";
+        increment_number_of_solvers($_POST['problem_id'], $conn);
         break;
     case 1:
-				$verdict = "wrong answer";
+        $verdict = "wrong answer";
         break;
     case -1:
-				$verdict = "compilation error";
+        $verdict = "compilation error";
         break;
     case 124:
-				$verdict = "time limit exceeded";
+        $verdict = "time limit exceeded";
         break;
     default:
-				$verdict = "JUDGE ERROR";
+        $verdict = "JUDGE ERROR";
         break;
 }
 

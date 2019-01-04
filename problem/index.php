@@ -1,13 +1,13 @@
 <?php
 $errors_array = [];
-if(isset($_POST['submit'])){
-  if(!isset($_SESSION))
-      session_start();
-  if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
-    require '../judge_tester/process_submission.php';
-  else:
+if (isset($_POST['submit'])) {
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+    require '../judge_tester/process_submission.php'; else:
       header("location: ../authentication/");
-  endif;
+    endif;
 }
 ?>
 
@@ -35,8 +35,9 @@ if(isset($_POST['submit'])){
                     <!--Problem pdf -->
                     <?php
                         $problem_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
-                        if(!$problem_id)
+                        if (!$problem_id) {
                             header("location: /codecourses/errors/404.html");
+                        }
                         ?>
                     <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/problem.pdf">
                     <!--src=#problem pdf-->
@@ -75,7 +76,6 @@ if(isset($_POST['submit'])){
                                             <div class="col-8">
                                                 <div class="user-select">
                                                     <select name="compiler">
-                                                        C++
                                                         <option value="1">GNU G++17 7.3.0</option>
                                                     </select>
                                                 </div>
@@ -93,7 +93,10 @@ if(isset($_POST['submit'])){
                                             <div class="col-8">
                                                 <div class="sendSubmit">
                                                     <form action="" method="post" enctype="multipart/form-data">
-                                                        <textarea name="code" rows="20"><?php if($errors_array){ echo htmlentities($code);}?></textarea>
+                                                        <!-- textarea and php tags shouldn't have any space between -->
+                                                        <textarea name="code" rows="20"><?php if ($errors_array) {
+                                                                echo htmlentities($code);
+                                                            }?></textarea>
                                                         <br>
                                                         <br>
                                                         <input type="hidden" name="problem_id" value="<?= $_GET['id'] ?>">
@@ -129,7 +132,7 @@ if(isset($_POST['submit'])){
         </div>
 
         <div id="footer">
-            &copy 2018 CodeCourses.com | All Rights Reserved
+            &copy; 2018 CodeCourses.com | All Rights Reserved
         </div>
     </div>
 
@@ -169,16 +172,13 @@ switch ($return_value) {
     	jr.innerHTML = "Judge ERROR, Something went wrong";
     </script>';
         break;
-}
-else:
-	echo '<script>
+} else:
+    echo '<script>
 		document.getElementById("res").className = "result";
 	</script>';
 endif;
 
-$return_value = null;
 ?>
-    </div>
 
     <script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
     <script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
