@@ -58,17 +58,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
     }
 
 
-    # file name is going to be saved in the following format
-    # (submission_id).cpp (get it from the DB) *AUTO INCREMENT*
-    #
-    $submission_id = "TEST.cpp"; // JUST FOR TESTING !
-    $res = 0;
-
     if ($errors_array) {
         // true if the errors_array has any element(error)!
         print_r($errors_array);
         $code = $_POST['code'];
-    } elseif ($file_has_been_uploaded) {
+        return -1;
+    }
+
+    // file name is going to be saved in the following format
+    // <submission_id>.cpp (get it from the DB) *AUTO INCREMENT*
+
+    require '../back/database_connection.php';
+    $conn = get_sql_connection();
+    // add submission before judging...
+    add_submission_to_database($_POST['problem_id'], $_SESSION['user_id'], "c++", $conn);
+    $last_insert_id = get_last_insert_id($conn);
+    $submission_id = $last_insert_id . ".cpp";
+    $res = 0;
+
+    if ($file_has_been_uploaded) {
         $res = move_uploaded_file(
             $_FILES['my_file']['tmp_name'],
             $destination . $submission_id
@@ -81,17 +89,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
 
     if ($res) {
-        // res == 1, if uploaded successfully
-        require '../back/database_connection.php';
-        $conn = get_sql_connection();
-        // add submission before judging...
-        add_submission_to_database($_POST['problem_id'], $_SESSION['user_id'], "c++", $conn);
-        $last_insert_id = get_last_insert_id($conn);
+        // res will equal the number of bytes or 1 if uploaded successfully
         require "../judge_tester/tester.php"; // go judge it
         // go test the uploaded file
     } else {
         // res == 0, something went wrong
-        echo "problem moving the file";
+        change_submission_status($last_insert_id, "Judge Error");
     }
 
 endif;
