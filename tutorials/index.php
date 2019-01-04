@@ -193,9 +193,8 @@
     </div>
 
     <!-- Footer Section-->
-    <div id="footer">
-        &copy 2018 CodeCourses.com | All Rights Reserved
-    </div>
+    <?php require '../footer_include.php'; ?>
+
     <script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
     <script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
     <script src="../scripts/script.js"></script>

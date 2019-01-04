@@ -77,7 +77,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                     </td>
                     <td>
                         <img src=
-                        <?php if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) { 
+                        <?php if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
                             echo "$accepted_img_dir" ;
                         }else{
                             echo "$wrong_answer_img_dir" ;
@@ -97,9 +97,8 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
             </table>
         </div>
 
-        <div id="footer">
-            &copy 2018 CodeCourses.com | All Rights Reserved
-        </div>
+        <?php require '../footer_include.php'; ?>
+
     </div>
 
 </body>

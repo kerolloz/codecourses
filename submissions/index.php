@@ -83,9 +83,8 @@ ORDER BY submission_id DESC
             </div>
         </div>
 
-        <div id="footer">
-            &copy 2018 CodeCourses.com | All Rights Reserved
-        </div>
+        <?php require '../footer_include.php'; ?>
+
     </div>
 
 </body>
