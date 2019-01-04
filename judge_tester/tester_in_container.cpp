@@ -17,7 +17,7 @@ int main (int argc, char *argv[])  {
 	// TODO: copy executable file into container
 	// my_out folder be inside the container. no need to keep the user output
 	// read only volumes
-	string problem_dir_my_out = "/problem/test_cases/my_out/";
+	string problem_dir_my_out = "/user_out/";
 	string problem_dir_in_out = "/problem/test_cases/";
 	string object_file_name = " /source_codes/a.out --signal=SIGKILL";
 	string line;
