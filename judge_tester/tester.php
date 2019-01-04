@@ -32,14 +32,6 @@ $problem_directory = __DIR__ . "/../problems_db/" . $problem_id;
 
 $problem_dir_tests = $problem_directory . "/number_of_test_cases.txt";
 $problem_dir_in_out = $problem_directory . "/test_cases/";
-$problem_dir_my_out = $problem_directory . "/test_cases/my_out/";
-
-
-if (!file_exists($problem_dir_my_out) && !is_dir($problem_dir_my_out)) {
-    mkdir($problem_dir_my_out);
-}
-
-$test_cases = file_get_contents($problem_dir_tests);
 
 
 $docker_run = "docker run --rm -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge:latest codecourses_judge " . $problem_time_limit;
