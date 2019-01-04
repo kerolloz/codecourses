@@ -7,11 +7,11 @@ function my_print($string)
 }
 
 
-$source_code_name = __DIR__ . "/../source_codes/" . $submission_id;
-$object_file_name = __DIR__ . "/../source_codes/" . "a.out";
+$source_code_name = __DIR__ . "/../source_codes/$submission_id.cpp";
+$object_file_name = __DIR__ . "/../source_codes/$submission_id.out";
 
 $compilation_flags = " -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++11 ";
-$command = "g++ " . $compilation_flags . $source_code_name . " -o " . $object_file_name;
+$command = "g++ $compilation_flags  $source_code_name -o $object_file_name";
 
 exec($command, $output, $compilation_state);
 
@@ -34,7 +34,9 @@ $problem_dir_tests = $problem_directory . "/number_of_test_cases.txt";
 $problem_dir_in_out = $problem_directory . "/test_cases/";
 
 
-$docker_run = "docker run --rm -v ~/codecourses/problems_db/" . $problem_id . "/:/problem -v ~/codecourses/source_codes/:/source_codes kerolloz/codecourses_judge:latest codecourses_judge " . $problem_time_limit;
+$docker_run = "docker run --rm -v ~/codecourses/problems_db/$problem_id/:/problem:ro ";
+$docker_run .= "-v ~/codecourses/source_codes/:/source_codes:ro ";
+$docker_run .= "kerolloz/codecourses_judge:latest codecourses_judge $problem_time_limit $submission_id";
 
 exec($docker_run, $out, $return_value);
 
@@ -54,11 +56,14 @@ switch ($return_value) {
     case 124:
         $verdict = "time limit exceeded";
         break;
+    case 16:
+        $verdict = "File Error";
+        break;
     default:
         $verdict = "JUDGE ERROR";
         break;
 }
 
-change_submission_status($last_insert_id, $verdict, $conn);
+change_submission_status($submission_id, $verdict, $conn);
 
 return $return_value;
