@@ -94,7 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
         // go test the uploaded file
     } else {
         // res == 0, something went wrong
-        change_submission_status($last_insert_id, "Judge Error");
+        change_submission_status($last_insert_id, "Judge Error", $conn);
     }
+    // TODO: Remove the source code file and .out file
 
 endif;
