@@ -72,17 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
     $conn = get_sql_connection();
     // add submission before judging...
     add_submission_to_database($_POST['problem_id'], $_SESSION['user_id'], "c++", $conn);
-    $last_insert_id = get_last_insert_id($conn);
-    $submission_id = $last_insert_id . ".cpp";
+    $submission_id = get_last_insert_id($conn);
+    $source_code_file_name = "$submission_id.cpp";
     $res = 0;
 
     if ($file_has_been_uploaded) {
         $res = move_uploaded_file(
             $_FILES['my_file']['tmp_name'],
-            $destination . $submission_id
+            $destination . $source_code_file_name
         );
     } elseif ($text_area_has_code) {
-        $res = file_put_contents($destination . $submission_id, $_POST['code']);
+        $res = file_put_contents($destination . $source_code_file_name, $_POST['code']);
         // return number of written bytes or FALSE on failure
     }
 
@@ -94,8 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
         // go test the uploaded file
     } else {
         // res == 0, something went wrong
-        change_submission_status($last_insert_id, "Judge Error", $conn);
+        change_submission_status($submission_id, "Judge Error", $conn);
     }
-    // TODO: Remove the source code file and .out file
+
+
 
 endif;
