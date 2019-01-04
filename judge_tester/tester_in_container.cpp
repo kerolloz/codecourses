@@ -4,9 +4,11 @@ using namespace std;
 
 int main (int argc, char *argv[])  {
 	string time_limit = "0";
+	string submission_id = "";
 
-	if(argc > 1){
+	if(argc == 3){
 		time_limit = argv[1]; // time limit as a string from first argument
+		submission_id = argv[2]; // submission id as a string from second arugemt
 	}
 	else {
 		return 11; // NO time limit argument passed
@@ -19,7 +21,7 @@ int main (int argc, char *argv[])  {
 	// read only volumes
 	string problem_dir_my_out = "/user_out/";
 	string problem_dir_in_out = "/problem/test_cases/";
-	string object_file_name = " /source_codes/a.out --signal=SIGKILL";
+	string object_file_name = " /source_codes/" + submission_id + ".out";
 	string line;
 
 	ifstream myfile("/problem/number_of_test_cases.txt");
@@ -42,6 +44,7 @@ int main (int argc, char *argv[])  {
 	    string run_command = "timeout " + time_limit +  object_file_name + " < " + input_file + " > " + problem_dir_my_out + to_string(i) + ".out";
 	    ret_val = system(run_command.c_str());
 	    if(ret_val == 31744) return 124;
+		else if(ret_val != 0) return 16;
 	    string diff_command = "diff -s -q -Z " + problem_dir_my_out  + to_string(i) + ".out " + problem_dir_in_out + to_string(i) + ".out";
 	    ret_val = system(diff_command.c_str());
 	    if(ret_val != 0) return 1;
