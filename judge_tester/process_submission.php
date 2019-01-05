@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
     // file name is going to be saved in the following format
     // <submission_id>.cpp (get it from the DB) *AUTO INCREMENT*
 
-    require '../back/database_connection.php';
+    require_once '../back/database_connection.php';
     $conn = get_sql_connection();
     // add submission before judging...
     add_submission_to_database($_POST['problem_id'], $_SESSION['user_id'], "c++", $conn);
@@ -90,7 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
     if ($res) {
         // res will equal the number of bytes or 1 if uploaded successfully
-        require "../judge_tester/tester.php"; // go judge it
+        $return_value = require_once "../judge_tester/tester.php"; // go judge it
+        return $return_value;
         // go test the uploaded file
     } else {
         // res == 0, something went wrong

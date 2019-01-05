@@ -5,7 +5,8 @@ if (isset($_POST['submit'])) {
         session_start();
     }
     if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
-    require '../judge_tester/process_submission.php'; else:
+        $return_value = require_once '../judge_tester/process_submission.php';
+    else:
       header("location: ../authentication/");
     endif;
 }
@@ -26,7 +27,7 @@ if (isset($_POST['submit'])) {
 <body>
 
     <!--include navigation bar from a preset php file-->
-    <?php require "../navbar_control.php";?>
+    <?php require_once "../navbar_control.php";?>
 
     <div class="color">
         <div class="container">
@@ -95,8 +96,8 @@ if (isset($_POST['submit'])) {
                                                     <form action="" method="post" enctype="multipart/form-data">
                                                         <!-- textarea and php tags shouldn't have any space between -->
                                                         <textarea name="code" rows="20"><?php if ($errors_array) {
-                                                                echo htmlentities($code);
-                                                            }?></textarea>
+                            echo htmlentities($code);
+                        }?></textarea>
                                                         <br>
                                                         <br>
                                                         <input type="hidden" name="problem_id" value="<?= $_GET['id'] ?>">
