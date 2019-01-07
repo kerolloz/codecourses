@@ -128,6 +128,14 @@ function is_solved_for_user($problem_id, $user_id, &$connection)
     return ($result->num_rows > 0);
 }
 
+function is_user_registered_at_contest($user_id, $contest_id, &$connection)
+{
+    $sql = "SELECT * FROM users_in_contests WHERE contest_id = $contest_id AND user_id = $user_id"; //prepare the sql statement
+    $result = $connection->query($sql); //execute the sql statement and get the result object
+    //echo $result->num_rows;
+    return ($result->num_rows > 0);
+}
+
 function close_sql_connection(&$connection)
 {
     $connection->close();
