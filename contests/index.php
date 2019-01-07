@@ -28,7 +28,7 @@ $sql = "SELECT * FROM contests";
     <div class="color">
         <div class="table-responsive">
             <table class="table table-dark  table-striped  table-bordered">
-
+                <thead>
                 <tr>
                     <th> Name </th>
                     <th> Writers </th>
@@ -36,13 +36,16 @@ $sql = "SELECT * FROM contests";
                     <th> Length </th>
                     <th>Registeration</th>
                 </tr>
-                <?php
-                        $result = $conn->query($sql);
+                </thead>
 
-                        if ($result->num_rows > 0) :
-                            // output data of each row
-                            while($row = $result->fetch_assoc()) :
-                    ?>
+                <tbody>
+                <?php
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) :
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) :
+                ?>
                 <tr>
                     <td> <a href="../contest_problems?id=<?= $row['contest_id'] ?>">
                             <?= $row['name'] ?> </a> </td>
@@ -53,21 +56,31 @@ $sql = "SELECT * FROM contests";
                         <?= $row['date'] ?>
                     </td>
                     <td>
-                        <?= $row['length'] ?>m </td>
-                    <td> <a class="btn-secondary" href="register.php?contest_id=<?= $row['contest_id'] ?>"><button id="register" type="button" class="btn btn-secondary"> Register</button></a> </td>
+                        <?= $row['length'] ?> minutes </td>
+                    <?php
+                    if(is_user_registered_at_contest($_SESSION['user_id'], $row['contest_id'], $conn)):
+                        echo "<td>
+                        Already registered!
+                        </td>";
+                    else:
 
+                    ?>
+                    <td> <a class="btn-secondary" href="register.php?contest_id=<?= $row['contest_id'] ?>"><button id="register" type="button" class="btn btn-secondary"> Register</button></a> </td>
+                    <?php
+                    endif;
+                    ?>
                 </tr>
                 <?php
-                            endwhile;
 
-                        else:
-                            echo "0 results";
-                        endif;
-                        $conn->close();
-                    ?>
-                <tr>
+                endwhile;
 
-                </tr>
+                else:
+                    echo "0 results";
+                endif;
+                $conn->close();
+                ?>
+                </tbody>
+
 
             </table>
         </div>
