@@ -86,7 +86,11 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 							endwhile;
 
 						else:
-							echo "<pre><br>NO PROBLEMS IN THIS CONTEST</pre>";
+							echo "<tr>
+                            <td class='text-lg-center' colspan='6'>
+                            NO AVAILABLE PROBLEMS
+                            </td>
+                            </tr>";
 						endif;
 						$conn->close();
 						?>
