@@ -90,7 +90,11 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                         endwhile;
 
                         else:
-                            echo "0 results";
+                            echo "<tr>
+                            <td class='text-lg-center' colspan='6'>
+                            NO AVAILABLE PROBLEMS
+                            </td>
+                            </tr>";
                         endif;
                         $conn->close();
                     ?>

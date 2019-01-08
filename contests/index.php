@@ -58,6 +58,7 @@ $sql = "SELECT * FROM contests";
                     <td>
                         <?= $row['length'] ?> minutes </td>
                     <?php
+                    // check if user is logged in
                     if(is_user_registered_at_contest($_SESSION['user_id'], $row['contest_id'], $conn)):
                         echo "<td>
                         Already registered!
@@ -75,7 +76,11 @@ $sql = "SELECT * FROM contests";
                 endwhile;
 
                 else:
-                    echo "0 results";
+                echo "<tr>
+                <td class='text-lg-center' colspan='6'>
+                NO AVAILABLE CONTESTS
+                </td>
+                </tr>";
                 endif;
                 $conn->close();
                 ?>
