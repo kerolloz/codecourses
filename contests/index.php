@@ -58,8 +58,8 @@ $sql = "SELECT * FROM contests";
                     <td>
                         <?= $row['length'] ?> minutes </td>
                     <?php
-                    // check if user is logged in
-                    if(is_user_registered_at_contest($_SESSION['user_id'], $row['contest_id'], $conn)):
+                    // check if user is logged in && if registered
+                    if(isset($_SESSION['user_id']) && is_user_registered_at_contest($_SESSION['user_id'], $row['contest_id'], $conn)):
                         echo "<td>
                         Already registered!
                         </td>";
