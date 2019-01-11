@@ -4,3 +4,10 @@
 .black-table.table tbody tr td{
     font-size: 16px;
 }
+.nav-tabs .nav-link{
+    background-color: inherit;
+    color: grey;
+}
+#nav-tab{
+    background-color: #e5e5e5;
+}
