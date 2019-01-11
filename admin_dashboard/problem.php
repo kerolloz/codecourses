@@ -1,6 +1,9 @@
 <?php
 
 require '../back/database_connection.php';
+if(!is_admin()){
+    header("location: ../error/404.html");
+}
 $sql_connection = get_sql_connection();
 
 $Error = null;
