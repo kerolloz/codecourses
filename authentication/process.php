@@ -66,6 +66,7 @@ if (isset($_POST['reg_usr'])) {
         $_SESSION['fname'] = $fname;
         $_SESSION['lname'] = $lname;
         $_SESSION['username'] = $username;
+        $_SESSION['is_admin'] = "user";
         $_SESSION['user_id'] = get_last_insert_id($conn);
         $_SESSION['is_logged_in'] = true;
         header('location: ../index.php');
@@ -92,9 +93,10 @@ if (isset($_POST['login'])) {
         $user = mysqli_fetch_assoc($result);
 
         if (mysqli_num_rows($result) == 1) {
-            $_SESSION['fname']=$user[first_name];
-            $_SESSION['lname']=$user[last_name];
-            $_SESSION['username']=$username;
+            $_SESSION['fname']=$user['first_name'];
+            $_SESSION['lname']=$user['last_name'];
+            $_SESSION['username']=$user['username'];
+            $_SESSION['is_admin'] = $user['privileges'];
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['is_logged_in'] = true;
             header('location: ../index.php');
