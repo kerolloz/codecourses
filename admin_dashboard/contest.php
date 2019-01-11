@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 		<!-- PAGE CONTAINER-->
 		<div class="page-container">
 
-			<?php require 'html_includes/header_desktop.html'; ?>
+			<?php require 'html_includes/header_desktop.php'; ?>
 
 			<!-- MAIN CONTENT-->
 			<div class="main-content">

@@ -32,7 +32,7 @@ if (isset($_POST['download_test_cases'])) {
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php require 'html_includes/header_desktop.html'; ?>
+            <?php require 'html_includes/header_desktop.php'; ?>
 
 
             <!-- MAIN CONTENT-->
