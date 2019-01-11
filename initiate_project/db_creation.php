@@ -4,7 +4,7 @@ require '../back/database_connection.php';
 require 'TableClass.php';
 
 // variables naming convention
-// A MUST FOLLOW CONVENTION
+// A MUST TO FOLLOW CONVENTION
 
 // <tablename>_columns
 // <tablename>_constrains
