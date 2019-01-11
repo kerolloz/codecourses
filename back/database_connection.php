@@ -12,6 +12,7 @@ function authentication($redirect=true)
     endif;
     return false;
 }
+
 function is_admin()
 {
     // do not redirect if not logged in
