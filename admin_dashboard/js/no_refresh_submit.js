@@ -51,6 +51,19 @@ $(document).ready(function() {
 
 
     });
+
+    $("#delete-submissions-button").click(function(event) {
+        $.post(
+            "../back/delete_submission.php",
+            {
+                all: true
+            },
+            function(data) {
+                alert(data);
+            }
+        );
+
+    });
 });
 $(document).ready(function() {
     $(".delete-problem-button").click(function(evt) {
