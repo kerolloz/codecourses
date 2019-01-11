@@ -29,11 +29,11 @@
                 </thead>
                 <tbody>
                     <?php
-                                                    $result = $connection->query($select_problems_sql_stmnt_string);
-                                                    if (isset($result->num_rows) && $result->num_rows) {
-                                                        while ($row = $result->fetch_assoc()):
+                    $result = $connection->query($select_problems_sql_stmnt_string);
+                    if (isset($result->num_rows) && $result->num_rows) {
+                        while ($row = $result->fetch_assoc()):
 
-                                                    ?>
+                    ?>
                     <tr class="tr-shadow problem-<?= $row['problem_id'] ?>">
 
                         <td>

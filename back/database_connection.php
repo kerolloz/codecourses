@@ -5,11 +5,13 @@ function authentication($redirect=true)
     if (!isset($_SESSION)) {
         session_start();
     }
+
     if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
-        return true;
-    elseif($redirect):
+        return true; // okay user is logged in
+    elseif ($redirect):
         header("location: ../authentication/");
     endif;
+
     return false;
 }
 
@@ -22,7 +24,7 @@ function is_admin()
 function delete_submissions_by_id(&$connection, $id=null, $all=false)
 {
     $sql = "DELETE FROM submissions";
-    if($id){
+    if ($id) {
         $sql .= " WHERE submission_id=$id";
     }
     return ($connection->query($sql)===true);
