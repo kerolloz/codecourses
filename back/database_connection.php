@@ -18,6 +18,17 @@ function is_admin()
     return (authentication(false) && $_SESSION['is_admin'] == "ADMIN");
 }
 
+function delete_submissions_by_id($id=null, $all=false)
+{
+    $connection = get_sql_connection();
+    $sql = "DELETE FROM submissions";
+    if($id){
+        $sql .= " WHERE submission_id=$id";
+    }
+    return ($connection->query($sql)===true);
+    // if no id is provided this will delete all submissions
+}
+
 function get_sql_connection()
 {
     $servername = "localhost";
