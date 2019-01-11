@@ -1,6 +1,6 @@
 <?php
 
-require '../back/database_connection.php';
+require_once '../back/database_connection.php';
 
 // Create connection
 $conn = get_sql_connection();
