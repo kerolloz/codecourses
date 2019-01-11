@@ -26,7 +26,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                         <div class="card">
                             <div class="custom-tab">
                                 <nav>
-                                    <div class="nav nav-justifid nav-tabs" id="nav-tab" role="tablist">
+                                    <div class="nav nav-justified nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-selected nav-link active show" id="custom-nav-home-tab" data-toggle="tab" href="#custom-nav-problems" role="tab" aria-controls="custom-nav-home" aria-selected="false">Problems</a>
                                         <a class="nav-item nav-selected nav-link" id="custom-nav-contact-tab" data-toggle="tab" href="#custom-nav-contests" role="tab" aria-controls="custom-nav-contact" aria-selected="true">Contests</a>
                                     </div>
