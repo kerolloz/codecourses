@@ -1,4 +1,9 @@
 <?php
+
+require_once '../back/database_connection.php';
+if(!is_admin()){
+    header("location: ../error/404.html");
+}
 if (isset($_POST['submit'])) {
 	$Error = null;
     require '../back/contest_creation.php';

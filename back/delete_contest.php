@@ -1,6 +1,6 @@
 <?php
 
-require 'database_connection.php';
+require_once 'database_connection.php';
 
 if (isset($_POST['contest_id'])) {
     // TODO: Delete all associated problems

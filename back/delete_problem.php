@@ -1,6 +1,6 @@
 <?php
 
-require 'database_connection.php';
+require_once 'database_connection.php';
 
 if (isset($_POST['problem_id'])) {
     $connection = get_sql_connection();
