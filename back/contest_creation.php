@@ -1,11 +1,10 @@
 <?php
-$user = "root";
-$pass = "";
+
+require 'database_connection.php';
 
 if (isset($_POST)):
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=ojDB', $user, $pass);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = get_pdo_sql_connection();
         $sql_stmnt = "INSERT INTO contests (name, date, length, setter) VALUES (:name, :date, :length, :setter)";
         $stmt = $dbh->prepare($sql_stmnt);
         $date = $_POST['contest_date'] . " " . $_POST['contest_time'];

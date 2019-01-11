@@ -1,12 +1,8 @@
 <?php
-$user = "root";
-$pass = "";
-
 
 if (isset($_POST)):
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=ojDB', $user, $pass);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = get_pdo_sql_connection();
         $sql_stmnt = "INSERT INTO problems (name, level, contest_id, time_limit, memory_limit) VALUES (:name, :level, :contest_id, :time_limit, :memory_limit)";
         $stmt = $dbh->prepare($sql_stmnt);
         $stmt->bindParam(':name', $_POST['problem_name']);
