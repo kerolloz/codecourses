@@ -71,8 +71,11 @@ ORDER BY submission_id DESC
                     </tr>
                     <?php
                                 }
-                            }else{
-                                echo "No Submissions Yet";
+                            }else{echo "<tr>
+                            <td class='text-lg-center' colspan='6'>
+                            NO AVAILABLE SUBMISSIONS
+                            </td>
+                            </tr>";
                             }
 
                         ?>
