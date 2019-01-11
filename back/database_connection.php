@@ -1,10 +1,28 @@
 <?php
 
+function authentication($redirect=true)
+{
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+        return true;
+    elseif($redirect):
+        header("location: ../authentication/");
+    endif;
+    return false;
+}
+function is_admin()
+{
+    // do not redirect if not logged in
+    return (authentication(false) && $_SESSION['is_admin'] == "ADMIN");
+}
+
 function get_sql_connection()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "cc-admin-2019";
     $dbname = "ojDB";
 
     $conn = new mysqli($servername, $username, $password, $dbname); //connect to database
@@ -17,10 +35,9 @@ function get_sql_connection()
 
 function get_pdo_sql_connection()
 {
-
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "cc-admin-2019";
     $dbname = "ojDB";
     //make PDO object with database information
     $conn = new PDO("mysql:host=$servername", $username, $password);
@@ -44,10 +61,29 @@ function get_last_insert_id(&$connection)
     return $connection->insert_id;
 }
 
+
+function delete_all_associated_problems_to_contest(&$connection, $contest_id)
+{
+    if ($connection === false) {
+        $connection = get_sql_connection();
+    }
+    $sql = "DELETE FROM problems WHERE contest_id=$contest_id";
+    return ($connection->query($sql) === true);
+}
+
+function delete_all_associated_registered_users_in_contests(&$connection, $contest_id)
+{
+    if ($connection === false) {
+        $connection = get_sql_connection();
+    }
+    $sql = "DELETE FROM users_in_contests WHERE contest_id=$contest_id";
+    return ($connection->query($sql) === true);
+}
+
 function delete_contest_by_id(&$connection, $contest_id)
 {
     if ($connection === false) {
-        die("ERROR: Could not connect. " . $mysqli->connect_error);
+        $connection = get_sql_connection();
     }
 
     $sql = "DELETE FROM contests WHERE contest_id=$contest_id";
