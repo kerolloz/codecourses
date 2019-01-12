@@ -1,9 +1,7 @@
 <!--Navbar Section-->
 <?php require_once 'back/database_connection.php'; ?>
 <nav>
-    <a href="../home/index.php">
-        <img src="../assets/images/codeCourses.png" class="nav-left" id="imgMobile">
-    </a>
+    <a href="../home/index.php"><img src="../assets/images/codeCourses.png" class="nav-left" id="imgMobile"></a>
     <ul id="dropdownClick" class="nav-left">
         <li><a href="../home">Home</a></li>
         <li><a href="../problemset/">Problem Set</a></li>
