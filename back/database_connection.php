@@ -1,5 +1,8 @@
 <?php
 
+$CONFIGURATION = require_once "../includes/config.inc.php";
+
+
 function authentication($redirect=true)
 {
     if (!isset($_SESSION)) {
@@ -33,12 +36,8 @@ function delete_submissions_by_id(&$connection, $id=null, $all=false)
 
 function get_sql_connection()
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "cc-admin-2019";
-    $dbname = "ojDB";
-
-    $conn = new mysqli($servername, $username, $password, $dbname); //connect to database
+    global $CONFIGURATION;
+    $conn = new mysqli($CONFIGURATION['host_name'], $CONFIGURATION['user_name'], $CONFIGURATION['password'], $CONFIGURATION['database_name']); //connect to database
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -48,12 +47,9 @@ function get_sql_connection()
 
 function get_pdo_sql_connection()
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "cc-admin-2019";
-    $dbname = "ojDB";
+    global $CONFIGURATION;
     //make PDO object with database information
-    $conn = new PDO("mysql:host=$servername", $username, $password);
+    $conn = new PDO("mysql:host=$CONFIGURATION[host_name]", $CONFIGURATION['user_name'], $CONFIGURATION['password']);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
