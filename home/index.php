@@ -10,7 +10,7 @@
 
 <body>
     <!--include navigation bar from a preset php file-->
-    <?php require  "../navbar_control.php";?>
+    <?php require_once  "../navbar_control.php"; ?>
 
 
     <!--Home Section-->
