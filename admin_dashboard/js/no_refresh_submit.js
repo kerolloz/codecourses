@@ -15,7 +15,8 @@ function SubmitDownloadPDF() {
         function(data) {
             HideProgressBar('cfPDFDownloaderProgressBarr');
             $('#pdf_result').html(data);
-        });
+        }
+    );
 }
 
 function SubmitParseTestCases() {
@@ -27,13 +28,18 @@ function SubmitParseTestCases() {
         function(data) {
             HideProgressBar('cfSubmissionParserProgressBarr');
             $('#testcases_result').html(data);
-        });
+        }
+    );
 
 }
 
 $(document).ready(function() {
     $(".delete-contest-button").click(function(evt) {
-        var choice = confirm("By deleteing this contest you are deleting all the associated problems!\nAre you sure you want to proceed?");
+        var choice = confirm("By deleteing this contest you will delete:\n" +
+            " - all the associated problems,\n" +
+            " - all the submissions associated with problems in contest, and\n" +
+            " - all the users registered in contest\n" +
+            "Are you sure you want to proceed?");
         var id__ = $(this).attr("id");
         id__ = id__.replace('c', '');
 
@@ -66,7 +72,11 @@ $(document).ready(function() {
     });
 
     $(".delete-problem-button").click(function(evt) {
-        var choice = confirm("This is going to remove all the test cases and the problem pdf associated with this problem!\nAre you sure you want to proceed?");
+        var choice = confirm("By deleteing this problem you will delete:\n " +
+            " - all submissions  associated with the problem,\n" +
+            " - all the test cases, and\n" +
+            " - the problem pdf\n" +
+            "Are you sure you want to proceed?");
         var id__ = $(this).attr("id");
         id__ = id__.replace('p', '');
 
