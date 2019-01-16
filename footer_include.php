@@ -5,6 +5,6 @@ $current_year = date("Y");
 
 ?>
 
-<div id="footer">
+<footer id="footer">
     &copy; <?= "$codecourses_createion_year&ndash;$current_year"  ?> CodeCourses.com | All Rights Reserved.
-</div>
+</footer>
