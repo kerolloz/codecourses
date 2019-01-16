@@ -23,8 +23,12 @@ function is_admin()
     // do not redirect if not logged in
     return (authentication(false) && $_SESSION['is_admin'] == "ADMIN");
 }
+function delete_submissions_by_problem_id(&$connection, $problem_id) {
+    $sql = "DELETE FROM submissions WHERE problem_id=$problem_id";
+    return ($connection->query($sql)===true);
+}
 
-function delete_submissions_by_id(&$connection, $id=null, $all=false)
+function delete_submissions_by_submission_id(&$connection, $id=null, $all=false)
 {
     $sql = "DELETE FROM submissions";
     if ($id) {
@@ -54,11 +58,11 @@ function get_pdo_sql_connection()
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //create database statement (will execute only if the database doesn't exist)
-    $sql = "CREATE DATABASE IF NOT EXISTS $dbname character set UTF8mb4 collate utf8mb4_bin";
+    $sql = "CREATE DATABASE IF NOT EXISTS $CONFIGURATION[database_name] character set UTF8mb4 collate utf8mb4_bin";
     // use exec() because no results are returned
     $conn->exec($sql);
     //make PDO object again to determine the database
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$CONFIGURATION[host_name];dbname=$CONFIGURATION[database_name]", $CONFIGURATION['user_name'], $CONFIGURATION['password']);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //create table statement (will execute only if the table doesn't exist)
@@ -70,6 +74,19 @@ function get_last_insert_id(&$connection)
     return $connection->insert_id;
 }
 
+function delete_all_associated_submissions_with_problems_in_contest(&$connection, $contest_id){
+    if ($connection === false) {
+        // check if the given connection is working
+        $connection = get_sql_connection();
+    }
+    $sql = "DELETE submissions
+            FROM ((submissions
+            INNER JOIN problems ON submissions.problem_id = problems.problem_id)
+            INNER JOIN contests ON contests.contest_id = problems.contest_id)
+            WHERE contests.contest_id = $contest_id
+            ";
+    return ($connection->query($sql)===true);
+}
 
 function delete_all_associated_problems_to_contest(&$connection, $contest_id)
 {
