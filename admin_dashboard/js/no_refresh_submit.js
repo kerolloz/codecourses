@@ -52,10 +52,10 @@ $(document).ready(function() {
 
     });
 
+    // Delete all submissions
     $("#delete-submissions-button").click(function(event) {
         $.post(
-            "../back/delete_submission.php",
-            {
+            "../back/delete_submission.php", {
                 all: true
             },
             function(data) {
@@ -64,8 +64,7 @@ $(document).ready(function() {
         );
 
     });
-});
-$(document).ready(function() {
+
     $(".delete-problem-button").click(function(evt) {
         var choice = confirm("This is going to remove all the test cases and the problem pdf associated with this problem!\nAre you sure you want to proceed?");
         var id__ = $(this).attr("id");
