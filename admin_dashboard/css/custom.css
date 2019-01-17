@@ -1,13 +1,16 @@
-.black-table.table thead th{
+.black-table.table thead th {
     color: white;
 }
-.black-table.table tbody tr td{
+
+.black-table.table tbody tr td {
     font-size: 16px;
 }
-.nav-tabs .nav-link{
+
+.nav-tabs .nav-link {
     background-color: inherit;
     color: grey;
 }
-#nav-tab{
+
+#nav-tab {
     background-color: #e5e5e5;
 }
