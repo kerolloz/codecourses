@@ -8,11 +8,15 @@
         <li><a href="../contests/">Contests</a></li>
         <li><a href="../roadmap/">Road Map</a></li>
         <?php
-        if(authentication(false)):
+        if (authentication(false)):
         ?>
         <li><a href="../submissions/">Submissions</a></li>
         <li class="nav-right"><a href="../back/logout.php">Logout</a></li>
-        <li class="nav-right"><a href="../profile"><?=  $_SESSION['fname']?>,</a></li>
+        <li class="nav-right">
+            <a href="../profile">
+                <?=  $_SESSION['fname']?>
+            </a>
+        </li>
         <?php
         else:
         ?>
@@ -20,7 +24,7 @@
         <?php
         endif;
         ?>
-        <?php if(is_admin()): ?>
+        <?php if (is_admin()): ?>
         <li class="nav-right"><a href="../admin_dashboard/">Admin Dashboard</a></li>
         <?php endif; ?>
         <li class="dropdownIcon">
