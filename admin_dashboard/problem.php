@@ -7,18 +7,15 @@ if(!is_admin()){
 $sql_connection = get_sql_connection();
 
 $Error = null;
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit']))
     require_once '../back/problem_creation.php';
-}
 
-// the following 2 if statements should
-if (isset($_POST['download_pdf'])) {
-    # code...
+if (isset($_POST['download_pdf']))
     require_once '../back/download_pdf.php';
-}
-if (isset($_POST['download_test_cases'])) {
+
+if (isset($_POST['download_test_cases']))
     require_once '../back/download_test_cases.php';
-}
+
 
 ?>
 
