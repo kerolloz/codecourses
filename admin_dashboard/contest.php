@@ -6,7 +6,7 @@ if(!is_admin()){
 }
 if (isset($_POST['submit'])) {
 	$Error = null;
-    require '../back/contest_creation.php';
+    require_once '../back/contest_creation.php';
 }
 
 ?>

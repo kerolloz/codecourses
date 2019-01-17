@@ -1,6 +1,6 @@
 <?php
 
-require '../back/database_connection.php';
+require_once '../back/database_connection.php';
 if(!is_admin()){
     header("location: ../error/404.html");
 }
@@ -8,16 +8,16 @@ $sql_connection = get_sql_connection();
 
 $Error = null;
 if (isset($_POST['submit'])) {
-    require '../back/problem_creation.php';
+    require_once '../back/problem_creation.php';
 }
 
 // the following 2 if statements should
 if (isset($_POST['download_pdf'])) {
     # code...
-    require '../back/download_pdf.php';
+    require_once '../back/download_pdf.php';
 }
 if (isset($_POST['download_test_cases'])) {
-    require '../back/download_test_cases.php';
+    require_once '../back/download_test_cases.php';
 }
 
 ?>

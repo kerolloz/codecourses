@@ -1,5 +1,5 @@
 <?php
-require '../back/database_connection.php';
+require_once '../back/database_connection.php';
 if(!is_admin()){
     header("location: ../error/404.html");
 }
