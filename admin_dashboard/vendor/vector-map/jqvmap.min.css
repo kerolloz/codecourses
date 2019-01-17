@@ -2,6 +2,7 @@
 .jqvmap-pin {
     pointer-events: none
 }
+
 .jqvmap-label {
     position: absolute;
     display: none;
@@ -14,6 +15,7 @@
     font-size: smaller;
     padding: 3px
 }
+
 .jqvmap-zoomin,
 .jqvmap-zoomout {
     position: absolute;
@@ -30,15 +32,19 @@
     line-height: 10px;
     text-align: center
 }
+
 .jqvmap-zoomin {
     top: 10px
 }
+
 .jqvmap-zoomout {
     top: 30px
 }
+
 .jqvmap-region {
     cursor: pointer
 }
+
 .jqvmap-ajax_response {
     width: 100%;
     height: 500px
