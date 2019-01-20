@@ -1,16 +1,15 @@
 <?php
 
-
-if(!isset($_SESSION))
+if (!isset($_SESSION)) {
     session_start();
-if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+}
+if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
     require '../back/database_connection.php';
     // Create connection
     $conn = get_sql_connection();
 else:
     header("location: ../authentication/");
 endif;
-
 
 ?>
 <!doctype html>
@@ -51,9 +50,10 @@ endif;
                             <div class="avatar">
                                 <img src="../assets/images/avatar.jpg" width="100px" height="100px"><br>
                                 <?php
-                            if(!isset($_SESSION))
+                            if (!isset($_SESSION)) {
                                 session_start();
-                            if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
+                            }
+                            if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
                                 ?>
                                 <h3>
                                     <?= $_SESSION['fname']?>
@@ -108,33 +108,33 @@ endif;
                                 <div class="col-4 tried-col" onclick="sub_tried()">
                                     <h4>Tried</h4>
                                     <span>
-                                        <?php if($wrong_submissions && $accepted_submissions)
-                                          echo ($wrong_submissions->num_rows + $accepted_submissions->num_rows);
-                                        else {
-                                          echo 0;
-                                        }
+                                        <?php if ($wrong_submissions && $accepted_submissions) {
+                                echo($wrong_submissions->num_rows + $accepted_submissions->num_rows);
+                            } else {
+                                echo 0;
+                            }
                                  ?>
                                     </span>
                                 </div>
                                 <div id="solved-col" class="col-4 solved-col" onclick="sub_solved()">
                                     <h4>Solved</h4>
                                     <span>
-                                        <?php if($accepted_submissions)
-                                          echo ($accepted_submissions->num_rows);
-                                        else {
-                                          echo 0;
-                                        }
+                                        <?php if ($accepted_submissions) {
+                                     echo($accepted_submissions->num_rows);
+                                 } else {
+                                     echo 0;
+                                 }
                                   ?>
                                     </span>
                                 </div>
                                 <div id="notsolved-col" class="col-4 notsolved-col" onclick="sub_notsolved()">
                                     <h4>Not solved</h4>
                                     <span>
-                                        <?php if($wrong_submissions)
-                                        echo ($wrong_submissions->num_rows);
-                                      else {
-                                        echo 0;
-                                      }
+                                        <?php if ($wrong_submissions) {
+                                      echo($wrong_submissions->num_rows);
+                                  } else {
+                                      echo 0;
+                                  }
                                ?>
                                     </span>
                                 </div>
@@ -151,7 +151,7 @@ endif;
                                     <?php
                                 if (isset($accepted_submissions->num_rows) && $accepted_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $accepted_submissions->fetch_assoc()) :
+                                    while ($row = $accepted_submissions->fetch_assoc()) :
                                         ?>
                                     <tr>
                                         <td>
@@ -173,7 +173,7 @@ endif;
                                     <?php
                                 if (isset($wrong_submissions->num_rows) &&$wrong_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $wrong_submissions->fetch_assoc()) :
+                                    while ($row = $wrong_submissions->fetch_assoc()) :
                                         ?>
                                     <tr>
                                         <td>
@@ -209,7 +209,7 @@ endif;
                                 $accepted_submissions = $conn->query($sql);
                                 if (isset($accepted_submissions->num_rows) && $accepted_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $accepted_submissions->fetch_assoc()) :
+                                    while ($row = $accepted_submissions->fetch_assoc()) :
                                         ?>
                                     <tr>
                                         <td>
@@ -245,7 +245,7 @@ endif;
                                 $wrong_submissions = $conn->query($sql2);
                                 if (isset($wrong_submissions->num_rows) && $wrong_submissions->num_rows > 0) :
                                     // output data of each row
-                                    while($row = $wrong_submissions->fetch_assoc()) :
+                                    while ($row = $wrong_submissions->fetch_assoc()) :
                                         ?>
                                     <tr>
                                         <td>
@@ -262,6 +262,7 @@ endif;
                                     <?php
                                     endwhile;
                                 endif;
+                                close_sql_connection($conn);
                                 ?>
                                 </table>
                             </div>
@@ -297,7 +298,7 @@ endif;
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-
         q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="assets/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 
     <!--Custom JS-->
     <script src="script.js"></script>
