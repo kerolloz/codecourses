@@ -51,7 +51,7 @@ ORDER BY submission_id DESC
                             $result = $conn->query($sql);
                             if (isset($result->num_rows) && $result->num_rows > 0) { // by the way this sql statement should return only 1 row because problem_id is UNIQUE
                                 // output data of each row
-                                while($row = $result->fetch_assoc()) { //fetching data from result object row by row
+                                while ($row = $result->fetch_assoc()) { //fetching data from result object row by row
                                     ?>
                     <tr>
                         <td>
@@ -71,12 +71,14 @@ ORDER BY submission_id DESC
                     </tr>
                     <?php
                                 }
-                            }else{echo "<tr>
+                            } else {
+                                echo "<tr>
                             <td class='text-lg-center' colspan='6'>
                             NO AVAILABLE SUBMISSIONS
                             </td>
                             </tr>";
                             }
+                            close_sql_connection($conn);
 
                         ?>
 
