@@ -1,0 +1,53 @@
+/*### Defaults ###*/
+* {
+    box-sizing: border-box;
+}
+
+nav, header, footer {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    margin: 0;
+    /*background-image: url(assets/images/acm.jpg);*/
+    font-family: sans-serif;
+}
+
+.color {
+    min-height: 540px;
+}
+
+/**# Styling Table ##*/
+.tableWidth {
+    width: 70%;
+    background-color: rgba(128, 128, 128, .1);
+    border-radius: 8px;
+    margin: auto
+}
+
+.table-responsive {
+    width: 100%;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 6%;
+}
+
+.table-bordered {
+    text-align: center;
+    float: left;
+    margin: auto
+}
+
+.underline a {
+    text-decoration: underline;
+    color: white;
+}
+
+.score, .accepted {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
