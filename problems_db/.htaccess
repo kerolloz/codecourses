@@ -1,9 +1,0 @@
-<FilesMatch "\.(pdf)$">
-AddDefaultCharset UTF-8
-DefaultLanguage en-US
-Allow from all
-</FilesMatch>
-
-<FilesMatch "\.(in|out|txt)$">
-Deny from all
-</FilesMatch>

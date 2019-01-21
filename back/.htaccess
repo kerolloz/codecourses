@@ -1,4 +1,0 @@
-SetEnvIfNoCase X-Requested-With XMLHttpRequest ajax
-Order Deny,Allow
-Deny from all
-Allow from env=ajax
