@@ -4,7 +4,6 @@ import os
 import re
 import sys
 
-
 try:
     from bs4 import BeautifulSoup
 except Exception as e:
