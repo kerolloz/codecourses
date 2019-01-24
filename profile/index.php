@@ -260,10 +260,10 @@ endif;
                                         </td>
                                     </tr>
                                     <?php
-                                    endwhile;
-                                endif;
-                                close_sql_connection($conn);
-                                ?>
+                                        endwhile;
+                                    endif;
+                                    close_sql_connection($conn);
+                                    ?>
                                 </table>
                             </div>
                         </div>

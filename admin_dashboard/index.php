@@ -1,6 +1,6 @@
 <?php
 require_once '../back/database_connection.php';
-if(!is_admin()){
+if (!is_admin()) {
     header("location: ../error/404.html");
 }
 // if not logged in as admin show access forbiden
@@ -47,6 +47,7 @@ $select_problems_sql_stmnt_string = "SELECT * FROM problems";
                                     </div>
 
                                 </div>
+                                <?php close_sql_connection($connection); ?>
 
                             </div>
                         </div>

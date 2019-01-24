@@ -82,7 +82,7 @@ $sql = "SELECT * FROM contests";
                 </td>
                 </tr>";
                 endif;
-                $conn->close();
+                close_sql_connection($conn);
                 ?>
                 </tbody>
 

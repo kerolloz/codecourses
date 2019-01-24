@@ -70,3 +70,5 @@ foreach ($all_names as $table_name) {
         exit($return_value);
     }
 }
+
+TableClass::set_sql_connection(null); // close the connection

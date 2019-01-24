@@ -92,7 +92,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                             </td>
                             </tr>";
 						endif;
-						$conn->close();
+						close_sql_connection($conn);
 						?>
 
 

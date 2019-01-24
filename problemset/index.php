@@ -50,7 +50,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
                     if ($result->num_rows > 0) :
                         // output data of each row
-                        while($row = $result->fetch_assoc()) :
+                        while ($row = $result->fetch_assoc()) :
                     ?>
                 <tr>
                     <td><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>">
@@ -60,15 +60,14 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                                 switch ($row['level']) {
                                     case 1:
                                         echo "<td><span class='badge badge-success'>Beginner </span></td>";
-                                        # code...
                                         break;
                                     case 2:
                                          echo "<td><span class='badge badge-success'>Intermediate </span></td>";
                                          break;
                                     case 3:
                                         echo "<td><span class='badge badge-success'>Advanced </span></td>";
+                                        break;
                                     default:
-                                        # code...
                                         break;
                                 }
                                 ?>
@@ -76,13 +75,11 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                         <?= $row['number_of_solvers'] ?>
                     </td>
                     <td>
-                        <img src=
-                        <?php if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
-                            echo "$accepted_img_dir" ;
-                        }else{
-                            echo "$wrong_answer_img_dir" ;
-                        }
-                        ?>
+                        <img src=<?php if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
+                                    echo "$accepted_img_dir" ;
+                                } else {
+                                    echo "$wrong_answer_img_dir" ;
+                                } ?>
                         style="width:16px;height:16px;">
                     </td>
                 </tr>
@@ -96,7 +93,7 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                             </td>
                             </tr>";
                         endif;
-                        $conn->close();
+                        close_sql_connection($conn);
                     ?>
             </table>
         </div>
