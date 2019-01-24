@@ -4,9 +4,26 @@ require_once '../back/database_connection.php';
 if(!is_admin()){
     header("location: ../error/404.html");
 }
+
+date_default_timezone_set('Africa/Cairo');
+
+function contest_date_is_today()
+{
+    return $_POST['contest_date'] == Date('Y-m-d');
+}
+function contest_time_before_now()
+{
+    return $_POST['contest_time'] <= Date('H:i');
+}
+
 if (isset($_POST['submit'])) {
 	$Error = null;
-    require_once '../back/contest_creation.php';
+    if(contest_date_is_today() && contest_time_before_now()):
+        $now = Date('H:i');
+        $Error = "Make your contest time at least a minute after now($now).";
+    else:
+        require_once '../back/contest_creation.php';
+    endif;
 }
 
 ?>
@@ -20,7 +37,7 @@ if (isset($_POST['submit'])) {
 
 	<div class="page-wrapper">
 
-		<<?php require 'html_includes/menu_sidebar.html'; ?>
+		<?php require 'html_includes/menu_sidebar.html'; ?>
 
 		<!-- PAGE CONTAINER-->
 		<div class="page-container">
@@ -62,7 +79,7 @@ if (isset($_POST['submit'])) {
 													<label for="text-input" class=" form-control-label">Date</label>
 												</div>
 												<div class="col-12 col-md-9">
-													<input type="date" id="date-field" name="contest_date" class="form-control" required>
+													<input type="date" id="date-field" name="contest_date" value="<?= Date('Y-m-d') ?>" min="<?= Date('Y-m-d') ?>" class="form-control" required>
 												</div>
 
 											</div>
@@ -109,8 +126,6 @@ if (isset($_POST['submit'])) {
 								?>
 								<div class="alert alert-danger" role="alert">
 									<?=  $Error ?>
-									Please make sure MySQL Database is working properly.
-
 								</div>
 								<?php
 								endif;
