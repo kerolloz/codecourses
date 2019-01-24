@@ -1,4 +1,3 @@
 <?php
 header("location: home/");
-# redirect to home folder 
-?>
+# redirect to home folder

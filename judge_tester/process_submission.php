@@ -86,13 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
         // return number of written bytes or FALSE on failure
     }
 
-
-
     if ($res) {
         // res will equal the number of bytes or 1 if uploaded successfully
         $return_value = require_once "../judge_tester/tester.php"; // go judge it
         return $return_value;
-        // go test the uploaded file
     } else {
         // res == 0, something went wrong
         change_submission_status($submission_id, "Judge Error", $conn);

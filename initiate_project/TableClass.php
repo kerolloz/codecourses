@@ -25,19 +25,19 @@ class TableClass
         if ($this->name && $this->columns_array && $this->constrains_array && self::$connection) {
             $sql = "CREATE TABLE IF NOT EXISTS $this->name (";
             $size = sizeof($this->columns_array); //number of users_columns
-            for ($i=0; $i < $size; $i++){
+            for ($i=0; $i < $size; $i++) {
                 $sql .= $this->columns_array[$i]; //add column name and space
                 $sql .= " ";
-                foreach ($this->constrains_array[$i] as $constrain) //loop on the users_constrains for each column
-                {
+                foreach ($this->constrains_array[$i] as $constrain) { //loop on the users_constrains for each column
                     $sql .= $constrain; //add users_constrains after each column name separated py space
                     $sql .= " ";
                 }
                 //adding ) only if it is the last column to close that opened above or , if it is not the last one
-                if ($i == $size-1)
-                {
+                if ($i == $size-1) {
                     $sql .= ") ENGINE=InnoDB;";
-                }else  $sql .= ",";
+                } else {
+                    $sql .= ",";
+                }
             }
             // use exec() because no results are returned
             try {

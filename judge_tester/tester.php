@@ -1,12 +1,5 @@
 <?php
 
-function my_print($string)
-{
-    echo $string;
-    echo "<br>";
-}
-
-
 $source_code_name = __DIR__ . "/../source_codes/$submission_id.cpp";
 $object_file_name = __DIR__ . "/../source_codes/$submission_id.out";
 
@@ -26,13 +19,13 @@ $problem_id = $_GET['id']; // get problem ID form link
 $problem_details = get_problem_details_from_database($problem_id, $sql_connection);
 $problem_time_limit = $problem_details['time_limit'];
 $problem_memory_limit = $problem_details['memory_limit'];
+
 close_sql_connection($sql_connection);
 
 $problem_directory = __DIR__ . "/../problems_db/" . $problem_id;
 
 $problem_dir_tests = $problem_directory . "/number_of_test_cases.txt";
 $problem_dir_in_out = $problem_directory . "/test_cases/";
-
 
 $docker_run = "docker run --rm -v ~/codecourses/problems_db/$problem_id/:/problem:ro ";
 $docker_run .= "-v ~/codecourses/source_codes/:/source_codes:ro ";

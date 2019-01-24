@@ -1,12 +1,12 @@
 <?php
 $errors_array = [];
+
 if (isset($_POST['submit'])) {
     if (!isset($_SESSION)) {
         session_start();
     }
     if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true):
-        $return_value = require_once '../judge_tester/process_submission.php';
-    else:
+        $return_value = require_once '../judge_tester/process_submission.php'; else:
       header("location: ../authentication/");
     endif;
 }
@@ -26,7 +26,6 @@ if (isset($_POST['submit'])) {
 
 <body>
 
-    <!--include navigation bar from a preset php file-->
     <?php require_once "../navbar_control.php";?>
 
     <div class="color">
@@ -35,11 +34,11 @@ if (isset($_POST['submit'])) {
                 <div class="col">
                     <!--Problem pdf -->
                     <?php
-                        $problem_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
-                        if (!$problem_id) {
-                            header("location: /codecourses/errors/404.html");
-                        }
-                        ?>
+                    $problem_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+                    if (!$problem_id) {
+                        header("location: /codecourses/errors/404.html");
+                    }
+                    ?>
                     <embed class="pdfContainer" src="/codecourses/problems_db/<?= $problem_id ?>/problem.pdf">
                     <!--src=#problem pdf-->
                     <br><br><br>
@@ -94,10 +93,12 @@ if (isset($_POST['submit'])) {
                                             <div class="col-8">
                                                 <div class="sendSubmit">
                                                     <form action="" method="post" enctype="multipart/form-data">
-                                                        <!-- textarea and php tags shouldn't have any space between -->
-                                                        <textarea name="code" rows="20"><?php if ($errors_array) {
-                            echo htmlentities($code);
-                        }?></textarea>
+                                                        <textarea name="code" rows="20"><?php
+                                                            // textarea and php tags shouldn't have any space between
+                                                            if ($errors_array) {
+                                                                echo htmlentities($code);
+                                                            }
+                                                        ?></textarea>
                                                         <br>
                                                         <br>
                                                         <input type="hidden" name="problem_id" value="<?= $_GET['id'] ?>">
