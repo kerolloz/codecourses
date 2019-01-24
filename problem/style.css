@@ -81,14 +81,8 @@ textarea {
     text-align: center;
     margin: auto;
     padding: 20px;
-    border-radius: 2px;
+    border-radius: 10px;
     width: 45%;
-}
-
-.accRes {
-    height: 250px;
-    color: green;
-    background-color: #fff;
 }
 
 /* The Close Button */

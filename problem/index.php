@@ -122,8 +122,7 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
 
-            <!--3 Models ACC, WA, TLE -->
-            <!-- 1 -->
+            <!-- Judge Result Modal -->
             <div id="res" class="finalResultClass">
                 <!-- Modal content -->
                 <div class="resultMod">
@@ -137,48 +136,52 @@ if (isset($_POST['submit'])) {
 
     </div>
 
-    <?php
+<?php
 if (isset($return_value)):
 
-switch ($return_value) {
-    case 0:
-    echo '
-    <script>
-    	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Accepted";
-      document.getElementById("resultMod").className = "accRes";
-    </script>';
-        break;
-    case 1:
-    echo '<script>
-    	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "WrongAnswer";
-    </script>';
-        break;
-    case -1:
-    echo '<script>
-    	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Compilation Error";
-    </script>';
-        break;
-    case 124:
-    echo '<script>
-    	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Time Limit Exceeded";
-    </script>';
-        break;
-    default:
-    echo '<script>
-    	var jr = document.getElementById("judgeResult");
-    	jr.innerHTML = "Judge ERROR, Something went wrong";
-    </script>';
-        break;
-} else:
+    switch ($return_value) {
+        case 0:
+        echo '
+        <script>
+            document.getElementsByClassName("resultMod")[0].style.backgroundColor = "green";
+        	var jr = document.getElementById("judgeResult");
+        	jr.innerHTML = "Accepted";
+        </script>';
+            break;
+        case 1:
+        echo '<script>
+            document.getElementsByClassName("resultMod")[0].style.backgroundColor = "darkred";
+        	var jr = document.getElementById("judgeResult");
+        	jr.innerHTML = "Wrong Answer";
+        </script>';
+            break;
+        case -1:
+        echo '<script>
+            document.getElementsByClassName("resultMod")[0].style.backgroundColor = "indigo";
+        	var jr = document.getElementById("judgeResult");
+        	jr.innerHTML = "Compilation Error";
+        </script>';
+            break;
+        case 124:
+        echo '<script>
+            document.getElementsByClassName("resultMod")[0].style.backgroundColor = "teal";
+            var jr = document.getElementById("judgeResult");
+        	jr.innerHTML = "Time Limit Exceeded";
+        </script>';
+            break;
+        default:
+        echo '<script>
+            document.getElementsByClassName("resultMod")[0].style.backgroundColor = "grey-dark";
+        	var jr = document.getElementById("judgeResult");
+        	jr.innerHTML = "JUDGE ERROR! Something went wrong.";
+        </script>';
+            break;
+    }
+else:
     echo '<script>
 		document.getElementById("res").className = "result";
 	</script>';
 endif;
-
 ?>
 
     <script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
