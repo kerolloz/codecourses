@@ -173,7 +173,7 @@ if (isset($return_value)):
         echo '<script>
             document.getElementsByClassName("resultMod")[0].style.backgroundColor = "grey-dark";
         	var jr = document.getElementById("judgeResult");
-        	jr.innerHTML = "JUDGE ERROR! Something went wrong.";
+        	jr.innerHTML = "JUDGE ERROR";
         </script>';
             break;
     }
