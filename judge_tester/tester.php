@@ -3,7 +3,7 @@
 $source_code_name = __DIR__ . "/../source_codes/$submission_id.cpp";
 $object_file_name = __DIR__ . "/../source_codes/$submission_id.out";
 
-$compilation_flags = " -lm -s -x c++ -O2 -std=c++11 ";
+$compilation_flags = " -static -lm -s -x c++ -O2 -std=c++11 ";
 $command = "g++ $compilation_flags  $source_code_name -o $object_file_name";
 
 exec($command, $output, $compilation_state);
