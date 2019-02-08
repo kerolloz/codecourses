@@ -20,7 +20,7 @@ sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
     stable"
-echo "SOLUTION: replace $(lsb_release -cs) with Bionic";
+echo "SOLUTION: open the script, replace $(lsb_release -cs) with Bionic";
 
 echo "Installing docker";
 sudo apt-get update
