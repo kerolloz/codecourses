@@ -1,7 +1,7 @@
 sudo apt-get update
 
 echo "Downloading packages";
-sudo apt-get install gcc g++ python3 python3-pip python3-pdfkit python3-pypdf2  wkhtmltopdf;
+sudo apt-get install gcc g++ python3 python3-pip python3-pdfkit python3-pypdf2 wkhtmltopdf;
 pip3 install beautifulsoup4 pdfkit PyPDF2 flask;
 
 sudo apt-get install \
@@ -25,17 +25,17 @@ echo "SOLUTION: replace $(lsb_release -cs) with Bionic";
 echo "Installing docker";
 sudo apt-get update
 sudo apt-get install docker-ce
+
 # If you would like to use Docker as a non-root user
 # you should now consider adding your user to the “docker” group
 # with something like:
 sudo usermod -aG docker $USER
 sudo usermod -aG docker daemon
 sudo docker pull kerolloz/codecourses_judge
-
 # Remember to log out and back in for this to take effect!
 
-echo "Do you want to download XAMPP? (Y/N): ";
-read user_choice;
+read -p  "Do you want to download XAMPP? (Y/N): " user_choice;
+
 if [ "$user_choice" = "Y" ]; then
     echo "Downloading XAMPP";
     wget https://www.apachefriends.org/xampp-files/7.2.12/xampp-linux-x64-7.2.12-0-installer.run
@@ -43,10 +43,9 @@ if [ "$user_choice" = "Y" ]; then
     sudo ./xampp-linux-x64-7.2.12-0-installer.run
 fi
 
-
 echo "You should restart your device for changes to take effect!";
-echo "Do you want to restart now? (Y/N): ";
-read user_choice;
+read -p "Do you want to restart now? (Y/N): " user_choice;
+
 if [ "$user_choice" = "Y" ]; then
     reboot;
 else
