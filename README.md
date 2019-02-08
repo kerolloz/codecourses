@@ -6,7 +6,7 @@ __NOTE: compatible with Linux ONLY__
 ### How to deploy project
 1. clone the project into your home directory <br>`cd ~; git clone https://github.com/kerolloz/codecourses.git`
 1. install [requirements](/initiate_project/INSTALL_REQUIREMENTS.sh) or use <br>`cd ~/codecourses/initiate_project/; sh INSTALL_REQUIREMENTS.sh`
-1. execute `ln -s ~/codecourses  /opt/lampp/htdocs` to link the project to the server
+1. link the project to the server<br>`ln -s ~/codecourses  /opt/lampp/htdocs`
 1. create the database <br>`cd ~/codecourses/initiate_project/; sh CREATE_DB.sh`
 
 ### Noticeable issues
