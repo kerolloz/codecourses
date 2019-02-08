@@ -37,8 +37,9 @@ sudo docker pull kerolloz/codecourses_judge
 echo "Do you want to download XAMPP? (Y/N): ";
 read user_choice;
 if [ "$user_choice" = "Y" ]; then
-    echo "Downloading XAMPP";now
+    echo "Downloading XAMPP";
     wget https://www.apachefriends.org/xampp-files/7.2.12/xampp-linux-x64-7.2.12-0-installer.run
+    chmod +x ./xampp-linux-x64-7.2.12-0-installer.run
     sudo ./xampp-linux-x64-7.2.12-0-installer.run
 fi
 
