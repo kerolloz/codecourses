@@ -106,4 +106,4 @@ if (isset($_POST['login'])) {
     }
 }
 
-close_sql_connection($connection);
+close_sql_connection($conn);
