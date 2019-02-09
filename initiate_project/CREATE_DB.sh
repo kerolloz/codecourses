@@ -16,7 +16,9 @@ sleep 5; # wait untill the servers run correctly
 
 echo "[-]Running db_creation.php";
 
-/opt/lampp/bin/php ./db_creation.php;
+BASEDIR=$(dirname "$0")
+
+/opt/lampp/bin/php $BASEDIR/db_creation.php;
 
 echo "[-]Opening Firefox localhost/codecourses";
 
