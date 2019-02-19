@@ -11,7 +11,7 @@
         if (authentication(false)):
         ?>
         <li><a href="../submissions/">Submissions</a></li>
-        <li class="nav-right"><a href="../back/logout.php">Logout</a></li>
+        <li class="nav-right"><a href="../authentication/logout.php">Logout</a></li>
         <li class="nav-right">
             <a href="../profile">
                 <?=  $_SESSION['fname']?>
