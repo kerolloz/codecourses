@@ -95,7 +95,11 @@ endif;
 
                                 <?php
                                         if (count($reg_errors) > 0) {
-                                            echo '<span id="registeration_errors"> ' . $reg_errors["passwordreg"] . ' </span>';
+                                            $errors = "";
+                                            foreach ($reg_errors as $error) {
+                                                $errors .= "$error.\n";
+                                            }
+                                            echo '<span id="registeration_errors" style="height: 100px" > ' . $errors . ' </span>';
                                         }
                                     ?>
 
