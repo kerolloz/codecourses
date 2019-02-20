@@ -7,8 +7,8 @@ int main (int argc, char *argv[])  {
 	string submission_id = "";
 
 	if(argc == 3){
-		time_limit = argv[1]; // time limit as a string from first argument
-		submission_id = argv[2]; // submission id as a string from second arugemt
+		time_limit = argv[1]; // (time limit) as a string from first argument
+		submission_id = argv[2]; // (submission id) as a string from second arugemt
 	}
 	else {
 		return 11; // NO time limit argument passed
@@ -16,9 +16,7 @@ int main (int argc, char *argv[])  {
 
 	int ret_val = 0;
 	int number_of_test_cases = 0;
-	// TODO: copy executable file into container
-	// my_out folder be inside the container. no need to keep the user output
-	// read only volumes
+
 	string problem_dir_my_out = "/user_out/";
 	string problem_dir_in_out = "/problem/test_cases/";
 	string object_file_name = " /source_codes/" + submission_id + ".out";
@@ -34,7 +32,7 @@ int main (int argc, char *argv[])  {
 		myfile.close();
 	}
 	if(!number_of_test_cases)
-		return 15;
+		return 15; // Error reading number_of_test_cases file
 
 	bool judged = false;
 
@@ -43,15 +41,15 @@ int main (int argc, char *argv[])  {
 	    string input_file = problem_dir_in_out + to_string(i) +".in";
 	    string run_command = "timeout " + time_limit +  object_file_name + " < " + input_file + " > " + problem_dir_my_out + to_string(i) + ".out";
 	    ret_val = system(run_command.c_str());
-	    if(ret_val == 31744) return 124;
+	    if(ret_val == 31744) return 124; // TLE
 		else if(ret_val != 0) return 16;
 	    string diff_command = "diff -s -q -Z " + problem_dir_my_out  + to_string(i) + ".out " + problem_dir_in_out + to_string(i) + ".out";
 	    ret_val = system(diff_command.c_str());
-	    if(ret_val != 0) return 1;
+	    if(ret_val != 0) return 1; // WRONG ANSWER
 	}
 
 	if(judged)
-		return 0;
+		return 0; // ACCEPTED
 	else
 		return -1; // means that there's some problem in judging
 
