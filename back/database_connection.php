@@ -2,6 +2,12 @@
 
 $CONFIGURATION = require_once "../includes/config.inc.php";
 
+function did_contest_start($contest_id, &$connection)
+{
+    $sql = "SELECT * FROM contests WHERE date < NOW() and contest_id=$contest_id";
+    return ($connection->query($sql)->num_rows);
+}
+
 
 function authentication($redirect=true)
 {
@@ -23,8 +29,15 @@ function is_admin()
     // do not redirect if not logged in
     return (authentication(false) && $_SESSION['is_admin'] == "ADMIN");
 }
-function delete_submissions_by_problem_id(&$connection, $problem_id) {
+function delete_submissions_by_problem_id(&$connection, $problem_id)
+{
     $sql = "DELETE FROM submissions WHERE problem_id=$problem_id";
+    return ($connection->query($sql)===true);
+}
+
+function set_all_number_of_solvers_to_zero(&$connection)
+{
+    $sql = "UPDATE problems set number_of_solvers=0";
     return ($connection->query($sql)===true);
 }
 
@@ -34,7 +47,7 @@ function delete_submissions_by_submission_id(&$connection, $id=null, $all=false)
     if ($id) {
         $sql .= " WHERE submission_id=$id";
     }
-    return ($connection->query($sql)===true);
+    return ($connection->query($sql)===true && set_all_number_of_solvers_to_zero($connection)===true);
     // if no id is provided this will delete all submissions
 }
 
@@ -74,7 +87,8 @@ function get_last_insert_id(&$connection)
     return $connection->insert_id;
 }
 
-function delete_all_associated_submissions_with_problems_in_contest(&$connection, $contest_id){
+function delete_all_associated_submissions_with_problems_in_contest(&$connection, $contest_id)
+{
     if ($connection === false) {
         // check if the given connection is working
         $connection = get_sql_connection();
