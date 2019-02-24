@@ -6,7 +6,7 @@ require '../back/database_connection.php';
 // Create connection
 $conn = get_sql_connection();
 
-$sql = "SELECT * FROM problems";
+$sql = "SELECT problems.* from problems, contests WHERE contests.date < NOW() and contests.contest_id=problems.contest_id";
 
 $accepted_img_dir = "../assets/images/ok.png";
 $wrong_answer_img_dir = "../assets/images/wrong.png";
