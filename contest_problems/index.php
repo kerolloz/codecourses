@@ -106,19 +106,72 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
                 <table class="table table-dark table-bordered table-striped">
 
                     <tr>
-                        <th> <span class="badge badge-danger"> CountDown !</span> </th>
+                        <th> <span class="badge badge-danger">Countdown!</span> </th>
                     </tr>
 
                     <tr>
                         <td>
-                            <p id="countDown"> </p>
+                            <h5 id="countDown"><img src="../assets/images/loading.gif" width="50"></h5>
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="href"><a href="../standings/?id=<?= $contest_id ?>">Standings</a></h4>
+
                         </td>
                     </tr>
 
                 </table>
+
             </div>
 
+
         </div>
+        <?php
+        $sql = "SELECT date from contests WHERE contest_id=$contest_id";
+        $result = $conn->query($sql);
+        $var = "";
+        if ($result->num_rows > 0) :
+            $var = $result->fetch_assoc();
+        endif;
+
+        echo <<<EOF
+        <script>
+         countDownDate = new Date("$var[date]").getTime();
+
+         // Update the count down every 1 second
+         var x = setInterval(function() {
+
+             // Get todays date and time
+             var now = new Date().getTime();
+
+             // Find the distance between now and the count down date
+             var distance = countDownDate - now;
+
+             // Time calculations for days, hours, minutes and seconds
+             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+             // Display the result in the element with id="demo"
+             document.getElementById("countDown").innerHTML = hours + "h " +
+                 minutes + "m " + seconds + "s ";
+
+             // If the count down is finished, write some text
+             if (distance < 0) {
+                 clearInterval(x);
+                 document.getElementById("countDown").innerHTML = "Contest Is Over!";
+             }
+         }, 1000);
+        </script>
+EOF;
+
+        close_sql_connection($conn);
+
+        ?>
 
         <?php require '../footer_include.php'; ?>
 
