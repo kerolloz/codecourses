@@ -18,10 +18,10 @@ $contest_id = $_GET['contest_id'];
 $sql = "INSERT INTO users_in_contests(user_id, contest_id) VALUES($user_id, $contest_id)";
 
 if ($connection->query($sql) === true) {//execute the sql statement
-    echo "registered successfully";
+    header("location: index.php");
 } else {
     if (strpos($connection->error, "Duplicate") !== false) {
-        echo "Already registered";
+        header("location: index.php");
     } else {
         echo "ERROR" . $connection->error;
     }
