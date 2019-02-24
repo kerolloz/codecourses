@@ -137,7 +137,9 @@ body {
         display: block;
     }
 }
-
+video{
+    border-radius: 3%;
+}
 /*### Home ###*/
 div.homeContainer {
     width: 100%;
