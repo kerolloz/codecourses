@@ -36,7 +36,7 @@ nav {
 }
 
 nav img {
-    width: 15%;
+    width: 11%;
     height: 90px;
     margin-left: 2%;
 }
@@ -44,7 +44,7 @@ nav img {
 nav ul {
     overflow: hidden;
     margin: 0;
-    margin-bottom: 2%;
+    margin-bottom: 1.25%;
     margin-left: 2%;
     padding: 0;
     display: inline-block;
