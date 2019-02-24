@@ -56,22 +56,6 @@ nav {
     border-radius: 5px;
 }
 
-nav img {
-    width: 15%;
-    height: 90px;
-    margin-left: 2%;
-}
-
-nav ul {
-    overflow: hidden;
-    margin: 0;
-    margin-bottom: 2%;
-    margin-left: 2%;
-    padding: 0;
-    display: inline-block;
-    width: 79%;
-}
-
 ul.nav-left li {
     list-style: none;
     float: left;
