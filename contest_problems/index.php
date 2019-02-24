@@ -1,16 +1,37 @@
 <?php
 session_start();
-$_SESSION['standing'] = true;
-
 require '../back/database_connection.php';
 
 // Create connection
 $conn = get_sql_connection();
 
 $contest_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
-if(!$contest_id)
+if (!$contest_id) {
     header("location: /codecourses/errors/404.html");
-$sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
+}
+
+
+if (!did_contest_start($contest_id, $conn)) {
+    echo "
+    <script>
+    alert('The contest has NOT started yet!');
+    history.go(-1);
+    </script>
+    ";
+    return;
+}
+
+if (!is_user_registered_at_contest($_SESSION['user_id'], $contest_id, $conn)) {
+    echo "
+    <script>
+    alert('You are NOT registered at this contest!');
+    history.go(-1);
+    </script>
+    ";
+    return;
+}
+
+$sql = "SELECT * FROM problems WHERE contest_id = $contest_id" ;
 
 $accepted_img_dir = "../assets/images/ok.png";
 $wrong_answer_img_dir = "../assets/images/wrong.png";
