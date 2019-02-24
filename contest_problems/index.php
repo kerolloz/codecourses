@@ -48,7 +48,6 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
     <link rel="stylesheet" href="style.css">
 
     <link rel="script" href="../assets/bootstrap-4.1.3-dist/js/bootstrap.min.js">
-    <script src="script.js"></script>
     <script src="../scripts/script.js"></script>
 </head>
 
@@ -149,16 +148,15 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
         </div>
         <?php
-        $sql = "SELECT date from contests WHERE contest_id=$contest_id";
+        $sql = "SELECT date, length from contests WHERE contest_id=$contest_id";
         $result = $conn->query($sql);
         $var = "";
         if ($result->num_rows > 0) :
             $var = $result->fetch_assoc();
         endif;
-
         echo <<<EOF
         <script>
-         countDownDate = new Date("$var[date]").getTime();
+         countDownDate = new Date().setMinutes(new Date("$var[date]").getMinutes() + $var[length]);
 
          // Update the count down every 1 second
          var x = setInterval(function() {
