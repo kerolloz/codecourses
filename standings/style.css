@@ -45,9 +45,13 @@ body {
 }
 
 .score, .accepted {
-    color: green;
+    color: yellowgreen;
 }
 
 .wrong {
     color: red;
+}
+.wrong, .accepted, .score{
+    font-size: 25px;
+
 }
