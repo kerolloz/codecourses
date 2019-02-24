@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+require '../back/database_connection.php';
+
+// Create connection
+$conn = get_sql_connection();
+
+$contest_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+if(!$contest_id)
+    header("location: /codecourses/errors/404.html");
+
+?>
+
 <!doctype html>
 <html>
 
@@ -23,51 +37,61 @@
                     <tr>
                         <th> # </th>
                         <th> Participant </th>
-                        <th> = </th>
-                        <th class="underline"><a href="#">A</a></th>
-                        <th class="underline"><a href="#">B</a></th>
-                        <th class="underline"><a href="#">C</a></th>
+                        <?php
+                            $sql = "SELECT * FROM problems WHERE contest_id=" . $contest_id;
+
+    							$problems_result = $conn->query($sql);
+
+    							if ($problems_result->num_rows > 0) :
+    								// output data of each row
+    								$problem_character = "A";
+    								while($problem_row = $problems_result->fetch_assoc()) :
+    							?>
+                        <th class="underline"><a href="#"><?= $problem_character++ ?></a></th>
+                        <?php
+                    endwhile;
+                endif;
+                         ?>
                     </tr>
+
+                        <?php
+                        $sql = "SELECT users.* from users, users_in_contests WHERE users_in_contests.contest_id = $contest_id and users.user_id = users_in_contests.user_id";
+
+    							$users_result = $conn->query($sql);
+
+    							if ($users_result->num_rows > 0) :
+    								// output data of each row
+    								$user_number = 1;
+    								while($user_row = $users_result->fetch_assoc()) :
+    							?>
                     <tr>
-                        <td> 1 </td>
-                        <td> Sample </td>
-                        <td> 10 </td>
-                        <td class="score"> +3 </td>
-                        <td class="wrong"> -4 </td>
-                        <td class="score"> +3 </td>
+                        <td> <?= $user_number++ ?>  </td>
+                        <td> <?= $user_row["username"] ?> </td>
+                        <?php
+                        $sql = "SELECT * from problems WHERE contest_id = $contest_id";
+
+                                $submissions_result = $conn->query($sql);
+
+                                if ($submissions_result->num_rows > 0) :
+                                    // output data of each row
+                                    while($submission_row = $submissions_result->fetch_assoc()) :
+                                        $is_solved = is_solved_for_user($submission_row['problem_id'], $user_row['user_id'], $conn);
+                                ?>
+
+                        <td class="<?=($is_solved)? "accepted":"wrong"?>"> <?= ($is_solved)? "YES":"NO" ?> </td>
+                        <?php
+                        endwhile;
+                        endif;
+                         ?>
+
                     </tr>
-                    <tr>
-                        <td> 1 </td>
-                        <td> Sample </td>
-                        <td> 10 </td>
-                        <td class="score"> +3 </td>
-                        <td class="wrong"> -4 </td>
-                        <td class="score"> +3 </td>
-                    </tr>
-                    <tr>
-                        <td> 1 </td>
-                        <td> Sample </td>
-                        <td> 10 </td>
-                        <td class="score"> +3 </td>
-                        <td class="wrong"> -4 </td>
-                        <td class="score"> +3 </td>
-                    </tr>
-                    <tr>
-                        <td> 1 </td>
-                        <td> Sample </td>
-                        <td> 10 </td>
-                        <td class="score"> +3 </td>
-                        <td class="wrong"> -4 </td>
-                        <td class="score"> +3 </td>
-                    </tr>
-                    <tr>
-                        <td> 1 </td>
-                        <td> Sample </td>
-                        <td> 10 </td>
-                        <td class="score"> +3 </td>
-                        <td class="wrong"> -4 </td>
-                        <td class="score"> +3 </td>
-                    </tr>
+                        <?php
+                    endwhile;
+                endif;
+                         ?>
+
+
+
                 </table>
             </div>
         </div>
