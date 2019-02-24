@@ -5,7 +5,6 @@
     <title>CodeCourses</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="style.css">
-    <script src="../scripts/script.js"></script>
 </head>
 
 <body>
@@ -51,9 +50,25 @@
                     <label><a href="../problemset/index.php">Problem Set</a></label>
                     <hr>
                     <p>A large, varient and good staff of problems
-                        that you can solve depending on your level
-                        even if you are still absolute beginner or
-                        an ACM ICPC world finalist.
+                        that you can solve depending on your level and experience
+                        even if you are still an absolute beginner or
+                        an ACM-ICPC world finalist.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="box">
+                    <div class="icon">
+                        <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
+                    </div>
+                    <br>
+                    <label><a href="../contests/index.php">Contests</a></label>
+                    <hr>
+                    <p>When it's time to test yourself, you will find a
+                        range of contests with their upcoming dates and
+                        durations. These contests will help you enhance your
+                        problem-solving skills.
                     </p>
                 </div>
             </div>
@@ -75,26 +90,13 @@
                 </div>
             </div>
 
-            <div class="col-4">
-                <div class="box">
-                    <div class="icon">
-                        <img src="/codecourses/assets/images/codeCourses_opt_opt.png">
-                    </div>
-                    <br>
-                    <label><a href="../contests/index.php">Contests</a></label>
-                    <hr>
-                    <p>When time to test yourself comes, you will find
-                        range of contests with their upcoming dates and
-                        duration.
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
 
     <!-- Footer Section-->
     <?php require '../footer_include.php'; ?>
 
+    <script src="../scripts/script.js"></script>
 
 </body>
 
