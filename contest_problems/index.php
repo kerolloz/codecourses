@@ -10,6 +10,7 @@ if (!$contest_id) {
     header("location: /codecourses/errors/404.html");
 }
 
+authentication(true);
 
 if (!did_contest_start($contest_id, $conn)) {
     echo "
