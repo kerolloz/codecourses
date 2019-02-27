@@ -157,13 +157,15 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
         endif;
         echo <<<EOF
         <script>
-         countDownDate = new Date().setMinutes(new Date("$var[date]").getMinutes() + $var[length]);
+         var minutes = new Date("$var[date]").getMinutes();
+         var countDownDate = new Date();
+         countDownDate.setMinutes(minutes + $var[length]);
 
          // Update the count down every 1 second
          var x = setInterval(function() {
+             var now = new Date();
 
              // Get todays date and time
-             var now = new Date().getTime();
 
              // Find the distance between now and the count down date
              var distance = countDownDate - now;

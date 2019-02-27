@@ -80,9 +80,19 @@ $refresh_perioud = 3;
                                     // output data of each row
                                     while($submission_row = $submissions_result->fetch_assoc()) :
                                         $is_solved = is_solved_for_user($submission_row['problem_id'], $user_row['user_id'], $conn);
+                                        $number_of_submissions = get_number_of_submissions_for_user_in_problem($user_row['user_id'], $submission_row['problem_id'], $conn);
+                                        $is_wrong_answer = (!$is_solved && $number_of_submissions)? true: false;
+                                        $output = ($number_of_submissions && $is_solved)? "+": "";
+                                        $output .= ($number_of_submissions && $is_wrong_answer)? "-": "";
+                                        $output .= ($number_of_submissions)? $number_of_submissions: "";
+                                        $class_style = "";
+                                        if($is_solved) $class_style = "accepted";
+                                        else if($is_wrong_answer) $class_style = "wrong";
+                                        if($is_solved && $number_of_submissions == 1) $output = "+";
+
                                 ?>
 
-                        <td class="<?=($is_solved)? "accepted":"wrong"?>"> <?= ($is_solved)? "YES":"NO" ?> </td>
+                        <td class="<?= $class_style ?>"> <?= $output ?> </td>
                         <?php
                         endwhile;
                         endif;

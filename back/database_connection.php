@@ -8,6 +8,12 @@ function did_contest_start($contest_id, &$connection)
     return ($connection->query($sql)->num_rows);
 }
 
+function get_number_of_submissions_for_user_in_problem($user_id, $problem_id, &$connection)
+{
+    $sql = "SELECT * FROM submissions WHERE problem_id=$problem_id and user_id=$user_id";
+    return ($connection->query($sql)->num_rows);
+}
+
 
 function authentication($redirect=true)
 {
