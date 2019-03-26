@@ -156,19 +156,18 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
             $var = $result->fetch_assoc();
         endif;
         echo <<<EOF
+        <script src="moment.min.js"></script>
         <script>
-         var minutes = new Date("$var[date]").getMinutes();
-         var countDownDate = new Date();
-         countDownDate.setMinutes(minutes + $var[length]);
+         var contestEndTime = new moment("$var[date]"); 
+         contestEndTime.add($var[length], 'minutes');
+         
 
          // Update the count down every 1 second
          var x = setInterval(function() {
-             var now = new Date();
-
-             // Get todays date and time
+             var now = new Date().getTime();
 
              // Find the distance between now and the count down date
-             var distance = countDownDate - now;
+             var distance = contestEndTime.toDate().getTime() - now;
 
              // Time calculations for days, hours, minutes and seconds
              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
