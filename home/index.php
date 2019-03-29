@@ -27,9 +27,7 @@
 
             <div class="col-6">
                 <div class="videoContainer">
-                    <video width="500" height="282" controls="controls" type="video/mp4">
-                        <source src="/codecourses/assets/ACPC_2017.mp4" autostart="false">
-                    </video>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JSD41GPaozU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
             </div>
