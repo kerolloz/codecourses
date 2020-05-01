@@ -3,7 +3,7 @@
 $source_code_name = __DIR__ . "/../source_codes/$submission_id.cpp";
 $object_file_name = __DIR__ . "/../source_codes/$submission_id.out";
 
-$compilation_flags = " -static -lm -s -x c++ -O2 -std=c++11 ";
+$compilation_flags = " --static -lm -s -x c++ -O2 -std=c++17 ";
 $command = "g++ $compilation_flags  $source_code_name -o $object_file_name";
 
 exec($command, $output, $compilation_state);
@@ -19,16 +19,16 @@ if ($compilation_state == 0) {
 
     close_sql_connection($sql_connection);
 
-    $problem_directory = __DIR__ . "/../problems_db/" . $problem_id;
+    $problem_dir = __DIR__ . "/../problems_db/" . $problem_id;
+    $source_codes_dir = __DIR__ . "/../source_codes/";
 
-    $problem_dir_tests = $problem_directory . "/number_of_test_cases.txt";
-    $problem_dir_in_out = $problem_directory . "/test_cases/";
-
-    $docker_run = "docker run --rm -v ~/codecourses/problems_db/$problem_id/:/problem:ro "; // ro = read only
-    $docker_run .= "-v ~/codecourses/source_codes/:/source_codes:ro ";
+    $docker_run = "docker run --rm";
+    $docker_run .= " -v $problem_dir:/problem:ro "; // ro = read only
+    $docker_run .= " -v $source_codes_dir:/source_codes:ro ";
     $docker_run .= "kerolloz/codecourses_judge:latest codecourses_judge $problem_time_limit $submission_id";
-
+    $docker_run .= ' 2>&1';
     exec($docker_run, $out, $return_value);
+
 
 } else {
     $return_value = -1; // compilation error

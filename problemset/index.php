@@ -29,78 +29,66 @@ $wrong_answer_img_dir = "../assets/images/wrong.png";
 
 <body>
 
-    <!--include navigation bar from a preset php file-->
-    <?php require "../navbar_control.php";?>
+<!--include navigation bar from a preset php file-->
+<?php require "../navbar_control.php"; ?>
 
 
+<!-- ProblemSection -->
+<div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-dark">
+            <tr>
+                <th class="topLeftRad"> Name</th>
+                <th>Level</th>
+                <th><img src="/codecourses/assets/images/user.png"></th>
+                <th class="topRightRad"> Status</th>
+            </tr>
 
-    <!-- ProblemSection -->
-    <div>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-dark">
-                <tr>
-                    <th class="topLeftRad"> Name </th>
-                    <th>Level</th>
-                    <th> <img src="/codecourses/assets/images/user.png"> </th>
-                    <th class="topRightRad"> Status </th>
-                </tr>
+            <?php
+            $result = $conn->query($sql);
 
-                <?php
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) :
-                        // output data of each row
-                        while ($row = $result->fetch_assoc()) :
+            if ($result->num_rows > 0) :
+                // output data of each row
+                while ($row = $result->fetch_assoc()) :
                     ?>
-                <tr>
-                    <td><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>">
-                            <?= $row['name'] ?>
-                    </td>
-                    <?php
-                                switch ($row['level']) {
-                                    case 1:
-                                        echo "<td><span class='badge badge-success'>Beginner </span></td>";
-                                        break;
-                                    case 2:
-                                         echo "<td><span class='badge badge-success'>Intermediate </span></td>";
-                                         break;
-                                    case 3:
-                                        echo "<td><span class='badge badge-success'>Advanced </span></td>";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                                ?>
-                    <td>
-                        <?= $row['number_of_solvers'] ?>
-                    </td>
-                    <td>
-                        <img src=<?php if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
-                                    echo "$accepted_img_dir" ;
-                                } else {
-                                    echo "$wrong_answer_img_dir" ;
-                                } ?>
-                        style="width:16px;height:16px;">
-                    </td>
-                </tr>
+                    <tr>
+                        <td><a href="/codecourses/problem?id=<?= $row['problem_id'] ?>">
+                                <?= $row['name'] ?>
+                        </td>
+                        <?php
+                        $levels = [1 => "Begginner", 2 => "Intermediate", 3 => "Advanced"];
+                        echo "<td><span class='badge badge-success'>" . $levels[$row['level']] . "</span></td>";
+                        ?>
+                        <td>
+                            <?= $row['number_of_solvers'] ?>
+                        </td>
+                        <td>
+                            <img src=<?php if (isset($_SESSION['user_id']) && is_solved_for_user($row['problem_id'], $_SESSION['user_id'], $conn)) {
+                                echo "$accepted_img_dir";
+                            } else {
+                                echo "$wrong_answer_img_dir";
+                            } ?>
+                                 style="width:16px;height:16px;">
+                        </td>
+                    </tr>
                 <?php
-                        endwhile;
+                endwhile;
 
-                        else:
-                            echo "<tr>
+            else:
+                echo "<tr>
                             <td class='text-lg-center' colspan='6'>
                             NO AVAILABLE PROBLEMS
                             </td>
                             </tr>";
-                        endif;
-                        close_sql_connection($conn);
-                    ?>
-            </table>
-        </div>
-
-        <?php require '../footer_include.php'; ?>
-
+            endif;
+            close_sql_connection($conn);
+            ?>
+        </table>
     </div>
+
+    <?php require '../footer_include.php'; ?>
+
+</div>
 
 </body>
 

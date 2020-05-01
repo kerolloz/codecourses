@@ -5,7 +5,7 @@ const MAX_BYTES_FOR_CODE = 67072;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
-    $destination =  "../source_codes/";
+    $destination = "../source_codes/";
 
     $text_area_has_code = false;
     $file_has_been_uploaded = false;
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
         // if the text area has some code
         if (strlen($_POST['code']) > MAX_BYTES_FOR_CODE) {
             // bigger than permitted size
-            $errors_array[] = "Field should contain no more than ". MAX_BYTES_FOR_CODE ." characters";
+            $errors_array[] = "Field should contain no more than " . MAX_BYTES_FOR_CODE . " characters";
         } else {
             // valid
             $text_area_has_code = true;
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $errors_array[] = "Put source code into the textarea OR choose the sourcecode file!";
         } else {
             if ($_FILES['my_file']['size'] > MAX_BYTES_FOR_CODE) {
-                $errors_array[] = "Field should contain no more than ". MAX_BYTES_FOR_CODE ." characters";
+                $errors_array[] = "Field should contain no more than " . MAX_BYTES_FOR_CODE . " characters";
             }
             if ($extension != 'cpp') {
                 // if the file extension is NOT "cpp"
@@ -94,7 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
         // res == 0, something went wrong
         change_submission_status($submission_id, "Judge Error", $conn);
     }
-
 
 
 endif;

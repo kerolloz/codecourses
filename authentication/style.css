@@ -1,62 +1,6 @@
-/*### Defaults ###*/
+
 * {
-    box-sizing: border-box;
-}
-
-nav, header, footer {
-    display: block;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    min-height: 100%;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    background-image: url(../assets/images/acm.jpg);
-    font-family: sans-serif;
-    line-height: 1;
-}
-
-body::after {
-    content: '';
-    display: block;
-    height: 30px;
-}
-
-/*### Navbar ###*/
-nav {
-    background-color: #fff;
-    width: 100%;
-    margin: 0;
-    border-radius: 5px;
-    text-align: center;
-    padding: 1%;
-}
-
-nav img {
-    width: 15%;
-    height: 90px;
-    margin-left: 3%;
-    margin-right: 2%;
-}
-
-/*### Mobile ###*/
-@media screen and (max-width: 850px) {
-    nav img {
-        width: 30%
-    }
-
-    nav ul {
-        width: 60%
-    }
-
-    img.nav-left.responsive {
-        display: none;
-    }
+    --form-color: rgba(198, 198, 198, 0.4);
 }
 
 /*###Sign Btns###*/
@@ -68,11 +12,11 @@ nav img {
     text-align: center;
     font-size: 1.5rem;
     color: #0F1DB3;
-    font-family: 'Text Me One';
+    font-family: 'Text Me One', serif;
 }
 
 .sbtn {
-    background-color: rgb(209, 191, 25);
+    background-color: var(--form-color);
     padding-bottom: 2%;
     padding-top: 2%;
 }
@@ -82,8 +26,16 @@ nav img {
 }
 
 .sbtn:hover, .click {
-    background-color: #C8B50B;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(157, 26, 112, 0.80);
     cursor: pointer;
+}
+
+.sbtn:hover {
+    background-color: rgba(157, 26, 112, 0.20);
+}
+.click {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -100,7 +52,7 @@ nav img {
 
 .card.signin-card {
     padding: 40px 0px 20px;
-    background-color: rgb(209, 191, 25);
+    background-color: var(--form-color);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
@@ -109,7 +61,7 @@ nav img {
 h1.signin-header {
     text-align: center;
     margin-bottom: 5%;
-    font-family: 'Text Me One';
+    font-family: 'Text Me One', serif;
     color: #0F1DB3;
 }
 
@@ -130,18 +82,10 @@ a.need-help {
     color: #9E1A70;
 }
 
-.suinves {
-    display: none;
-}
-
-.siinves {
-    display: none;
-}
-
-#registeration_errors {
+#registration_errors {
     color: white;
     background-color: purple;
-    font-size: 20;
+    font-size: 20px;
     text-align: center;
     margin-bottom: 5%;
     height: 30px;
@@ -152,21 +96,3 @@ a.need-help {
     flex-direction: column;
 }
 
-/*### Footer ###*/
-#footer {
-    padding: 7px 20px;
-    background-color: #9E1A70;
-    text-align: right;
-    color: #fff;
-    font-size: 15px;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-}
-
-#footer a {
-    text-decoration: none;
-    color: white;
-}

@@ -1,27 +1,17 @@
-start_xampp() { sudo /opt/lampp/lampp "$1" ; }
+./start_judge.sh
 
-dashes="--------------------------";
+echo "[-] Please wait..."
 
-echo $dashes;
+sleep 5 # wait until the servers run correctly
 
-echo "[-]Initiating your project!\n";
-echo "[-]Activating Apache and MySQL servers";
-
-start_xampp startapache
-start_xampp startmysql
-
-echo "[-]Please wait 5 Seconds";
-
-sleep 5; # wait untill the servers run correctly
-
-echo "[-]Running db_creation.php";
+echo "[-] Running db_creation.php"
 
 BASEDIR=$(dirname "$0")
 
-/opt/lampp/bin/php $BASEDIR/db_creation.php;
+/opt/lampp/bin/php "$BASEDIR"/db_creation.php
 
-echo "[-]Opening Firefox localhost/codecourses";
+echo "[-] Opening Firefox localhost/codecourses"
 
 firefox localhost/codecourses &
 
-echo $dashes;
+echo $dashes

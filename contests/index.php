@@ -21,84 +21,86 @@ $sql = "SELECT * FROM contests";
 
 <body>
 
-    <!--include navigation bar from a preset php file-->
-    <?php require "../navbar_control.php";?>
+<!--include navigation bar from a preset php file-->
+<?php require "../navbar_control.php"; ?>
 
-    <!-- Contests Section -->
-    <div class="color">
-        <div class="table-responsive">
-            <table class="table table-dark  table-striped  table-bordered">
-                <thead>
-                <tr>
-                    <th> Name </th>
-                    <th> Writers </th>
-                    <th> Start </th>
-                    <th> Length </th>
-                    <th>Registeration</th>
-                </tr>
-                </thead>
+<!-- Contests Section -->
+<div class="color">
+    <div class="table-responsive">
+        <table class="table table-dark  table-striped  table-bordered">
+            <thead>
+            <tr>
+                <th> Name</th>
+                <th> Writers</th>
+                <th> Start</th>
+                <th> Length</th>
+                <th>Registeration</th>
+            </tr>
+            </thead>
 
-                <tbody>
-                <?php
-                $result = $conn->query($sql);
+            <tbody>
+            <?php
+            $result = $conn->query($sql);
 
-                if ($result->num_rows > 0) :
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) :
-                ?>
-                <tr>
-                    <td> <a href="../contest_problems?id=<?= $row['contest_id'] ?>">
-                            <?= $row['name'] ?> </a> </td>
-                    <td>
-                        <?= $row['setter'] ?>
-                    </td>
-                    <td>
-                        <?= $row['date'] ?>
-                    </td>
-                    <td>
-                        <?= $row['length'] ?> minutes </td>
-                    <?php
-                    // check if user is logged in && if registered
-                    if(isset($_SESSION['user_id']) && is_user_registered_at_contest($_SESSION['user_id'], $row['contest_id'], $conn)):
-                        echo '<td><span class="badge badge-success">
+            if ($result->num_rows > 0) :
+                // output data of each row
+                while ($row = $result->fetch_assoc()) :
+                    ?>
+                    <tr>
+                        <td><a href="../contest_problems?id=<?= $row['contest_id'] ?>">
+                                <?= $row['name'] ?> </a></td>
+                        <td>
+                            <?= $row['setter'] ?>
+                        </td>
+                        <td>
+                            <?= $row['date'] ?>
+                        </td>
+                        <td>
+                            <?= $row['length'] ?> minutes
+                        </td>
+                        <?php
+                        // check if user is logged in && if registered
+                        if (isset($_SESSION['user_id']) && is_user_registered_at_contest($_SESSION['user_id'], $row['contest_id'], $conn)):
+                            echo '<td><span class="badge badge-success">
                         Registered!
                         </span></td>';
-                    else:
+                        else:
 
-                    ?>
-                    <td> <a class="btn-secondary" href="register.php?contest_id=<?= $row['contest_id'] ?>"><button id="register" type="button" class="btn btn-secondary"> Register</button></a> </td>
-                    <?php
-                    endif;
-                    ?>
-                </tr>
+                            ?>
+                            <td><a class="btn-secondary" href="register.php?contest_id=<?= $row['contest_id'] ?>">
+                                    <button id="register" type="button" class="btn btn-secondary"> Register</button>
+                                </a></td>
+                        <?php
+                        endif;
+                        ?>
+                    </tr>
                 <?php
 
                 endwhile;
 
-                else:
+            else:
                 echo "<tr>
                 <td class='text-lg-center' colspan='6'>
                 NO AVAILABLE CONTESTS
                 </td>
                 </tr>";
-                endif;
-                close_sql_connection($conn);
-                ?>
-                </tbody>
+            endif;
+            close_sql_connection($conn);
+            ?>
+            </tbody>
 
 
-            </table>
-        </div>
-
-
-        <?php require '../footer_include.php'; ?>
-
+        </table>
     </div>
 
-    <script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
-    <script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
-    <script src="../scripts/script.js"></script>
-    <script src="script.js"></script>
+
+    <?php require '../footer_include.php'; ?>
+
+</div>
+
+<script src="../assets/bootstrap-4.1.3-dist/js/jQuery.js"></script>
+<script src="../assets/bootstrap-4.1.3-dist/js/bootstrap.js"></script>
+<script src="../scripts/script.js"></script>
 
 </body>
 

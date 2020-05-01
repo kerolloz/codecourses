@@ -3,7 +3,7 @@ session_start();
 require '../back/database_connection.php';
 $conn = get_sql_connection();
 
-$passwordSalt= "^>.2k2m+ya$?";
+$passwordSalt = "^>.2k2m+ya$?";
 
 $reg_errors = [];           //Errors Array
 $log_errors = [];           //Errors Array
@@ -93,9 +93,9 @@ if (isset($_POST['login'])) {
         $user = mysqli_fetch_assoc($result);
 
         if (mysqli_num_rows($result) == 1) {
-            $_SESSION['fname']=$user['first_name'];
-            $_SESSION['lname']=$user['last_name'];
-            $_SESSION['username']=$user['username'];
+            $_SESSION['fname'] = $user['first_name'];
+            $_SESSION['lname'] = $user['last_name'];
+            $_SESSION['username'] = $user['username'];
             $_SESSION['is_admin'] = $user['privileges'];
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['is_logged_in'] = true;
